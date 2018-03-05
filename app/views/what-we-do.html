@@ -4,21 +4,42 @@
     <div class="jumbotron section first-hero">
       <h1>What We Do</h1>
     </div>
+    
+    <div class="jumbotron section which-county" style="height:250px">
+      <div class="container" style="padding:5%">
+        <button class="btn btn-lg" ng-click="stcharles = !stcharles">St. Charles County</button>
+        <button class="btn btn-lg" ng-click="stlouis = !stlouis">St. Louis County</button>
+      </div>
+    </div>
 
 
-    <div class="jumbotron section operate">
+    <div class="jumbotron section operate" id="operate-stcharles" ng-if="stcharles">
       <div class="container">
-        <h2>Providing transportation to seniors and people with visual impairments in greater Hall County, Georgia. </h2>
+        <h2>Providing transportation to seniors, adults (21+) with visual impairments and adults (21+) with disabilities within St. Charles County between St. Charles City and Wentzville </h2>
+          <div class="row" style="border: 5px dashed #399eaa;">
+            <div class="col-md-12">
+              <a ui-sref="services-map"><img src="assets/images/st-charles.jpg"/></a>
+            </div><!--col-md-12 (first)-->
+          </div><!--row-->
+      </div>
+    </div><!--OPERATE-->
+    
+    
+    
+    <div class="jumbotron section operate" id="operate-stlouis" ng-if="stlouis">
+      <div class="container">
+        <h2>Providing transportation to seniors and people with visual impairments in St Louis County, MO. </h2>
           <div class="row" style="border: 5px dashed #399eaa;">
             <div class="col-md-6">
               <a ui-sref="services-map"><img src="assets/images/gainesville.png"/></a>
             </div><!--col-md-6 (first)-->
             <div class="col-md-6">
-              <h3>ITNLanier Transports Members Living in These Zipcodes</h3>
+              <h3>ITN<em>StLouis</em> Transports Members Living in These Zipcodes</h3>
               <div class="col-lg-6">
                 <ul>
-                  <li>30501  -  Gainesville</li>
-                  <li>30502  -  Chestnut Mtn</li>
+                  <li>63005  -  Chesterfield</li>
+                  <li>63011  -  Ballwin</li>
+                  
                   <li>30503  -  Gainesville</li>
                   <li>30504  -  Gainesville</li>
                   <li>30506  -  Gainesville</li>
@@ -42,6 +63,10 @@
           </div><!--row-->
       </div>
     </div><!--OPERATE-->
+    
+    
+    
+    
     
     <div class="jumbotron section jumbo-title">
       <h2>Characteristics of ITN Service</h2>
@@ -79,11 +104,17 @@
             </div>
           </div>
           <div class="col-sm-4">
+            <div class="icon-wrap"><i class="fa fa-id-card" style="color: #399eaa"></i></div>
+            <div class="icon-legend">
+              There is an annual membership fee of $50 for individuals and $75 for a family membership.
+            </div>
+          </div>
+          <!-- <div class="col-sm-4">
             <div class="icon-wrap"><i class="fa fa-arrow-down" style="color: #399eaa"></i></div>
             <div class="icon-legend">
               Rides may be booked with discounts
             </div>
-          </div>
+          </div> -->
           <div class="col-sm-4">
             <div class="icon-wrap"><i class="fa fa-users" style="color: #fc6d6d"></i></div>
             <div class="icon-legend">
@@ -102,7 +133,7 @@
           <div class="col-sm-4">
             <div class="icon-wrap"><i class="fa fa-taxi" style="color: #fc6d6d"></i></div>
             <div class="icon-legend">
-              ITNs are non-profit, keeping fares affordable
+              ITNs are non-profit, keeping fares affordable. 
             </div>
           </div>
           <div class="col-sm-4">
@@ -144,7 +175,7 @@
             <div class="row mt-50">
               <div class="col-sm-6 container-text">
                 <h2>Dignified</h2>
-                <p>The Independent Transportation Network® (ITN) is dedicated to providing dignified transportation. Older adults join ITN<em>Lanier</em> and become dues-paying members of an organization committed to their mobility. When they pick up the telephone to schedule a ride, they are not asking a favor. ITN<em>Lanier</em> is a nonprofit built to ease the transition from the driver's seat to the passenger seat.</p>
+                <p>The Independent Transportation Network® (ITN) is dignified. Older adults who join ITN become dues-paying members of a non-profit organization committed to their independence and mobility. When they pick up the telephone to schedule a ride, they are not asking a favor. The transition from the driver's seat to the passenger seat is never easy - for the drivers or for their families - but it is infinitely easier when there is a viable transportation alternative that keeps the older adult in control.</p>
               </div>
               <div class="col-sm-6">
                 <div class="img-circle"><img src="assets/images/itn-people-images/granny-portrait.jpg" alt="ITN member portrait"/></div>
@@ -157,7 +188,7 @@
               </div>
               <div class="col-sm-6 container-text">
                 <h2>Consumer Oriented</h2>
-                <p>At ITN<em>Lanier</em>, we provide arm-through-arm, door-to-door service, a standard that sets us apart from taxis and other transportation services. And like using your own automobile, ITN is available 24/7, offering the flexibility to schedule rides in advance or as needed, as well as the option to ride alone or with others. Because our members aren’t just our riders, they’re also our customers.</p>
+                <p>The ITN service is also consumer oriented. We provide excellent customer service with the arm-through-arm, door-through-door standard that sets us apart from taxis.  Like using one's own automobile, the ITN service is available 24/7 and gives customers the flexibility to schedule their rides in advance or as needed, as well as the option to ride alone or with others, as they please, to destinations of their choice.</p>
               </div>
             </div><!--row-->
             
