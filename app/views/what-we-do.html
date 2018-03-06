@@ -6,9 +6,9 @@
     </div>
     
     <div class="jumbotron section which-county" style="height:250px">
-      <div class="container" style="padding:5%">
-        <button class="btn btn-lg" ng-click="stcharles = !stcharles">St. Charles County</button>
-        <button class="btn btn-lg" ng-click="stlouis = !stlouis">St. Louis County</button>
+      <div class="container" style="padding:5%;text-align:center">
+        <button class="btn btn-lg" ng-click="stcharles = !stcharles; stlouis = false">St. Charles County</button>
+        <button class="btn btn-lg" ng-click="stlouis = !stlouis; stcharles = false">St. Louis County</button>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
         <h2>Providing transportation to seniors, adults (21+) with visual impairments and adults (21+) with disabilities within St. Charles County between St. Charles City and Wentzville </h2>
           <div class="row" style="border: 5px dashed #399eaa;">
             <div class="col-md-12">
-              <a ui-sref="services-map"><img src="assets/images/st-charles.jpg"/></a>
+              <a ui-sref="services-map"><img src="assets/images/st-charles.jpg" id="stcharles-img"/></a>
             </div><!--col-md-12 (first)-->
           </div><!--row-->
       </div>
@@ -31,7 +31,7 @@
         <h2>Providing transportation to seniors and people with visual impairments in St Louis County, MO. </h2>
           <div class="row" style="border: 5px dashed #399eaa;">
             <div class="col-md-6">
-              <a ui-sref="services-map"><img src="assets/images/gainesville.png"/></a>
+              <a ui-sref="services-map"><img src="assets/images/st-louis.jpg" style="width:100%"/></a>
             </div><!--col-md-6 (first)-->
             <div class="col-md-6">
               <h3>ITN<em>StLouis</em> Transports Members Living in These Zipcodes</h3>
@@ -39,24 +39,21 @@
                 <ul>
                   <li>63005  -  Chesterfield</li>
                   <li>63011  -  Ballwin</li>
-                  
-                  <li>30503  -  Gainesville</li>
-                  <li>30504  -  Gainesville</li>
-                  <li>30506  -  Gainesville</li>
-                  <li>30507  -  Gainesville</li>
-                  <li>30517  -  Braselton</li>
-                  <li>30527  -  Clermont</li>
+                  <li>63017  -  Chesterfield</li>
+                  <li>63105  -  Saint Louis County</li>
+                  <li>63117  -  Saint Louis County</li>
+                  <li>63124  -  Saint Louis County</li>
+                  <li>63130  -  Saint Louis County</li>
                 </ul>
               </div><!--col-md-6-->
               <div class="col-lg-6">
-                <ul>
-                  <li>30542  -  Flowery Branch</li>
-                  <li>30543  -  Gillsville</li>
-                  <li>30554  -  Lula</li>
-                  <li>30564  -  Murrayville</li>
-                  <li>30566  -  Oakwood</li>
-                  <li>30567  -  Pendergrass</li>
-                  <li>30575  -  Talmo</li>
+                <ul style="padding-right:1%">
+                  <li>63131  -  Saint Louis County</li>
+                  <li>63132  -  Saint Louis County</li>
+                  <li>63141  -  Saint Louis County</li>
+                  <li>63143  -  Ellendale</li>
+                  <li>63144  -  Saint Louis County</li>
+                  <li>63146  -  Saint Louis County</li>
                 </ul>
             </div><!--col-md-6-->
           </div><!--col-md-6 (first)-->

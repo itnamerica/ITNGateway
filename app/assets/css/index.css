@@ -331,7 +331,7 @@ nav .dropdown-menu li.divider{
 }
 .services .operate img {
   height: auto;
-  width: 100%;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -341,6 +341,7 @@ nav .dropdown-menu li.divider{
   font-weight: bold;
   text-align: center;
   margin-top: 4%;
+  margin-left:15%;
 }
 .services .operate ul {
   margin-top:20%;
@@ -1922,6 +1923,7 @@ h2,h3 {line-height:1.7}
   .carousel-wrap2 {
     height: 1000px !important;
   }
+  #stcharles-img {width:100%;}
 
   #footer .search {display:none}
   
