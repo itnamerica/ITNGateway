@@ -731,6 +731,13 @@ nav .dropdown-menu li.divider{
 #board .row .showBoardBio.ng-hide{
   opacity:0;
 }
+#staff {
+  font-size:25px;
+  line-height:1.7;
+}
+#staff img {
+  height:250px;
+}
 .org-section {
   overflow:hidden;
 }
