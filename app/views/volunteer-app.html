@@ -93,6 +93,13 @@
                         </li>
                       </ol>
                       
+                      <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
+                        <label for="Volunteer for which ITN">Membership for: *</label><br>
+                        <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">ITN St. Charles</label>
+                        <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>ITN St. Louis</label>
+                        <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
+                      </div>
+                      
                         <div class="form-group" ng-class="{ 'has-error' : itnForm.riderName.$invalid && !itnForm.riderName.$pristine }">
                           <label for="rider name">Name: *</label><br>
                           <input type="text" class="form-control" id="riderName" name="riderName" ng-model="formData.riderName" ng-minlength="minlength" ng-maxlength="maxlength" required>

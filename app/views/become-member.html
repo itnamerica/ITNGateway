@@ -29,9 +29,16 @@
         
         <div class="membership-btns row ta-center">
           <a class="btn btn-primary btn-lg" ui-sref="member-app" role="button">Online Member Application</a>
-          <a class="btn btn-primary btn-lg" 
-             href="assets/images/docs/MemberRiderApplication.pdf"  
-             role="download member app" download>Download PDF Member Application</a>
+          <a class="btn btn-primary btn-lg" ng-click="downloadWhich = !downloadWhich" role="which member app">Download PDF Member Application</a>
+          <div ng-show="downloadWhich">
+            <a class="btn btn-primary btn-lg" style="border:5px solid #fc6d6d"
+               href="assets/images/docs/MemberRiderApplication.pdf"  
+               role="download member app st charles" download>Download Application for ITN<em>StCharles</em></a>
+           <a class="btn btn-primary btn-lg" style="border:5px solid #fc6d6d"
+              href="assets/images/docs/MemberRiderApplicationStLouis.pdf"  
+              role="download member app st louis" download>Download Application for ITN<em>StLouis</em></a>
+          </div>
+          
         </div>
         <div class="row ta-center mt-50">
           <p>Before you complete your application, make sure to review the instructions and rates</p>
@@ -78,7 +85,7 @@
                 </div>
               </div>
               <div class="col-sm-4">
-                <div class="icon-wrap icon-wrap-circle" style="background: #fc6d6d"><i class="fa fa-usd">1.5-2.5</i></div>
+                <div class="icon-wrap icon-wrap-circle" style="background: #fc6d6d"><i class="fa fa-usd">1.5</i></div>
                 <div class="icon-legend">
                   The mileage charge is:<br> 
                   -$1.50/mile with notice by 4pm on previous day<br>

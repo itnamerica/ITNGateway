@@ -1,4 +1,4 @@
-<div class="member-app" ng-init="resetFormData()">
+<div class="member-app" ng-init="resetFormData();">
       
     <div class="jumbotron section first-hero" id="first-hero-online-app">
       <h1>Online Membership Form</h1>
@@ -43,6 +43,13 @@
                           <a href="#tab7" tabindex="-1">Step 7</a>
                         </li>
                       </ol>
+                      
+                      <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
+                        <label for="Membership for which ITN">Membership for: *</label><br>
+                        <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">ITN St. Charles</label>
+                        <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>ITN St. Louis</label>
+                        <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
+                      </div>
                       
                         <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.membership.$invalid }">
                           <label for="Membership Type">Membership Type: *</label><br>

@@ -18,6 +18,13 @@
                             <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block" alt="main logo"/>
                             <h3 style="margin-bottom: 25px; text-align: center">Membership Form (Non-Rider)</h3>
                             
+                  <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
+                    <label for="Membership for which ITN">Membership for: *</label><br>
+                    <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">ITN St. Charles</label>
+                    <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>ITN St. Louis</label>
+                    <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
+                  </div>
+                            
                   <div class="row">
               			<div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstName.$invalid && !itnForm.firstName.$pristine }">
                       <label for="First name">First Name: *</label><br>

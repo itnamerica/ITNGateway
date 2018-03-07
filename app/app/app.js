@@ -39,7 +39,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
       })
       .state('member-app', {
         url: '/member-application',
-        templateUrl: 'views/member-app.html'
+        templateUrl: 'views/member-app.html',
       })
       .state('member-programs', {
         url: '/member-programs',
@@ -79,7 +79,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
       })
       .state('volunteer-app', {
         url: '/volunteer-app',
-        templateUrl: 'views/volunteer-app.html'
+        templateUrl: 'views/volunteer-app.html',
             // resolve: {
             //     formData: function ($scope) {
             //         $scope.formData = {};
@@ -88,7 +88,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
       })
       .state('newsletters', {
         url: '/newsletters',
-        templateUrl: 'views/newsletters.html'
+        templateUrl: 'views/newsletters.html',
+        params: {
+          anchor: null
+        }
       })
       .state('add-pta-credit', {
         url: '/add-pta-credit',
@@ -120,7 +123,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 })
 
 
-myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorScroll', '$location', function ($scope, $transitions, $http, $anchorScroll, $location)  {
+myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorScroll', '$location', '$stateParams', function ($scope, $transitions, $http, $anchorScroll, $location, $stateParams)  {
   console.log('inside main controller');
   $scope.zoomLevel = 1;
   $scope.tab = 1;
@@ -167,7 +170,17 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     $anchorScroll();
     //reset to old to keep any additional routing logic from kicking in
     $location.hash(old);
-};
+  };
+
+  $scope.catchAnchor = function(){
+    console.log('stateparam is ', $stateParams, $stateParams.anchor);
+    $scope.scrollTo($stateParams.anchor);
+  }
+  
+  // $scope.catchAppType = function(){
+  //   console.log('stateparam in appType is ', $stateParams, $stateParams.appType);
+  //   $scope.appType = $stateParams.appType;
+  // }
   
   $scope.resetFormData = function(){
     $scope.formData = {}
@@ -229,21 +242,30 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   $scope.submitFormWithPDF = function(formType){
     console.log('submitForm PDF, formData is ', $scope.formData);
     $scope.loading = true;
+    var memberFor;
+    if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
+      memberFor = 'ITNStCharles';
+    } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
+      memberFor = 'ITNStLouis';
+    } else {
+      memberFor = 'ITNGateway';
+    }
+    
     if (formType === 'volunteer') {
         $(document).ready(function(){
           $('#pdfVersion').css('display', 'block');
         })
-        $scope.formSubject = 'ITNGateway - New volunteer application received';
+        $scope.formSubject = memberFor + ' - New volunteer application received';
         $scope.generateMultiPagePDF();
     } else if (formType === 'membership') {
         $(document).ready(function(){
           $('#pdfVersion').css('display', 'block');
         })
         $scope.showPdf = true;
-        $scope.formSubject = 'ITNGateway - New membership application received';
+        $scope.formSubject = memberFor + ' - New membership application received';
         $scope.generateMultiPagePDF();
     } else if (formType === 'nonrider') {
-        $scope.formSubject = 'ITNGateway - Non-Rider application Form submitted';
+        $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
         $scope.generatePDF();
     } 
   }
