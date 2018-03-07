@@ -71,7 +71,7 @@
           <div class="form-area" style="width:70%;margin:auto;margin-top:50px">  
             <form name="itnForm" novalidate ng-submit="submitForm('contact')" role="contact form" ng-model="formData">
               <br style="clear:both">
-              <h3 style="margin-bottom: 25px; text-align: center">Contact ITN Lanier</h3>
+              <h3 style="margin-bottom: 25px; text-align: center">Contact ITN<em>Gateway</em></h3>
                       
               <div class="form-group" ng-class="{ 'has-error' : itnForm.name.$invalid && !itnForm.name.$pristine }">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.name" required>
