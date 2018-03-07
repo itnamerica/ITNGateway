@@ -1431,6 +1431,43 @@ form textarea.form-control {font-size:25px}
   margin-bottom: 75px !important;
   margin-top: 50px;
 }
+
+.wheels #first-hero-wheels {
+  background-image: url('../images/dark/walking-crowd.jpg') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 400px !important;
+}
+.wheels #first-hero-wheels h1{
+  color:white !important;
+  text-shadow: 2px 2px #529ba8;
+  margin-top:170px !important;
+  margin-left: 5% !important;
+}
+.wheels .container {
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  float:none;
+  background:white;
+}
+.wheels .container p {
+  line-height:1.7;
+  /*font-weight:bold;*/
+  margin-top:2%;
+  margin-bottom:2%;
+}
+.wheels .container h2 {
+  padding-top: 38%;
+  padding-bottom: 3%;
+  text-decoration:underline;
+}
+.wheels .container img {
+  height:300px;
+}
+
     
 #footer {
     width:100%;
