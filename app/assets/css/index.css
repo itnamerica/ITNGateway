@@ -1455,7 +1455,6 @@ form textarea.form-control {font-size:25px}
 }
 .wheels .container p {
   line-height:1.7;
-  /*font-weight:bold;*/
   margin-top:2%;
   margin-bottom:2%;
 }
@@ -1466,6 +1465,11 @@ form textarea.form-control {font-size:25px}
 }
 .wheels .container img {
   height:300px;
+}
+.wheels .container form {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top:5%;
 }
 
     
