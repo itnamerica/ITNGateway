@@ -1452,11 +1452,13 @@ form textarea.form-control {font-size:25px}
   display:block;
   float:none;
   background:white;
+  color:#399eaa;
 }
 .wheels .container p {
   line-height:1.7;
   margin-top:2%;
   margin-bottom:2%;
+  font-weight:bold;
 }
 .wheels .container h2 {
   padding-top: 38%;
