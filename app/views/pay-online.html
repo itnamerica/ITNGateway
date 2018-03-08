@@ -26,7 +26,8 @@
         
         
         <div class="col-sm-offset-1 col-sm-6 pay-online-form">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          
+          <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
           	<input name="cmd" type="hidden" value="_s-xclick" /> <input name="hosted_button_id" type="hidden" value="E84QKCSRZQ4Z6" />
           	<table class="col-sm-6">
           		<tbody>
@@ -53,7 +54,24 @@
           			</tr>
           		</tbody>
           	</table>
-          	<input class="col-sm-6 paypal" alt="PayPal - The safer, easier way to pay online!" border="0" name="submit" src="http://itnamerica.org/wp-content/uploads/2018/01/PayPal-PayNow-Button.png" type="image" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" /></form>
+          	<input class="col-sm-6 paypal" alt="PayPal - The safer, easier way to pay online!" border="0" name="submit" src="http://itnamerica.org/wp-content/uploads/2018/01/PayPal-PayNow-Button.png" type="image" /> <img alt="" border="0" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" /></form> -->
+            
+            
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="E84QKCSRZQ4Z6">
+              <table>
+              <tr><td><input type="hidden" name="on0" value="Your Location">Your Location</td></tr><tr><td><select name="os0">
+              <option value="St. Charles County">St. Charles County </option>
+              <option value="St. Louis County">St. Louis County </option>
+              </select> </td></tr>
+              <tr><td><input type="hidden" name="on1" value="Enter Rider Name">Enter Rider Name</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
+              </table>
+              <input type="image" src="http://itnamerica.org/wp-content/uploads/2018/01/PayPal-PayNow-Button.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            
+            
           <p>&nbsp;</p>
         </div>
       </div><!--row-->
