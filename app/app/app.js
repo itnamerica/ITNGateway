@@ -109,6 +109,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         url: '/help-on-wheels',
         templateUrl: 'views/help-on-wheels.html'
       })
+      .state('stl-day', {
+        url: '/stl-day',
+        templateUrl: 'views/stl-day.html'
+      })
       .state('draft', {
         url: '/draft',
         templateUrl: 'views/draft.html'

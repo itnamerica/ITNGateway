@@ -633,7 +633,6 @@ nav .dropdown-menu li.divider{
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
-  /*opacity:0.5;*/
 }
 .organization #first-hero-org h1{
   color:White;
@@ -1473,6 +1472,23 @@ form textarea.form-control {font-size:25px}
   font-weight: bold;
   margin-top:5%;
 }
+.stl-day #first-hero-stl {
+  background-image: url('../images/stl-banner.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+  border-top: 5px solid #5db1d7;
+}
+.stl-day ol li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.stl-day .container .fa {
+  font-size: 20px;
+  margin-left: 32%;
+  line-height: 1.4;
+}
 
     
 #footer {
@@ -1518,12 +1534,12 @@ form textarea.form-control {font-size:25px}
   height: 50px;
 }
 
-#footer .container .social-icons i {
+.container .social-icons i {
   font-size: 25px;
   margin-left:20%;
 }
 
-#footer .container .social-icon-border {
+.container .social-icon-border {
   border-radius: 100%;
   padding: 10px;
   border: 1px solid blue;
@@ -1534,57 +1550,57 @@ form textarea.form-control {font-size:25px}
   margin:2%;
 }
 
-#footer .container .fb {
+.container .fb {
   border: 2px solid #3a5795;
 }
-#footer .container .fb:hover {
+.container .fb:hover {
   background: #3a5795;
 }
-#footer .container .fb:hover .fa {
+.container .fb:hover .fa {
   color:white;
 }
-#footer .container .fb .fa {
+.container .fb .fa {
     color: #3a5795;
 }
 
-#footer .container .tw {
+.container .tw {
   border: 2px solid #cf3427;
 }
-#footer .container .tw:hover {
+.container .tw:hover {
   background: #cf3427;
 }
-#footer .container .tw:hover .fa {
+.container .tw:hover .fa {
   color:white;
 }
-#footer .container .tw .fa {
+.container .tw .fa {
     color: #cf3427;
     margin-left: 8% !important;
 }
 
-#footer .container .yt {
+.container .yt {
   border: 2px solid #0177b4;
 }
-#footer .container .yt:hover {
+.container .yt:hover {
   background:#0177b4;
 }
-#footer .container .yt:hover .fa {
+.container .yt:hover .fa {
   color:white;
 }
-#footer .container .yt .fa {
+.container .yt .fa {
     color: #0177b4;
     margin-left: 8% !important;
 }
 
-#footer .container .in {
+.container .in {
   border: 2px solid #78bdf1;
 }
-#footer .container .in:hover {
+.container .in:hover {
   background:#78bdf1;
 }
-#footer .container .in:hover .fa {
+.container .in:hover .fa {
   color:white;
 }
-#footer .container .in .fa {
+.container .in .fa {
     color: #78bdf1;
     margin-left: 8% !important;
 }
