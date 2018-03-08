@@ -19,7 +19,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
       })
       .state('contact', {
         url: '/contact',
-        templateUrl: 'views/contact.html'
+        templateUrl: 'views/contact.html',
+        params: {
+          newsletter: false
+        }
       })
       .state('donate', {
         url: '/donate',
@@ -179,6 +182,13 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   $scope.catchAnchor = function(){
     console.log('stateparam is ', $stateParams, $stateParams.anchor);
     $scope.scrollTo($stateParams.anchor);
+  }
+  
+  $scope.catchNewsletter = function(){
+    console.log('stateparam is ', $stateParams);
+    if ($stateParams.newsletter) {
+      $scope.formData.messageBody = "Please add me to your newsletter. My email is <INSERT-EMAIL@EMAIL.COM>"
+    }
   }
   
   // $scope.catchAppType = function(){
