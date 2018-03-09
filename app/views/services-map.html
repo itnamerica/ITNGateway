@@ -1,3 +1,10 @@
-<div class="container" style="text-align:center;padding:10%">
-  <img src="assets/images/stlouis.png"/>
+<div class="container" ng-init="catchMap()" style="text-align:center;padding:10%">
+  <div ng-show="map === 'stcharles-map'">
+    <h1 class="ta-center mb-50">St Charles Map</h1>
+    <img src="assets/images/st-charles.png" id="stcharles-img" style="height:700px;width:80%"/>
+  </div>
+  <div ng-show="map === 'stlouis-map'">
+    <h1 class="ta-center mb-50">St Louis Map</h1>
+    <img src="assets/images/st-louis.png" id="stlouis-img"/>
+  </div>
 </div>

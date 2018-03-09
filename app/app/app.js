@@ -102,7 +102,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
       })
       .state('services-map', {
         url: '/services-map',
-        templateUrl: 'views/services-map.html'
+        templateUrl: 'views/services-map.html',
+        params: {
+          map: null
+        }
       })
       .state('civil-rights', {
         url: '/civil-rights',
@@ -163,6 +166,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   $scope.states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
   $scope.itnSources = ['Family','Friend','Speaker','Doctor','Radio','Television','Flier','Book','Phone','Agency on Aging', 'Social Worker','Internet','Referred by Current Member'];
   $scope.ratings = ['None',1,2,3,4,5,6];
+  $scope.map = null;
 
   
   // $transitions.onStart({}, function($transition, $scope){
@@ -189,6 +193,11 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     if ($stateParams.newsletter) {
       $scope.formData.messageBody = "Please add me to your newsletter. My email is <INSERT-EMAIL@EMAIL.COM>"
     }
+  }
+  
+  $scope.catchMap = function(){
+    console.log('stateparam is ', $stateParams);
+    $scope.map = $stateParams.map;
   }
   
   // $scope.catchAppType = function(){
