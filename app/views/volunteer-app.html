@@ -59,7 +59,7 @@
                     
                   <p class="mt-50">ITN<em>America</em> respects your privacy and will keep all volunteer information confidential. Personal information is used for aggregate reporting purposes only, to enable group distribution comparisons across affiliates and between the ITN<em>America</em> volunteer population and the US older population in general.</p>
                   
-                  <button role="start form" class="btn btn-lg pull-right" ng-click="showForm = true">Start Volunteer Form</button>
+                  <button role="start form" class="btn btn-lg pull-right" ng-click="showForm = true; scrollToTop()">Start Volunteer Form</button>
                   
                 </div><!--instructions-->
                   
@@ -94,7 +94,7 @@
                       </ol>
                       
                       <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
-                        <label for="Volunteer for which ITN">Membership for: *</label><br>
+                        <label for="Volunteer for which ITN">Volunteer for: *</label><br>
                         <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">ITN St. Charles</label>
                         <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>ITN St. Louis</label>
                         <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>

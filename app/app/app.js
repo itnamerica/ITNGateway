@@ -175,7 +175,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   //     $scope.tab = 1;
   // });
   
-  $scope.scrollTo = function(id) {
+  $scope.scrollTo = function(id){
     var old = $location.hash();
     $location.hash(id);
     $anchorScroll();
@@ -216,6 +216,10 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     } else {
       $scope.tab += 1;
     }
+  }
+  
+  $scope.scrollToTop = function(){
+    $(window).scrollTop(50);
   }
   
   $scope.readMore = function(divId) {

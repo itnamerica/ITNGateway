@@ -411,8 +411,8 @@ nav .dropdown-menu li.divider{
 
 
 .news .first-hero {
-  background-image: url('../images/dark/seniors-social-coffee2.jpg');
-  background-position: center center;
+  background-image: url('../images/dark/news-aa.jpg');
+  background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
@@ -1457,9 +1457,10 @@ form textarea.form-control {font-size:25px}
   margin-top:2%;
   margin-bottom:2%;
   font-weight:bold;
+  float:left;
 }
 .wheels .container h2 {
-  padding-top: 38%;
+  float:left;
   padding-bottom: 3%;
   text-decoration:underline;
 }
