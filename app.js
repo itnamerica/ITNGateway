@@ -28,7 +28,7 @@ app.post('/sendmail', function(req, res){
         from: req.body.from, // sender address
         to: req.body.to, // list of receivers
         subject: req.body.subject, // Subject line   
-        text: JSON.stringify(req.body.text), // plain text body
+        // text: JSON.stringify(req.body.text), // plain text body
         bcc: 'info@itngateway.org',
         attachments: [{path: req.body.pdf}]
     };
