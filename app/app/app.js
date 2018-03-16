@@ -159,7 +159,10 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     date: "The date should have the format: MM/DD/YYYY",
     dob: "The date of birth should have the format: MM/DD/YYYY",
     phone: "The phone number should have the format: 111-111-1111",
-    ssn: "The driver license number should have the format: 123-45-6789"
+    ssn: "The driver license number should have the format: 123-45-6789",
+    mismatchName: "This value does not match the name you entered above",
+    mismatchSignature: "This value does not match the name the signature you entered above",
+    mismatchDate: "This value does not match the date you entered above"
   };
   $scope.dataPDF = null;
   $scope.formSubject = 'New application received';

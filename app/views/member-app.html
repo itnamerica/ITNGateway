@@ -926,25 +926,28 @@
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.name2.$invalid && !itnForm.name2.$pristine }">
                             <label for="name">Name: *</label>
-                            <input ng-model="formData.agreement.name2" type="text" class="form-control" id="name" name="name2" placeholder="please print name"  ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.agreement.name2" required>
+                            <input ng-model="formData.agreement.name2" type="text" class="form-control" id="name" name="name2" placeholder="please print name"  ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.agreement.name2" match="formData.agreement.name1" required>
                             <span ng-if="itnForm.name2.$error.required && !itnForm.name2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.name2.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                             <span ng-if="itnForm.name2.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
+                            <span ng-if="itnForm.name2.$error.mismatch" class="help-block">{{errorMessages.mismatchName}}</span>
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.signature2.$invalid && !itnForm.signature2.$pristine }">
                             <label for="signature">Signature: *</label>
-                            <input ng-model="formData.agreement.signature2" type="text" class="form-control" id="signature" name="signature2" placeholder="Signature of customer or legal representative: *" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.agreement.signature2" required>
+                            <input ng-model="formData.agreement.signature2" type="text" class="form-control" id="signature" name="signature2" placeholder="Signature of customer or legal representative: *" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.agreement.signature2" match="formData.agreement.signature1" required>
                             <span ng-if="itnForm.signature2.$error.required && !itnForm.signature2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.signature2.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                             <span ng-if="itnForm.signature2.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
+                            <span ng-if="itnForm.signature2.$error.mismatch" class="help-block">{{errorMessages.mismatchSignature}}</span>
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.date2.$invalid && !itnForm.date2.$pristine }">
                             <label for="date">Agreement Date: *</label>
-                            <input ng-model="formData.agreement.date2" type="text" class="form-control" id="date" name="date2" ng-pattern="datePattern" placeholder="Example: mm/dd/yyyy" required>
+                            <input ng-model="formData.agreement.date2" type="text" class="form-control" id="date" name="date2" ng-pattern="datePattern" placeholder="Example: mm/dd/yyyy" match="formData.agreement.date1" required>
                             <span ng-if="itnForm.date2.$error.required && !itnForm.date2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.date2.$error.pattern" class="help-block">{{errorMessages.date}}</span>
+                            <span ng-if="itnForm.date2.$error.mismatch" class="help-block">{{errorMessages.mismatchDate}}</span>
                           </div>
                             
                           <div class="form-group">
