@@ -1199,13 +1199,13 @@
                             <input type="text" class="form-control" id="itnDate" name="itnDate" ng-pattern="datePattern" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
                           </div>
                           
-                        <button type="submit" class="btn btn-lg btn-danger" ng-disabled="form.$invalid">Submit</button>
-                        <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                        <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-disabled="form.$invalid">Submit</button>
+                        <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg">Previous</button>  
                         
                         
                         </div><!--tab6-->
                         
-                        <input type="button" ng-click="formData = {}" value="Reset Form" class="btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">
+                        <input type="button" ng-click="formData = {}" value="Reset Form" class="btn btn-lg btn-primary pull-left itn-green-bg"  style="margin-left:2%">
                         
                 </form>
               </div><!--instructions-->
