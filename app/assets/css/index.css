@@ -241,6 +241,7 @@ nav .dropdown-menu li.divider{
   font-size: 40px;
   color: white;
   background-image: url('../images/hands4-itn.jpg');
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -307,6 +308,7 @@ nav .dropdown-menu li.divider{
 .services .section {padding-bottom: 30px !important}
 .services .first-hero {
   background-image: url('../images/dark/man_on_bench.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -412,6 +414,7 @@ nav .dropdown-menu li.divider{
 
 .news .first-hero {
   background-image: url('../images/dark/news-aa.jpg');
+  background-attachment: fixed;
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -455,6 +458,7 @@ nav .dropdown-menu li.divider{
 
 .contact .first-hero {
   background-image: url('../images/dark/spanish-woman.png');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -479,6 +483,7 @@ nav .dropdown-menu li.divider{
 }
 .donate .first-hero {
   background-image: url('../images/dark/woman-coffee.jpg');
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -535,6 +540,7 @@ nav .dropdown-menu li.divider{
 
 .corporate #first-hero-corporate {
   background-image: url('../images/dark/hands4-itn.jpg') !important;
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -573,11 +579,11 @@ nav .dropdown-menu li.divider{
 .community {line-height:1.7;}
 .community #first-hero-community {
   background-image: url('../images/itn-people-faded/women-car.png') !important;
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   height: 400px !important;
-  /*opacity: 0.5 !important;*/
 }
 .community #first-hero-community h1{
   color:white !important;
@@ -628,6 +634,7 @@ nav .dropdown-menu li.divider{
 
 .organization #first-hero-org {
   background-image: url('../images/dark/ITNLanier_mirror2.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -748,6 +755,7 @@ nav .dropdown-menu li.divider{
 }
 .org-section .national {
   background-image: url('../images/backgrounds/map_generic_light.png');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -759,6 +767,7 @@ nav .dropdown-menu li.divider{
 }
 .org-section .technology {
   background-image: url('../images/backgrounds/technology.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -768,6 +777,7 @@ nav .dropdown-menu li.divider{
 
  .faq #first-hero-faq {
    background-image: url('../images/dark/woman-cheek.jpg');
+   background-attachment: fixed;
    background-position: center center;
    background-size: cover;
    background-repeat: no-repeat;
@@ -803,6 +813,7 @@ nav .dropdown-menu li.divider{
  }
  .faq .qa-wrapper {
    background-image: url('../images/backgrounds/background-faq.jpg');
+   background-attachment: fixed;
  }
  .faq .qa {
    float:left;
@@ -863,11 +874,11 @@ nav .dropdown-menu li.divider{
 
 .rider-stories #first-hero-rider {
   background-image: url('../images/dark/smiling-old-woman.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
-  /*opacity:0.5;*/
 }
 .rider-stories #first-hero-rider h1{
   color:White;
@@ -922,11 +933,11 @@ nav .dropdown-menu li.divider{
 
 .faces #first-hero-faces {
   background-image: url('../images/dark/aa-couple3.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
-  /*opacity:0.5;*/
 }
 .faces #first-hero-faces h1{
   color:white !important;
@@ -974,6 +985,7 @@ nav .dropdown-menu li.divider{
 
 .member-programs #first-hero-member {
   background-image: url('../images/dark/group.png');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1032,6 +1044,7 @@ nav .dropdown-menu li.divider{
 
 .family #first-hero-family {
   background-image: url('../images/dark/indian-young-old.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1103,11 +1116,11 @@ nav .dropdown-menu li.divider{
 
 .pay-online #first-hero-pay-online {
   background-image: url('../images/dark/people-paying.jpg');
+  background-attachment: fixed;
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
-  /*opacity:0.5;*/
 }
 .pay-online #first-hero-pay-online h1{
   color:white !important;
@@ -1157,6 +1170,7 @@ nav .dropdown-menu li.divider{
 
 .non-rider #first-hero-rider {
   background-image: url('../images/dark/young-dude3.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1192,6 +1206,7 @@ nav .dropdown-menu li.divider{
 
 .become-member #first-hero-become {
   background-image: url('../images/dark/old-aa-woman-reverse.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1229,6 +1244,7 @@ nav .dropdown-menu li.divider{
 }*/
 .become-member .ride-friend {
   background-image: url('../images/itn-people-images/men-car.jpg');
+  background-attachment: fixed;
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1269,6 +1285,7 @@ nav .dropdown-menu li.divider{
 
 .member-app #first-hero-online-app {
   background-image: url('../images/dark/aa-couple.jpg');
+  background-attachment: fixed;
   background-position: right top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1330,6 +1347,7 @@ form textarea.form-control {font-size:25px}
 }
 .volunteer-drive #first-hero-volunteer-drive {
   background-image: url('../images/dark/asian-couple.jpg') !important;
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -1381,6 +1399,7 @@ form textarea.form-control {font-size:25px}
 }
 .volunteer-drive .volunteer-img {
   background-image: url('../images/itn-people-images/volunteer2.jpg') !important;
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -1390,6 +1409,7 @@ form textarea.form-control {font-size:25px}
 }
 .volunteer-drive .description {
   background-image: url('../images/itn-people-images/aa-couple-reverse.jpg');
+  background-attachment: fixed;
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1403,6 +1423,7 @@ form textarea.form-control {font-size:25px}
 }
 .volunteer-app #first-hero-volunteer-app {
   background-image: url('../images/dark/oldage-wisdom.jpg') !important;
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -1432,6 +1453,7 @@ form textarea.form-control {font-size:25px}
 
 .wheels #first-hero-wheels {
   background-image: url('../images/dark/walking-crowd.jpg') !important;
+  background-attachment: fixed;
   background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -1474,6 +1496,7 @@ form textarea.form-control {font-size:25px}
 }
 .stl-day #first-hero-stl {
   background-image: url('../images/stl-banner.png');
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
