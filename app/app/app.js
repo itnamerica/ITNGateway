@@ -135,6 +135,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorScroll', '$location', '$stateParams', function ($scope, $transitions, $http, $anchorScroll, $location, $stateParams)  {
   console.log('inside main controller');
+  $scope.affiliate = "Gateway";
   $scope.zoomLevel = 1;
   $scope.tab = 1;
   $scope.formData = {};
