@@ -112,16 +112,16 @@
   </div>
 </div><!--MISSION-->
 
-<div class="jumbotron section progress container">
+<div class="jumbotron section progress container" id="progress">
   <div class="container">
     <h1>Our Progress</h1>
     <div class="row progress-steps">
       <div class="col-sm-4">
-        <div class="numbers">51,214</div>
+        <div class="numbers">51214</div>
         Rides given
       </div>
       <div class="col-sm-4">
-        <div class="numbers">725,454</div>
+        <div class="numbers">725454</div>
         Miles driven
       </div>
       <div class="col-sm-4">
@@ -179,6 +179,30 @@
     $('.carousel').carousel({
       interval: 3500
     })
+    
+    var firstTime = true;
+    $(window).scroll(function() {
+       var hT = $('#progress').offset().top,
+           hH = $('#progress').outerHeight(),
+           wH = $(window).height(),
+           wS = $(this).scrollTop();
+       if (wS > (hT+hH-wH)){
+         if (firstTime){
+           $('.numbers').each(function () {
+               $(this).prop('Counter',0).animate({
+                   Counter: $(this).text()
+               }, {
+                   duration: 4000,
+                   easing: 'swing',
+                   step: function (now) {
+                       $(this).text(Math.ceil(now));
+                   }
+               });
+           });
+           firstTime = false;
+         }
+       }
+    });
   });
 </script>
 
