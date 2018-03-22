@@ -41,12 +41,6 @@
   </h2>
 </div>
 
-<!-- <div class="item">
-  <iframe src="https://www.youtube.com/embed/AUKh9uJrS94" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-  <h2 class="carousel-statement">
-    Learn why ITN<em></em> is vital to Hall County. Watch the video.
-  </h2>
-</div> -->
 </div><!--carousel-inner-->
 
 <!-- Left and right controls -->
@@ -64,7 +58,7 @@
 <div class="jumbotron section hp-first">
   <h2 style="font-size:35px">Because life is about going places.</h2>
   <div class="features row">
-    <div class="col-md-4">
+    <div class="col-md-4 wow fadeInUp" data-wow-duration="1s">
       <a ui-sref="member-app">
         <div class="feature-icon" style="background: #529ba8">
           <i class="fa fa-car"></i>
@@ -77,7 +71,7 @@
 
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
       <a ui-sref="volunteer-to-drive">
         <div class="feature-icon" style="background: #e05944">
           <i class="fa fa-heart"></i>
@@ -89,7 +83,7 @@
         Become an ITN driver
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
       <a ui-sref="pay-online">
         <div class="feature-icon" style="background: #529ba8">
           <i class="fa fa-usd"></i>
@@ -104,9 +98,9 @@
   </div><!--features-->
   
   <div class="row post-features">
-    <div class="col-md-4 each">Affordable fares <hr align="center" width="35%"></div>
-    <div class="col-md-4 each">No tipping <hr align="center" width="35%"></div>
-    <div class="col-md-4 each">Cash-free transactions <hr align="center" width="35%"></div>
+    <div class="col-md-4 each wow rollIn" data-wow-duration="1s">Affordable fares <hr align="center" width="35%"></div>
+    <div class="col-md-4 each wow rollIn" data-wow-duration="1s" data-wow-delay="1s">No tipping <hr align="center" width="35%"></div>
+    <div class="col-md-4 each wow rollIn" data-wow-duration="1s" data-wow-delay="2s">Cash-free transactions <hr align="center"
   </div>
   
 </div><!--JUMBO FEATURES-->
@@ -186,4 +180,8 @@
       interval: 3500
     })
   });
+</script>
+
+<script>
+new WOW().init();
 </script>

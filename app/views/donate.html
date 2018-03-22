@@ -32,7 +32,7 @@
         </ul>
         
         <div class="container">
-          <div class="row donate-type" id="donate-card">
+          <div class="row donate-type wow slideInRight" id="donate-card">
             <div class="col-sm-8 description" style="font-size:25px">
               
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -56,7 +56,7 @@
             </div>
           </div><!--row-->
           
-          <div class="row donate-type" id="donate-check">
+          <div class="row donate-type wow slideInLeft" data-wow-delay="1s" id="donate-check">
             <div class="col-sm-4 title">
               <h2>Donate By Check</h2>
               <hr align="center" width="35%">
@@ -82,7 +82,7 @@
             </div><!--description-->
           </div><!--donate-type-->
           
-          <div class="row donate-type" id="donate-car">
+          <div class="row donate-type wow slideInRight" id="donate-car">
             
             <div class="col-sm-8 description">
               <p>Got an old vehicle sitting silent? Donate it to ITN<em>Gateway</em>! Your old car can leave a legacy of future rides even after it’s gone. And it’s tax-deductible. To donate your vehicle, contact us using the form below.<p>
@@ -154,3 +154,7 @@
 
   <div class=""></div>
   
+  
+<script>
+  new WOW().init();
+</script>
