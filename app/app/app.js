@@ -215,13 +215,10 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   }
 
   $scope.nextTabMemberApp = function(prev){
-    console.log('inside nextTabMemberApp');
     $(window).scrollTop(50);
     if (prev) {
-      console.log('previous, tab is ', $scope.tab);
       $scope.tab -= 1;
     } else {
-      console.log('next, tab is ', $scope.tab);
       $scope.tab += 1;
     }
   }
