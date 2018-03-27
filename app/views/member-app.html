@@ -8,7 +8,7 @@
       
       <div class="container">
         <p class="ta-center"><em>Once you have completed the application we will send you a confirmation email. <br>
-          You can book your first ride by calling us on (678) 696-0360.</em></p>
+          You can book your first ride by calling us at (314) 724-2117 (St Charles) or (636) 329-0888 (St Louis).</em></p>
         <hr align="center">
         <div class="col-sm-12">
             <div class="form-area" id="formConfirmation" style="background: #c7dfe4;border:none">  
@@ -46,8 +46,8 @@
                       
                       <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
                         <label for="Membership for which ITN">Membership for: *</label><br>
-                        <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">ITN St. Charles</label>
-                        <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>ITN St. Louis</label>
+                        <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">St. Charles</label>
+                        <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>St. Louis</label>
                         <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
                       </div>
                       
@@ -147,7 +147,7 @@
                           <span ng-if="itnForm.email.$error.pattern" class="help-block">{{errorMessages.email}}</span>
                         </div> 
 
-                        <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                        <button type="button" type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
 
                         </div><!--tab 1-->
 
@@ -343,8 +343,8 @@
                             
                             </div><!--second emergency contact-->
                             
-                            <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
-                            <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                            <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                            <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                             
                           </div><!--tab2-->
 
@@ -465,8 +465,8 @@
                               
                             </div><!--sendinfo-->
                             
-                            <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
-                            <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                            <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                            <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                             
                           </div><!--tab3-->
                           
@@ -563,8 +563,8 @@
                                 <input ng-model="formData.customerInfo.currentTransportationMeans.other" type="text" class="form-control" id="other-transportation" name="other-transportation" placeholder="other (specify)" ng-if="otherTransportation">
                             </div>
                           
-                            <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
-                            <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                            <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                            <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
 
                         </div><!--tab4-->
 
@@ -643,8 +643,8 @@
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.none" type="checkbox" value="none">None of the above</label>
                           </div>
                           
-                          <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
-                          <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                          <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                          <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                           
                         </div><!--tab5-->
 
@@ -828,9 +828,9 @@
                             <label class="checkbox-inline"><input ng-model="formData.drivingInfo.wantInfoOnPrograms.giftCertificate" type="checkbox" value="gift_certificate">Gift Certificate</label>
                           </div>
                           
-                          <!-- <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button> -->
-                          <button ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button> 
-                          <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                          <!-- <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button> -->
+                          <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button> 
+                          <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                           
                           
                         </div><!--tab6-->
@@ -954,9 +954,9 @@
                             <label class="checkbox-inline"><input type="checkbox" value="agree" ng-model="formData.agree2" required>By checking this box and submitting this form, you agree that your digital signature will be considered your legal signature and represents your agreement to the terms and policies outlined above.</label>
                           </div>
 
-                          <button type="submit" style="background:#e05944; margin-left:2%" class="btn btn-lg pull-right btn-danger" ng-disabled="form.$invalid">Submit</button>
+                          <button type="button" type="submit" style="background:#e05944; margin-left:2%" class="btn btn-lg pull-right btn-danger" ng-disabled="form.$invalid">Submit</button>
                           
-                          <button ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                          <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                           
                         </div><!--tab7-->
                         
