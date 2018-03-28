@@ -213,6 +213,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     $scope.formData = {};
     $scope.serverMessage = "";
     $scope.loading = false;
+    $scope.tab = 1;
   }
 
   $scope.nextTabMemberApp = function(prev){
