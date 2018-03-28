@@ -1306,6 +1306,7 @@ nav .dropdown-menu li.divider{
   color:black;
 }
 .member-app .btn-lg, .volunteer-app .btn-lg {margin-top:50px}
+.member-app .form-area img {text-align:center !important}
 form select#state {
     font-size: 25px;
     height: 50px;

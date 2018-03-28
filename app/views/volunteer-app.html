@@ -70,7 +70,7 @@
                     
                     <div class="member-tabs" ng-if="tab===1" id="tab1">
                       
-                      <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block" alt="main logo"/>
+                      <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
                       
                       <ol class="steps">
                         <li class="step active">
@@ -1199,7 +1199,7 @@
                             <input type="text" class="form-control" id="itnDate" name="itnDate" ng-pattern="datePattern" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
                           </div>
                           
-                        <button type="button" type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-disabled="form.$invalid">Submit</button>
+                        <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-hide="loading" ng-disabled="form.$invalid">Submit</button>
                         <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg">Previous</button>  
                         
                         
