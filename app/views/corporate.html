@@ -87,6 +87,10 @@
               <input type="button" ng-click="formData = {}" value="Reset Form" class="btn btn-lg pull-right itn-green-bg"  style="margin-left:2%">
             
             </form>
+            
+            <p ng-if="loading"><em>Loading. Please wait</em></p>
+            <p style="color:red; margin-top:50px"><strong>{{serverMessage}}</strong></p>
+            
           </div><!--form-area-->
           
         </div>
@@ -94,7 +98,26 @@
       
     </div><!--corporate-->
 
-
-    <script>
+    
+<script>
     new WOW().init();
-    </script>
+    
+    $(document).ready(function(){ 
+      $('#characterLeft').text('140 characters left');
+      $('#message').keydown(function () {
+          var max = 2000;
+          var len = $(this).val().length;
+          if (len >= max) {
+              $('#characterLeft').text('You have reached the limit');
+              $('#characterLeft').addClass('text-danger');
+              $('#submit').addClass('disabled');            
+          } 
+          else {
+              var ch = max - len;
+              $('#characterLeft').text(ch + ' characters left');
+              $('#submit').removeClass('disabled');
+              $('#characterLeft').removeClass('red');            
+          }
+      });    
+  });
+</script>
