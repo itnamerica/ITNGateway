@@ -378,21 +378,30 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   $scope.submitFormWithPDF = function(formType){
     console.log('submitForm PDF, formData is ', $scope.formData);
     $scope.loading = true;
+    var memberFor;
+    if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
+      memberFor = 'ITNStCharles';
+    } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
+      memberFor = 'ITNStLouis';
+    } else {
+      memberFor = 'ITNGateway';
+    }
+    
     if (formType === 'volunteer') {
         $(document).ready(function(){
           $('#pdfVersion').css('display', 'block');
         })
-        $scope.formSubject = 'ITNGateway - New volunteer application received';
+        $scope.formSubject = memberFor + ' - New volunteer application received';
         $scope.generateMultiPagePDF();
     } else if (formType === 'membership') {
         $(document).ready(function(){
           $('#pdfVersion').css('display', 'block');
         })
         $scope.showPdf = true;
-        $scope.formSubject = 'ITNGateway - New membership application received';
+        $scope.formSubject = memberFor + ' - New membership application received';
         $scope.generateMultiPagePDF();
     } else if (formType === 'nonrider') {
-        $scope.formSubject = 'ITNGateway - Non-Rider application Form submitted';
+        $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
         $scope.generatePDF();
     } 
   }

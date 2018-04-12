@@ -1,4 +1,4 @@
-<div class="member-app" ng-init="resetFormData();">
+<div class="member-app" >
       
     <div class="jumbotron section first-hero" id="first-hero-online-app">
       <h1>Online Membership Form</h1>
@@ -18,7 +18,7 @@
                     
                     <div class="member-tabs" ng-if="tab===1 || tab===99" id="tab1">
                       
-                      <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                      <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/>
                       
                       <ol class="steps">
                         <li class="step active">
@@ -44,12 +44,15 @@
                         </li>
                       </ol>
                       
-                      <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
-                        <label for="Membership for which ITN">Membership for: *</label><br>
-                        <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">St. Charles</label>
-                        <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>St. Louis</label>
-                        <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
-                      </div>
+                      
+                        <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
+                          <label for="Membership for which ITN">Membership for: *</label><br>
+                          <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">St. Charles</label>
+                          <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>St. Louis</label>
+                          <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
+                        </div>
+
+                  
                       
                         <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.membership.$invalid }">
                           <label for="Membership Type">Membership Type: *</label><br>
@@ -147,7 +150,7 @@
                           <span ng-if="itnForm.email.$error.pattern" class="help-block">{{errorMessages.email}}</span>
                         </div> 
 
-                        <button type="button" type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                        <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
 
                         </div><!--tab 1-->
 
@@ -156,7 +159,7 @@
 
                         <div class="member-tabs" ng-if="tab===2 || tab===99" id="tab2">
                           
-                        <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                        <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/>
 
                         <ol class="steps">
                         <li class="step previous complete">
@@ -352,7 +355,7 @@
 
                           <div class="member-tabs" ng-if="tab===3 || tab===99" id="tab3">
                             
-                            <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                            <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
                             
                             <ol class="steps">
                               <li class="step previous complete">
@@ -472,7 +475,7 @@
                           
                           <div class="member-tabs" ng-if="tab===4 || tab===99" id="tab4">
                             
-                            <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                            <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
                             
                             <ol class="steps">
                               <li class="step previous complete">
@@ -543,7 +546,7 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="languages">Languages Spoken: *</label><br>
+                              <label for="languages">Languages : *</label><br>
                               <label class="checkbox-inline"><input ng-model="formData.customerInfo.languages.english" type="checkbox" value="english">English</label>
                               <label class="checkbox-inline"><input ng-model="formData.customerInfo.languages.french" type="checkbox" value="french">French</label>
                               <label class="checkbox-inline"><input ng-model="formData.customerInfo.languages.spanish" type="checkbox" value="spanish">Spanish</label>
@@ -570,7 +573,7 @@
 
                         <div class="member-tabs" ng-if="tab===5 || tab===99" id="tab5">
                           
-                          <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                          <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
                           
                           <ol class="steps">
                             <li class="step previous complete">
@@ -614,9 +617,9 @@
                           
                           <div class="form-group ta-center">
                             <label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: * </label><br>
-                            <label class="radio-inline"><input ng-model="formData.customerInfo.memberOfProfessionalOrgOrUnion" type="radio" value="yes" ng-click="specifyUnions = true">Yes</label>
+                            <label class="radio-inline"><input ng-model="formData.memberOfProfessionalOrgOrUnion" type="radio" value="yes" ng-click="specifyUnions = true">Yes</label>
                             <label class="radio-inline"><input type="radio" value="no" ng-click="specifyUnions = false">No</label>
-                              <input ng-model="formData.customerInfo.memberOfProfessionalOrgOrUnions" type="text" class="form-control" id="unions" name="unions" placeholder="Please list:" ng-if="specifyUnions">
+                              <input ng-model="formData.memberOfProfessionalOrgOrUnions" type="text" class="form-control" id="unions" name="unions" placeholder="Please list:" ng-if="specifyUnions">
                           </div>
                           
                           <div class="form-group ta-center">
@@ -629,15 +632,15 @@
                             <label for="special needs">Special Needs and Mobility Assistance: *</label><br>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.cane" type="checkbox" value="cane">Cane</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.wheelchair" type="checkbox" value="wheelchair">Wheelchair</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.blind" type="checkbox" value="blind"> Blind/Seeing Eye</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.anxiety" type="checkbox" value="anxiety">Anxiety Disorder</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.driverAssistance" type="checkbox" value="driver">Driver Assistance Required</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.personalAssistance" type="checkbox" value="personal">Personal Assistant</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.fullSizedVehicle" type="checkbox" value="vehicle">Full-Sized Vehicle Required</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.blindOrSeeingEye" type="checkbox" value="blind"> Blind/Seeing Eye</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.anxietyDisorder" type="checkbox" value="anxiety">Anxiety Disorder</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.driverAssistanceRequired" type="checkbox" value="driver">Driver Assistance Required</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.personalAssistant" type="checkbox" value="personal">Personal Assistant</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.fullSizedVehicleRequired" type="checkbox" value="vehicle">Full-Sized Vehicle Required</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.visuallyImpaired" type="checkbox" value="impaired">Visually Challenged</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.walker" type="checkbox" value="walker">Walker</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.alzheimer" type="checkbox" value="alzheimer"> Alzheimer's/Dementia</label>
-                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.bladderProblems" type="checkbox" value="bladder"> Bladder/Bowel Control Problems</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.alzheimerOrDementia" type="checkbox" value="alzheimer"> Alzheimer's/Dementia</label>
+                            <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.bladderOrBowerControlProblems" type="checkbox" value="bladder"> Bladder/Bowel Control Problems</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.deaf" type="checkbox" value="deaf">Deaf</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.noHighVehicle" type="checkbox" value="no-high">No High Vehicle</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.none" type="checkbox" value="none">None of the above</label>
@@ -651,7 +654,7 @@
 
                         <div class="member-tabs" ng-if="tab===6 || tab===99" id="tab6">
                           
-                          <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                          <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
                           
                           <ol class="steps">
                             <li class="step previous complete">
@@ -799,11 +802,11 @@
                               <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.doctorsOrder" type="checkbox" value="doctor_order">Doctors orders</label>
                               <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.licenseRevoked" type="checkbox" value="license_revoked">License revoked</label>
                               <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.licenseExpired" type="checkbox" value="license_expired">License expired</label>
-                              <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.notSafe" type="checkbox" value="not_safe">Don't feel safe</label>
+                              <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.dontFeelSafe" type="checkbox" value="not_safe">Don't feel safe</label>
                               <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.familyRequest" type="checkbox" value="family_request">Family Request</label>
-                              <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.policeJudgeRequest" type="checkbox" value="police_request">Police/Judge Request</label>
+                              <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.policeOrJudgeRequest" type="checkbox" value="police_request">Police/Judge Request</label>
                               <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.tooExpensive" type="checkbox" value="expensive">Too expensive</label>
-                              <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.carNeedRepair" type="checkbox" value="need_repair">Car needs repair</label>
+                              <label class="checkbox-inline"><input ng-model="formData.drivingInfo.whyNoDrive.carNeedsRepair" type="checkbox" value="need_repair">Car needs repair</label>
                               <label class="checkbox-inline"><input type="checkbox" value="other" ng-click="otherNoDrive = !otherNoDrive">Other (specify)</label>
                                 <input ng-model="formData.drivingInfo.whyNoDrive.other" type="text" class="form-control" id="other" name="other" placeholder="Other (specify)" ng-if="otherNoDrive">
                             </div> 
@@ -822,10 +825,10 @@
                           
                           <div class="form-group ta-center">
                             <label for="info on programs">Would you like information on any of these ITN programs?:</label><br>
-                            <label class="checkbox-inline"><input ng-model="formData.drivingInfo.wantInfoOnPrograms.healthyMiles" type="checkbox" value="healthymiles">HealthyMiles</label>
-                            <label class="checkbox-inline"><input ng-model="formData.drivingInfo.wantInfoOnPrograms.carTrade" type="checkbox" value="cartrade">CarTrade™</label>
-                            <label class="checkbox-inline"><input ng-model="formData.drivingInfo.wantInfoOnPrograms.rideAndShop" type="checkbox" value="rideandshop">Ride & Shop</label>
-                            <label class="checkbox-inline"><input ng-model="formData.drivingInfo.wantInfoOnPrograms.giftCertificate" type="checkbox" value="gift_certificate">Gift Certificate</label>
+                            <label class="checkbox-inline"><input ng-model="formData.wantInfoOnPrograms.healthyMiles" type="checkbox" value="healthymiles">HealthyMiles</label>
+                            <label class="checkbox-inline"><input ng-model="formData.wantInfoOnPrograms.carTrade" type="checkbox" value="cartrade">CarTrade™</label>
+                            <label class="checkbox-inline"><input ng-model="formData.wantInfoOnPrograms.rideAndShop" type="checkbox" value="rideandshop">Ride & Shop</label>
+                            <label class="checkbox-inline"><input ng-model="formData.wantInfoOnPrograms.giftCertificate" type="checkbox" value="gift_certificate">Gift Certificate</label>
                           </div>
                           
                           <!-- <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button> -->
@@ -840,7 +843,7 @@
 
                         <div class="member-tabs" ng-if="tab===7 || tab===99" id="tab7">
                           
-                          <img src="assets/images/icons/custom_logo.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
+                          <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block;text-align:center" alt="main logo"/>
                           
                           <ol class="steps">
                             <li class="step previous complete">
@@ -954,8 +957,7 @@
                             <label class="checkbox-inline"><input type="checkbox" value="agree" ng-model="formData.agree2" required>By checking this box and submitting this form, you agree that your digital signature will be considered your legal signature and represents your agreement to the terms and policies outlined above.</label>
                           </div>
 
-                          <button type="submit" style="background:#e05944; margin-left:2%" class="btn btn-lg pull-right btn-danger" ng-hide="loading" ng-disabled="form.$invalid">Submit</button>
-                          
+                          <button type="submit" ng-hide="loading" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-disabled="form.$invalid">Submit</button>
                           <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                           
                         </div><!--tab7-->
@@ -1054,11 +1056,12 @@
     
     
     <br><label for="Heard about ITN">How did you hear about ITN?: *</label><br>
-    {{formData.heardAboutItn}}
+    {{formData.heardAboutItn | inputSelected }}
     
     <br><label for="send info">Would you like us to send information about ITN to a relative, friend, or business? * </label><br>
     {{formData.sendInfoToRelativeFriendBiz}}
-    <div ng-if="sendInfo">
+    
+    <br><div ng-if="sendInfo">
       <br><label for="name">Name: *</label><br>
       {{formData.sendInfoTo.name}}
       <br><label for="relationship">Relationship: *</label><br>
@@ -1090,20 +1093,20 @@
     <br><label for="dwelling">Dwelling Arrangements: * </label><br>
     {{formData.customerInfo.dwellingArrangement}}
     <br><label for="languages">Languages Spoken: *</label><br>
-    {{formData.customerInfo.languages}}
+    {{formData.customerInfo.languages | inputSelected}}
     <br><label for="transportation means">Current primary means of getting around: * </label><br>
     {{formData.customerInfo.currentTransportationMeans}}
     
     <h3>Civic Engagement</h3>
     
     <br><label for="member of any organization">Are you a member of any of the following organizations?:</label><br>
-    {{formData.customerInfo.memberOfOrganization}}
+    {{formData.customerInfo.memberOfOrganization | inputSelected}}
     <br><label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: * </label><br>
-    {{formData.customerInfo.memberOfProfessionalOrgOrUnion}} - {{formData.customerInfo.memberOfProfessionalOrgOrUnions}} 
+    {{formData.memberOfProfessionalOrgOrUnion}} - {{formData.memberOfProfessionalOrgOrUnions}} 
     <br><label for="served in armed forces">Have you ever served on active duty in the U.S. Armed Forces, Military Reserves, or National Guard: *</label><br>
     {{formData.customerInfo.servedInMilitary}}
     <br><label for="special needs">Special Needs and Mobility Assistance: *</label><br>
-    {{formData.customerInfo.specialNeeds}}
+    {{formData.customerInfo.specialNeeds | inputSelected }}
   
     <h3>Driving Information</h3>
     
@@ -1146,13 +1149,13 @@
     <div ng-if="!currentDriver">  
       <h3>If you do not drive...</h3>
         <br><label for="check reason why no drive">Please check a reason:</label><br>
-        {{formData.drivingInfo.whyNoDrive}}
+        {{formData.drivingInfo.whyNoDrive | inputSelected }}  {{formData.drivingInfo.whyNoDrive.other }}
     </div>
     
       <br><label for="reduce ITN cost with rideshare">Would you like to reduce the cost of ITN trips by sharing rides with others when it's convenient?: *</label><br>
       {{formData.drivingInfo.reduceCostWithRideshare}}
       <br><label for="info on programs">Would you like information on any of these ITN programs?:</label><br>
-      {{formData.drivingInfo.wantInfoOnPrograms}}
+      {{formData.wantInfoOnPrograms | inputSelected}}
       
       <h3 class="mt-50 mb-25">Personal Transportation Account Agreement</h3>
       
@@ -1208,8 +1211,8 @@
     <div class="page-template">
       <div class="header">
       </div>
-      <div class="watermark"><img src="assets/images/logo_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
-      <div class="watermark"><img src="assets/images/logo_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
+      <div class="watermark"><img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
+      <div class="watermark"><img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
       <div class="footer">
         Page #: pageNum # of #: totalPages #
       </div>
@@ -1219,9 +1222,9 @@
   
   <script>
   $(document).ready(function(){ 
-    $('#characterLeft').text('140 characters left');
+    $('#characterLeft').text('2000 characters left');
     $('#message').keydown(function () {
-        var max = 140;
+        var max = 2000;
         var len = $(this).val().length;
         if (len >= max) {
             $('#characterLeft').text('You have reached the limit');
