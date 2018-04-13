@@ -11,7 +11,7 @@
         <a href="http://pressroom.itnamerica.org/category/itngateway/">
         <div class="col-sm-6 pressroom-image">
           <div class="pressroom-title"><h3>Pressroom</h3></div>
-          <img src="assets/images/icons/news-noword2.png" alt="newspaper icon"/>
+          <img ng-src="{{assetsPath}}/images/icons/news-noword2.png" alt="newspaper icon"/>
           <ul>
             <li class="wow fadeInUp"><a href="http://pressroom.itnamerica.org/category/itngateway/">Pressroom Blog</a></li>
           </ul>
@@ -22,15 +22,15 @@
       <div class="newsletter col-sm-6 row">
         <div class="col-sm-6 newsletter-content">
           <div class="newsletter-title"><h3>Newsletters</h3></div>
-          <img src="assets/images/icons/news-noword.png" alt="press icon"/>
+          <img ng-src="{{assetsPath}}/images/icons/news-noword.png" alt="press icon"/>
           <ul style="">
-            <li class="wow fadeInUp" data-wow-delay=".1s"><a href="assets/images/docs/newsletter/summer_2017.pdf" role="newsletter summer 2017">Newsletter Summer 2017</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".2s"><a href="assets/images/docs/newsletter/spring_2017.pdf" role="newsletter Spring 2017">Newsletter Spring 2017</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".3s"><a href="assets/images/docs/newsletter/winter_2013.pdf" role="newsletter Winter 2013">Newsletter Winter 2013</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".4s"><a href="assets/images/docs/newsletter/fall_2012.pdf" role="newsletter Fall 2012">Newsletter Fall 2012</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".5s"><a href="assets/images/docs/newsletter/summer_2012.pdf" role="newsletter Summer 2012">Newsletter Summer 2012</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".6s"><a href="assets/images/docs/newsletter/spring_2011.pdf" role="newsletter Spring 2011">Newsletter Spring 2011</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".7s"><a href="assets/images/docs/newsletter/fall_2010.pdf" role="newsletter Fall 2010">Newsletter Fall 2010</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".1s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2017.pdf')"  role="newsletter summer 2017">Newsletter Summer 2017</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".2s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/spring_2017.pdf')"  role="newsletter Spring 2017">Newsletter Spring 2017</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".3s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/winter_2013.pdf')"  role="newsletter Winter 2013">Newsletter Winter 2013</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".4s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/fall_2012.pdf')"  role="newsletter Fall 2012">Newsletter Fall 2012</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".5s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2012.pdf')"  role="newsletter Summer 2012">Newsletter Summer 2012</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".6s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/spring_2011.pdf')"  role="newsletter Spring 2011">Newsletter Spring 2011</a></li>
+            <li class="wow fadeInUp" data-wow-delay=".7s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/fall_2010.pdf')"  role="newsletter Fall 2010">Newsletter Fall 2010</a></li>
         </ul>
         </div><!--newsletter-content-->
 
