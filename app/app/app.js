@@ -215,8 +215,8 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     {name: 'Home', state: 'home', url: $scope.viewsPath + '/home.html'},
     {name: 'What We Do', state: 'what-we-do', url: $scope.viewsPath + '/what-we-do.html'},
     {name: 'Our Organization', state: 'organization', url: $scope.viewsPath + '/organization.html'},
-    {name: 'Faces of our Members', state: 'faces', url: $scope.viewsPath + '/faq.html'},
-    {name: 'FAQ', state: 'faq', url: $scope.viewsPath + '/what-we-do.html'},
+    {name: 'Faces of our Members', state: 'faces', url: $scope.viewsPath + '/faces.html'},
+    {name: 'FAQ', state: 'faq', url: $scope.viewsPath + '/faq.html'},
     {name: 'News', state: 'news', url: $scope.viewsPath + '/news.html'},
     {name: 'Contact Us', state: 'contact', url: $scope.viewsPath + '/contact.html'},
     {name: 'Become a Member', state: 'become-member', url: $scope.viewsPath + '/become-member.html'},
@@ -354,7 +354,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
 
 
   $scope.submitForm = function(formType){
-    console.log('submitForm, formData is', $scope.formData);
     $scope.loading = true;
     $http.post('/sendmail', {
       from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
@@ -376,7 +375,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   }
   
   $scope.submitFormWithPDF = function(formType){
-    console.log('submitForm PDF, formData is ', $scope.formData);
     $scope.loading = true;
     var memberFor;
     
@@ -389,28 +387,12 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     }
     
     if (formType === 'membership' || formType === 'volunteer') {
-      console.log('form type is ', formType);
       $(document).ready(function(){
         $('#pdfVersion').css('display', 'block');
       })
       $scope.formSubject = memberFor + ' - New volunteer application received';
       $scope.generateMultiPagePDF();
     }
-    
-    // if (formType === 'volunteer') {
-    //     $(document).ready(function(){
-    //       $('#pdfVersion').css('display', 'block');
-    //     })
-    //     $scope.formSubject = memberFor + ' - New volunteer application received';
-    //     $scope.generateMultiPagePDF();
-    // } else if (formType === 'membership') {
-    //     $(document).ready(function(){
-    //       $('#pdfVersion').css('display', 'block');
-    //     })
-    //     $scope.showPdf = true;
-    //     $scope.formSubject = memberFor + ' - New membership application received';
-    //     $scope.generateMultiPagePDF();
-    // } 
     else if (formType === 'nonrider') {
         $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
         $scope.generatePDF();
@@ -419,7 +401,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   
   
   $scope.generatePDF = function() {
-    console.log('inside pdf');
     kendo.drawing.drawDOM($("#formConfirmation"))
       .then(function (group) {
           return kendo.drawing.exportPDF(group, {
@@ -428,7 +409,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           });
       })
       .done(function (data) {
-        console.log('data is ', data, 'and form titles are ', $scope.formSubject, $scope.formData);
         $scope.dataPDF = data;
         $http.post('/sendmail', {
           from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
@@ -447,7 +427,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   }
 
   $scope.generateMultiPagePDF = function() {
-    console.log('inside multipage');
     kendo.drawing.drawDOM($("#pdfVersion"), {
           paperSize: "A4",
           margin: { left: "3cm", top: "1cm", right: "1cm", bottom: "1cm" },
@@ -457,7 +436,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           return kendo.drawing.exportPDF(group);
       })
       .done(function (data) {
-        console.log('done, data is ', data, 'and form titles are ', $scope.formSubject, $scope.formData);
         $scope.dataPDF = data;
         $http.post('/sendmail', {
           from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
