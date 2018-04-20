@@ -65,9 +65,14 @@ app.post('/sendmail', function(req, res){
         console.log('Message sent: %s', info.messageId);
         // transporter.close();
     });
+    
   
   res.end();
 });
+
+app.use(function (req, res) {
+    res.sendFile(__dirname + '/app/index.html');
+});  
 
 app.listen(process.env.PORT || 3000);
 
