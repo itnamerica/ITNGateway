@@ -70,7 +70,7 @@ app.post('/sendmail', function(req, res){
   res.end();
 });
 
-app.use('/contact', function(req, res){
+app.get('/contact', function(req, res){
   res.sendFile(__dirname + '/app/index.html');
 }
 // app.use(function (req, res) {
