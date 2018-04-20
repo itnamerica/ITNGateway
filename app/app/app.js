@@ -428,7 +428,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           });
       })
       .done(function (data) {
-        console.log('data is ', data);
+        console.log('data is ', data, 'and form titles are ', $scope.formSubject, $scope.formData);
         $scope.dataPDF = data;
         $http.post('/sendmail', {
           from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
@@ -457,7 +457,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           return kendo.drawing.exportPDF(group);
       })
       .done(function (data) {
-        console.log('done block, data is ', data);
+        console.log('done, data is ', data, 'and form titles are ', $scope.formSubject, $scope.formData);
         $scope.dataPDF = data;
         $http.post('/sendmail', {
           from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
