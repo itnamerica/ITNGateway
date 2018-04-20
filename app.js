@@ -9,9 +9,9 @@ var gmail_pass = env.gmail_pass;
 app.use(express.json()); //convert req to json
 app.use(express.static(__dirname + '/app'));
 
-app.use(function (req, res) {
-    res.sendFile(__dirname + '/app/index.html');
-});
+// app.use(function (req, res) {
+//     res.sendFile(__dirname + '/app/index.html');
+// });
 
 app.post('/sendmail', function(req, res){
   console.log('post req', req.body);
