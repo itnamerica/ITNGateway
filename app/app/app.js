@@ -379,28 +379,39 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     console.log('submitForm PDF, formData is ', $scope.formData);
     $scope.loading = true;
     var memberFor;
+    
     if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
-      memberFor = 'ITNStCharles';
+      memberFor = 'StCharles';
     } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
-      memberFor = 'ITNStLouis';
+      memberFor = 'StLouis';
     } else {
       memberFor = 'ITNGateway';
     }
     
-    if (formType === 'volunteer') {
-        $(document).ready(function(){
-          $('#pdfVersion').css('display', 'block');
-        })
-        $scope.formSubject = memberFor + ' - New volunteer application received';
-        $scope.generateMultiPagePDF();
-    } else if (formType === 'membership') {
-        $(document).ready(function(){
-          $('#pdfVersion').css('display', 'block');
-        })
-        $scope.showPdf = true;
-        $scope.formSubject = memberFor + ' - New membership application received';
-        $scope.generateMultiPagePDF();
-    } else if (formType === 'nonrider') {
+    if (formType === 'membership' || formType === 'volunteer') {
+      console.log('form type is ', formType);
+      $(document).ready(function(){
+        $('#pdfVersion').css('display', 'block');
+      })
+      $scope.formSubject = memberFor + ' - New volunteer application received';
+      $scope.generateMultiPagePDF();
+    }
+    
+    // if (formType === 'volunteer') {
+    //     $(document).ready(function(){
+    //       $('#pdfVersion').css('display', 'block');
+    //     })
+    //     $scope.formSubject = memberFor + ' - New volunteer application received';
+    //     $scope.generateMultiPagePDF();
+    // } else if (formType === 'membership') {
+    //     $(document).ready(function(){
+    //       $('#pdfVersion').css('display', 'block');
+    //     })
+    //     $scope.showPdf = true;
+    //     $scope.formSubject = memberFor + ' - New membership application received';
+    //     $scope.generateMultiPagePDF();
+    // } 
+    else if (formType === 'nonrider') {
         $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
         $scope.generatePDF();
     } 
@@ -442,10 +453,11 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           margin: { left: "3cm", top: "1cm", right: "1cm", bottom: "1cm" },
           template: $("#page-template").html()
       }).then(function (group) {
+        console.log('then block, just drew DOM');
           return kendo.drawing.exportPDF(group);
       })
       .done(function (data) {
-        console.log('data is ', data);
+        console.log('done block, data is ', data);
         $scope.dataPDF = data;
         $http.post('/sendmail', {
           from: '"ITNGateway Web User" <donotreply@itnamerica.com>',

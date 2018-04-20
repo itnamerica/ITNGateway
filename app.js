@@ -10,7 +10,7 @@ app.use(express.json()); //convert req to json
 app.use(express.static(__dirname + '/app'));
 
 app.use(function (req, res) {
-    res.sendfile(__dirname + '/app/index.html');
+    res.sendFile(__dirname + '/app/index.html');
 });
 
 app.post('/sendmail', function(req, res){
