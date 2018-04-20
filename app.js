@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/app'));
 
 var allPages = ['home','what-we-do','organization','faces','faq','news','contact','become-member','member-app','volunteer-to-drive','volunteer-app','family','member-programs','pay-online','donate','corporate'];
 
-app.get(allPages, function(req, res){
+app.get('/'+ allPages, function(req, res){
   res.sendFile(__dirname + '/app/index.html');
 });
 
