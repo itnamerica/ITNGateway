@@ -70,9 +70,12 @@ app.post('/sendmail', function(req, res){
   res.end();
 });
 
-app.use(function (req, res) {
-    res.sendFile(__dirname + '/app/index.html');
-});  
+app.use('/contact', function(req, res){
+  res.sendFile(__dirname + '/app/index.html');
+}
+// app.use(function (req, res) {
+//     res.sendFile(__dirname + '/app/index.html');
+// });  
 
 app.listen(process.env.PORT || 3000);
 
