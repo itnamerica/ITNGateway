@@ -13,12 +13,10 @@ app.use(express.static(__dirname + '/app'));
 //     res.sendFile(__dirname + '/app/index.html');
 // });
 
-// app.get('/contact', function(req, res){
-//   res.sendFile(__dirname + '/app/index.html');
-// }
+app.get('/contact', function(req, res){
+  res.sendFile(__dirname + '/app/index.html');
+});
 
-
-app.use(function (req, res) {
 app.post('/sendmail', function(req, res){
   console.log('post req', req.body);
 
@@ -74,12 +72,7 @@ app.post('/sendmail', function(req, res){
     
   
   res.end();
-  
 });
-
-
-res.sendFile(__dirname + '/app/index.html');
-});//APP.USE
 
 
 app.listen(process.env.PORT || 3000);
