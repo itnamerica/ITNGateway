@@ -1357,11 +1357,11 @@
   
   <h3>Ethnic Background</h3>
   <br><label for="ethnicity">What is your ethnic background?:</label><br>
-  {{formData.ethnicBackground}}
+  {{formData.ethnicBackground | inputSelected }}
   
   <h3>Civic Engagement</h3>
   <br><label for="member of any organization">Are you a member of any of the following organizations?:</label><br>
-  {{formData.memberOfOrganization}}
+  {{formData.memberOfOrganization | inputSelected}}
   <br><label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: * </label><br>
   {{formData.memberOfProfessionalOrgOrUnion}} - {{formData.memberOfProfessionalOrgOrUnions}}
   <br><label for="served in armed forces">Have you ever served on active duty in the U.S. Armed Forces, Military Reserves, or National Guard: *</label><br>
@@ -1372,7 +1372,7 @@
   <p>ITN<em>Gateway</em> will work with your schedule.</p>
   <p>We provide transportation 24 hours a day 7 days a week.</p>
   
-  <br><label for="hours available">What hours are you available on these days? <br>
+  <br><label for="hours available">What hours are you available on these days? </label><br>
   <br><label for="Monday">Monday</label><br>
   {{formData.hoursAvailable.monday}}
   <br><label for="Tuesday">Tuesday</label><br>
@@ -1543,9 +1543,9 @@
   <p>I understand that I need to report any changes in the above to ITN, and agree to do so in a timely manner.</p>
   
   <br><label for="signature">Volunteer Driver Signature *:</label><br>
-  {{formData.changeOf.signature}}
+  {{formData.changeOfStatus.signature}}
   <br><label for="date">Date: *</label><br>  
-  {{formData.changeOf.signature}}
+  {{formData.changeOfStatus.signature}}
   <br><label for="itn Signature">ITN<em>America</em> Signature:</label><br>
   <br><label for="itn date">Date:</label><br>
   
@@ -1558,8 +1558,8 @@
     <div class="page-template">
       <div class="header">
       </div>
-      <div class="watermark"><img ng-src="{{assetsPath}}/images/logo_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
-      <div class="watermark"><img ng-src="{{assetsPath}}/images/logo_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
+      <div class="watermark"><img ng-src="{{assetsPath}}/images/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
+      <div class="watermark"><img ng-src="{{assetsPath}}/images/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/></div>
       <div class="footer">
         Page #: pageNum # of #: totalPages #
       </div>
