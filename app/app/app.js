@@ -393,7 +393,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
       $(document).ready(function(){
         $('#pdfVersion').css('display', 'block');
       })
-      $scope.formSubject = memberFor + ' - New volunteer application received';
+      $scope.formSubject = memberFor + ' - New ' + formType + ' application received';
       $scope.generateMultiPagePDF();
     }
     else if (formType === 'nonrider') {
