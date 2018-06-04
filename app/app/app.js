@@ -364,13 +364,14 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
         "<p><strong>Mobile:</strong>: " + $scope.formData.phone + "</p>\n " +
         "<p><strong>Subject:</strong>: " + $scope.formData.subject + "</p>\n " +
         "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n "
-    })}.then(function(res){
+    }).then(function(res){
         // $scope.loading = false;
         $scope.serverMessage = 'Your form was submitted successfully. You should hear back from us soon.';
     }).catch(function(err){
         // $scope.loading = false;
         $scope.serverMessage = 'There was an error submitting your form. Please contact us by phone instead.';
     });
+    }
   }
   
   $scope.submitFormWithPDF = function(formType){
