@@ -353,17 +353,18 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
 
   $scope.submitForm = function(formType){
     $scope.loading = true;
-    $http.post('/sendmail', {
-      from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
-      to: 'itnamerica2018@gmail.com',
-      subject: "ITNGateway Contact Form Submitted",
-      text: $scope.formData,
-      html: "<p><strong>Name:</strong>: " + $scope.formData.name + "</p>\n" +
-      "<p><strong>Email:</strong>: " + $scope.formData.email + "</p>\n " +
-      "<p><strong>Mobile:</strong>: " + $scope.formData.phone + "</p>\n " +
-      "<p><strong>Subject:</strong>: " + $scope.formData.subject + "</p>\n " +
-      "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n "
-    }).then(function(res){
+    if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
+      $http.post('/sendmail', {
+        from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
+        to: 'itnamerica2018@gmail.com',
+        subject: "ITNGateway Contact Form Submitted",
+        text: $scope.formData,
+        html: "<p><strong>Name:</strong>: " + $scope.formData.name + "</p>\n" +
+        "<p><strong>Email:</strong>: " + $scope.formData.email + "</p>\n " +
+        "<p><strong>Mobile:</strong>: " + $scope.formData.phone + "</p>\n " +
+        "<p><strong>Subject:</strong>: " + $scope.formData.subject + "</p>\n " +
+        "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n "
+    })}.then(function(res){
         // $scope.loading = false;
         $scope.serverMessage = 'Your form was submitted successfully. You should hear back from us soon.';
     }).catch(function(err){
@@ -373,28 +374,30 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   }
   
   $scope.submitFormWithPDF = function(formType){
-    $scope.loading = true;
-    var memberFor;
-    
-    if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
-      memberFor = 'StCharles';
-    } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
-      memberFor = 'StLouis';
-    } else {
-      memberFor = 'ITNGateway';
-    }
-    
-    if (formType === 'membership' || formType === 'volunteer') {
-      $(document).ready(function(){
-        $('#pdfVersion').css('display', 'block');
-      })
-      $scope.formSubject = memberFor + ' - New ' + formType + ' application received';
-      $scope.generateMultiPagePDF();
-    }
-    else if (formType === 'nonrider') {
-        $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
-        $scope.generatePDF();
-    } 
+    if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
+        $scope.loading = true;
+        var memberFor;
+        
+        if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
+          memberFor = 'StCharles';
+        } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
+          memberFor = 'StLouis';
+        } else {
+          memberFor = 'ITNGateway';
+        }
+        
+        if (formType === 'membership' || formType === 'volunteer') {
+          $(document).ready(function(){
+            $('#pdfVersion').css('display', 'block');
+          })
+          $scope.formSubject = memberFor + ' - New ' + formType + ' application received';
+          $scope.generateMultiPagePDF();
+        }
+        else if (formType === 'nonrider') {
+            $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
+            $scope.generatePDF();
+        } 
+      }
   }
   
   

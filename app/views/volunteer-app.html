@@ -737,7 +737,7 @@
                             </div>
                           
                             
-                            <p><strong>Please fill in your complete name (please include any previous names used) and include date of birth and social security number, then sign below. The purpose of this background check will be for volunteer purposes.</strong></p>
+                            <p><strong>Please fill in your complete name (please include any previous names used) and include date of birth, then sign below. The purpose of this background check will be for volunteer purposes.</strong></p>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.name3.$invalid && !itnForm.name3.$pristine }">
                               <label for="name">Name *:</label><br>
@@ -760,13 +760,6 @@
                               <input type="text" class="form-control" id="dob" name="dob3" placeholder="MM/DD/YYYY"   ng-model="formData.requestCriminalRecord.dob" ng-pattern="dobPattern" ng-pattern="datePattern" required>
                               <span ng-if="itnForm.dob3.$error.required && !itnForm.dob3.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.dob3.$error.pattern" class="help-block">{{errorMessages.date}}</span>
-                            </div>
-                            
-                            <div class="form-group" ng-class="{ 'has-error' : itnForm.ssn.$invalid && !itnForm.ssn.$pristine }">
-                              <label for="social security number">Social Security Number *:</label><br>
-                              <input type="text" class="form-control" id="socialSecurity" name="socialSecurity" placeholder="xxx-xx-xxxx" ng-model="formData.requestCriminalRecord.socialSecurity" ng-pattern="ssnPattern" required>
-                              <span ng-if="itnForm.ssn.$error.required && !itnForm.ssn.$pristine" class="help-block">{{errorMessages.required}}</span>
-                              <span ng-if="itnForm.ssn.$error.pattern" class="help-block">{{errorMessages.ssn}}</span>
                             </div>
                             
                             <p class="mt-50"><strong>I authorize Independent Transportation Network® to request and receive any and all criminal history information about me held by the State Bureau of Identification. The purpose of this background check will be for volunteer purposes.</strong></p>
@@ -1415,7 +1408,7 @@
   <br><label for="criminal record state">This authorization is required to check your Criminal History Record from: *</label>
   {{formData.requestCriminalRecord.authorize}}
   
-  <p><strong>Please fill in your complete name (please include any previous names used) and include date of birth and social security number, then sign below. The purpose of this background check will be for volunteer purposes.</strong></p>
+  <p><strong>Please fill in your complete name (please include any previous names used) and include date of birth, then sign below. The purpose of this background check will be for volunteer purposes.</strong></p>
   
   <br><label for="name">Name *:</label><br>
   {{formData.requestCriminalRecord.name}}
@@ -1423,8 +1416,7 @@
   {{formData.requestCriminalRecord.maidenName}}
   <br><label for="date of birth">Date of Birth *:</label><br>
   {{formData.requestCriminalRecord.dob}}
-  <br><label for="social security number">Social Security Number *:</label><br>
-  {{formData.requestCriminalRecord.socialSecurity}}
+
   
   <p><strong>I authorize Independent Transportation Network® to request and receive any and all criminal history information about me held by the State Bureau of Identification. The purpose of this background check will be for volunteer purposes.</strong></p>
   
