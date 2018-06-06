@@ -39,6 +39,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
   
+  <!--Datatables-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+  
   <script src="bower_components/angular/angular.js"></script>
   <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script> -->
   <script src="bower_components/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
@@ -46,6 +50,7 @@
   <script src="bower_components/hilitor/hilitor.js"></script>
   <script src="bower_components/wowjs/dist/wow.min.js"></script>
   <!-- <script src="bower_components/gulp/bin/gulp.js"></script> -->
+  <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
   
   <script src="//kendo.cdn.telerik.com/2018.1.117/js/kendo.all.min.js"></script>  
   <script src="app/app.js"></script>
@@ -164,13 +169,15 @@
   
   <div id="footer">
     <div class="container">
-      <!-- <div class="row"> -->
         <div class="col-sm-4">
           <div class="footer-title">ITN<em>{{affiliate | uppercase}}</em></div>
           <hr>
           <ul>
             <li>(314) 724-2117</li>
             <li><a ui-sref="contact">Contact Us</a></li>
+            <li ng-hide="session"><a ui-sref="login">Login</a></li>
+            <li ng-show="session"><a ng-click="logout()">Logout</a></li>
+            <li ng-show="session"><a ui-sref="dashboard">Admin Portal</a></li>
           </ul>
         </div>
         
@@ -183,12 +190,6 @@
             </div></a>
             <a href="http://www.twitter.com/itnamerica" target="_blank"><div class="col-sm-3 social-icon-border tw">
             </div></a>
-            <!--<a href="http://www.youtube.com/itnamerica"><div class="col-sm-3 social-icon-border yt">
-              <i class="fa fa-youtube"></i>
-            </div></a>
-            <a href="http://www.instagram.com/itnamerica"><div class="col-sm-3 social-icon-border in">
-              <i class="fa fa-instagram"></i>
-            </div></a> -->
           </div>
         </div>
         

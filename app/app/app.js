@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ui.router', 'ngAnimate']);
+var myApp = angular.module('myApp', ['ui.router', 'ngAnimate','angularUtils.directives.dirPagination']);
 
 myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
   console.log('inside of config block');
@@ -122,6 +122,22 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         url: '/stl-day',
         templateUrl: viewsPath + 'stl-day.html'
       })
+      .state('login', {
+        url: '/login',
+        templateUrl: viewsPath + 'login.html'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: viewsPath + 'dashboard.html'
+      })
+      .state('view-form', {
+        url: '/view-form',
+        templateUrl: viewsPath + 'view-form.html',
+        params: {
+          formObj: null,
+          formType: null
+        }
+      })
       .state('draft', {
         url: '/draft',
         templateUrl: viewsPath + 'draft.html'
@@ -156,7 +172,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     }
   ]);
 
-myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorScroll', '$location', '$stateParams', '$timeout', '$state', '$rootScope', '$window', function ($scope, $transitions, $http, $anchorScroll, $location, $stateParams, $timeout, $state, $rootScope, $window)  {
+myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorScroll', '$location', '$stateParams', '$timeout', '$state', '$rootScope', '$window', 'FormService', function ($scope, $transitions, $http, $anchorScroll, $location, $stateParams, $timeout, $state, $rootScope, $window, FormService)  {
   console.log('inside main controller');
 
   $scope.assetsPath = "assets";
@@ -224,7 +240,25 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     {name: 'Donate', state: 'donate', url: $scope.viewsPath + '/donate.html'},
     {name: 'Corporate Partnership', state: 'corporate', url: $scope.viewsPath + '/corporate.html'}
   ];
-  
+  $scope.formType = '';
+  $scope.memberFormData = [];
+  $scope.volunteerFormData = [];
+  $scope.nonRiderFormData = [];
+  $scope.contactFormData = [];
+  $scope.newsletterFormData = [];
+  $scope.formObj = {};
+  $scope.formObjType = {};
+  $scope.session = null;
+  console.log('session is ', $scope.session);
+  $scope.formCount = {
+    member: 0,
+    volunteer: 0,
+    nonrider: 0,
+    contact: 0,
+    newsletter: 0
+  };
+  $scope.pdfUrl = '';
+    
 
   $transitions.onSuccess({}, function(transition){
       $scope.resetFormData();
@@ -347,23 +381,149 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
             clearInterval(timer);
             obj.innerHTML = end;
         }
-    }, stepTime);
+      }, stepTime);
+    };
+
+    var zoomLevel = 1;
+    $scope.resizeText = function(multiplier) {
+      if (multiplier){
+        zoomLevel += multiplier;
+        $('#main-content-inner').css('transform','scale(' + zoomLevel + ')');
+      } else {
+        $('#main-content-inner').css('transform','scale(1)');
+      }    
+    };
+    
+    $scope.searchTable = function(tableId) {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById(tableId);
+    tr = table.getElementsByTagName("tr");
+    
+    for (row = 0; row < tr.length; row++) {
+      tdd = tr[row].getElementsByTagName("td");
+      for (col = 0; col < tdd.length-1; col++) {
+        td = tr[row].getElementsByTagName("td")[col];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            return tr[row].style.display = "table-row";
+          } else {
+            tr[row].style.display = "none";
+          }
+        } 
+      }
+    }
   };
 
-  var zoomLevel = 1;
-  $scope.resizeText = function(multiplier) {
-    if (multiplier){
-      zoomLevel += multiplier;
-      $('#main-content-inner').css('transform','scale(' + zoomLevel + ')');
-    } else {
-      $('#main-content-inner').css('transform','scale(1)');
-    }    
+  $scope.resetTable = function(tableId) {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById(tableId);
+    tr = table.getElementsByTagName("tr");
+    
+    for (row = 0; row < tr.length; row++) {
+      tr[row].style.display = "table-row";
+    }
   };
 
+  $scope.base64ToPDF = function(formType, formObj){
+    console.log('inside base64 func');
+    if (formObj && formObj.pdf){
+      var base64 = formObj.pdf;
+      base64 = base64.replace("data:application/pdf;base64,", "");
+      var binaryImg = window.atob(base64);
+      var length = binaryImg.length;
+      var arrayBuffer = new ArrayBuffer(length);
+      var uintArray = new Uint8Array(arrayBuffer);
+
+      for (var i = 0; i < length; i++) {
+      uintArray[i] = binaryImg.charCodeAt(i);
+      }
+      var currentBlob = new Blob([uintArray], {type: 'application/pdf'});
+      $scope.pdfUrl = URL.createObjectURL(currentBlob);
+      // $("#output").append($("<a/>").attr({href: $scope.pdfUrl}).append("Download"));
+      $scope.redirectToURL($scope.pdfUrl);
+    }
+    else {
+      return $scope.pdfUrl = "This form does not contain a PDF";
+    }
+
+  };
+
+  $scope.authenticate = function(){
+    if ($scope.session){
+      $scope.getApps();
+    }
+  };
+
+  $scope.getApps = function(){
+    FormService.getMemberForms().then(function(data){
+      $scope.memberFormData = data;
+      $scope.formCount.member = data.length
+    });
+    FormService.getVolunteerForms().then(function(data){
+      $scope.volunteerFormData = data;
+      $scope.formCount.volunteer = data.length
+    });
+    FormService.getNonRiderForms().then(function(data){
+      $scope.nonRiderFormData = data;
+      $scope.formCount.nonrider = data.length
+    });
+    FormService.getContactForms().then(function(data){
+      $scope.contactFormData = data;
+      $scope.formCount.contact = data.length
+    });
+    FormService.getNewsletterForms().then(function(data){
+      $scope.newsletterFormData = data;
+      $scope.formCount.newsletter = data.length
+    });
+  };
+
+  $scope.catchFormObj = function(){
+    $scope.formObj = $stateParams.formObj;
+    $scope.formObjType = $stateParams.formType;
+    console.log('formobj is ', $scope.formObj);
+  };
+
+  $scope.deleteForm = function(formType, formObj){
+    FormService.deleteForm(formType, formObj).then(function(data){
+      console.log('record successfully deleted ', data);
+      $scope.getApps();
+    })
+  };
+
+  $scope.sort = function(keyname){
+    $scope.sortKey = keyname;   //set the sortKey to the param passed
+    $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+  };
+
+  $scope.login = function(){
+    FormService.login($scope.formData).then(function(data){
+      console.log('response is ', data);
+      if (data){
+        $scope.session = data;
+        $state.go('dashboard')
+      } else {
+        $scope.serverMessage = 'Incorrect login or password';
+      }
+    });
+  };
+
+  $scope.logout = function(){
+    $window.location.reload();
+  };
+
+  //for contact and newsletter forms
   $scope.submitForm = function(formType){
+    var objLength = Object.keys($scope.formData).length;
+    $scope.formType = formType;
     $scope.loading = true;
-    if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
-      $http.post('/sendmail', {
+    var formObj = {};
+    if (formType === 'contact' && objLength === 5){
+      console.log('submitting valid contact form');
+      formObj = {
         from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
         to: 'itnamerica2018@gmail.com',
         subject: "ITNGateway Contact Form Submitted",
@@ -373,16 +533,29 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
         "<p><strong>Mobile:</strong>: " + $scope.formData.phone + "</p>\n " +
         "<p><strong>Subject:</strong>: " + $scope.formData.subject + "</p>\n " +
         "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n "
-    }).then(function(res){
-        // $scope.loading = false;
+      }
+    } else if (formType === 'newsletter' && objLength === 1){
+      console.log('submitting valid newsletter form');
+        formObj = {
+          from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
+          to: 'itnamerica2018@gmail.com',
+          subject: "ITNGateway Request to be added to Newsletter",
+          text: $scope.formData,
+          html: "<p><strong>Email:</strong>: " + $scope.formData.email + "</p> ",
+          formType: $scope.formType
+        }
+    } else {
+      return $scope.serverMessage = "Please reload the page and fill in all required fields before submitting."
+    }
+    $http.post('/sendmail', formObj)
+      .then(function(res){
         $scope.serverMessage = 'Your form was submitted successfully. You should hear back from us soon.';
     }).catch(function(err){
-        // $scope.loading = false;
         $scope.serverMessage = 'There was an error submitting your form. Please contact us by phone instead.';
     });
-    }
-  }
+  };
   
+    //for membership, volunteer and non-rider forms
   $scope.submitFormWithPDF = function(formType){
     if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
         $scope.loading = true;
@@ -406,11 +579,14 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
         else if (formType === 'nonrider') {
             $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
             $scope.generatePDF();
-        } 
+        } else {
+          $scope.serverMessage = 'You cannot submit an empty form';
+        }
       }
   }
+
   
-  
+
   $scope.generatePDF = function() {
     kendo.drawing.drawDOM($("#formConfirmation"))
       .then(function (group) {
