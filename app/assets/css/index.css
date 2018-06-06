@@ -1332,9 +1332,15 @@ form .member-tabs {
   margin-top:50px;
 }
 form input[type=radio] {margin-top:10px}
-form input[type=text], form input#email {
+form input[type=text], form input[type=date], form input#email {
   font-size:25px;
   height:50px;
+}
+form input[type=date] {
+  font-size: 25px;
+  padding: 2%;
+  width: 30%;
+  margin:auto;
 }
 form textarea.form-control {font-size:25px}
 .member-app .checkbox-inline, .volunteer-app .checkbox-inline {line-height: 1}

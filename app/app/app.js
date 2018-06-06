@@ -348,8 +348,17 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
             obj.innerHTML = end;
         }
     }, stepTime);
-  }
+  };
 
+  var zoomLevel = 1;
+  $scope.resizeText = function(multiplier) {
+    if (multiplier){
+      zoomLevel += multiplier;
+      $('#main-content-inner').css('transform','scale(' + zoomLevel + ')');
+    } else {
+      $('#main-content-inner').css('transform','scale(1)');
+    }    
+  };
 
   $scope.submitForm = function(formType){
     $scope.loading = true;

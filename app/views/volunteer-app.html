@@ -439,11 +439,10 @@
                         <span ng-if="itnForm.signature1.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                       </div>
                       
-                      <div class="form-group" ng-class="{ 'has-error' : itnForm.date1.$invalid && !itnForm.date1.$pristine }">
+                      <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.date1.$invalid && !itnForm.date1.$pristine }">
                         <label for="date">Agreement Date: *</label>
-                        <input type="text" class="form-control" id="date" name="date1" placeholder="Example: mm/dd/yyyy" ng-pattern="datePattern" ng-model="formData.references.date" required>
+                        <input type="date" class="form-control" id="date" name="date1" ng-model="formData.references.date" required>
                         <span ng-if="itnForm.date1.$error.required && !itnForm.date1.$pristine" class="help-block">{{errorMessages.required}}</span>
-                        <span ng-if="itnForm.date1.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                       </div>
 
                       <div class="form-group">  
@@ -682,11 +681,10 @@
                               <span ng-if="itnForm.maidenName.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                             </div>
                             
-                            <div class="form-group" ng-class="{ 'has-error' : itnForm.dob1.$invalid && !itnForm.dob1.$pristine }">
+                            <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.dob1.$invalid && !itnForm.dob1.$pristine }">
                               <label for="date of birth">Date of Birth *:</label><br>
-                              <input type="text" class="form-control" id="dob" name="dob1" placeholder="MM/DD/YYYY"   ng-model="formData.requestDriverRecord.dob" ng-pattern="dobPattern" required>
+                              <input type="date" class="form-control" id="dob" name="dob1" ng-model="formData.requestDriverRecord.dob" required>
                               <span ng-if="itnForm.dob1.$error.required && !itnForm.maidenName.$pristine" class="help-block">{{errorMessages.required}}</span>
-                              <span ng-if="itnForm.dob1.$error.pattern" class="help-block">{{errorMessages.dob}}</span>
                             </div>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.licenseNumber.$invalid && !itnForm.licenseNumber.$pristine }">
@@ -713,11 +711,10 @@
                               <span ng-if="itnForm.signature2.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                             </div>
                             
-                            <div class="form-group" ng-class="{ 'has-error' : itnForm.date2.$invalid && !itnForm.date2.$pristine }">
+                            <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.date2.$invalid && !itnForm.date2.$pristine }">
                               <label for="date">Agreement Date: *</label>
-                              <input ng-model="formData.requestDriverRecord.date2" type="text" class="form-control" id="date" name="date2" ng-pattern="datePattern" placeholder="Example: mm/dd/yyyy" required>
+                              <input ng-model="formData.requestDriverRecord.date2" type="text" class="form-control" id="date" name="date2" required>
                               <span ng-if="itnForm.date2.$error.required && !itnForm.date2.$pristine" class="help-block">{{errorMessages.required}}</span>
-                              <span ng-if="itnForm.date2.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                             </div>
 
                             <div class="form-group">
@@ -755,11 +752,10 @@
                               <span ng-if="itnForm.maidenName3.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                             </div>
                             
-                            <div class="form-group" ng-class="{ 'has-error' : itnForm.dob3.$invalid && !itnForm.dob3.$pristine }">
+                            <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.dob3.$invalid && !itnForm.dob3.$pristine }">
                               <label for="date of birth">Date of Birth *:</label><br>
-                              <input type="text" class="form-control" id="dob" name="dob3" placeholder="MM/DD/YYYY"   ng-model="formData.requestCriminalRecord.dob" ng-pattern="dobPattern" ng-pattern="datePattern" required>
+                              <input type="date" class="form-control" id="dob" name="dob3" ng-model="formData.requestCriminalRecord.dob" required>
                               <span ng-if="itnForm.dob3.$error.required && !itnForm.dob3.$pristine" class="help-block">{{errorMessages.required}}</span>
-                              <span ng-if="itnForm.dob3.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                             </div>
                             
                             <p class="mt-50"><strong>I authorize Independent Transportation Network® to request and receive any and all criminal history information about me held by the State Bureau of Identification. The purpose of this background check will be for volunteer purposes.</strong></p>
@@ -772,11 +768,10 @@
                               <span ng-if="itnForm.signature3.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                             </div>
                             
-                            <div class="form-group" ng-class="{ 'has-error' : itnForm.date3.$invalid && !itnForm.date3.$pristine }">
+                            <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.date3.$invalid && !itnForm.date3.$pristine }">
                               <label for="date">Date *:</label><br>
-                              <input type="text" class="form-control" id="date" name="date3" ng-model="formData.requestCriminalRecord.date" ng-pattern="datePattern" required>
+                              <input type="date" class="form-control" id="date" name="date3" ng-model="formData.requestCriminalRecord.date" required>
                               <span ng-if="itnForm.date3.$error.required && !itnForm.date3.$pristine" class="help-block">{{errorMessages.required}}</span>
-                              <span ng-if="itnForm.date3.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                             </div>
                             
                             
@@ -883,11 +878,10 @@
                             <span ng-if="itnForm.numberOfDoors1.$error.required && !itnForm.numberOfDoors1.$pristine" class="help-block">{{errorMessages.required}}</span>
                           </div>
                           
-                          <div class="form-group" ng-class="{ 'has-error' : itnForm.registrationExpiration1.$invalid && !itnForm.registrationExpiration1.$pristine }">
+                          <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.registrationExpiration1.$invalid && !itnForm.registrationExpiration1.$pristine }">
                             <label for="registration Expiration">Registration expiration date: *</label><br>
-                            <input type="text" class="form-control" id="registrationExpiration" name="registrationExpiration1" ng-model="formData.vehicleDescription.registrationExpiration" ng-pattern="datePattern" placeholder="mm/dd/yyyy" required>
+                            <input type="date" class="form-control" id="registrationExpiration" name="registrationExpiration1" ng-model="formData.vehicleDescription.registrationExpiration" required>
                             <span ng-if="itnForm.registrationExpiration1.$error.required && !itnForm.registrationExpiration1.$pristine" class="help-block">{{errorMessages.required}}</span>
-                            <span ng-if="itnForm.registrationExpiration1.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.insuranceCompany1.$invalid && !itnForm.insuranceCompany1.$pristine }">
@@ -1102,11 +1096,10 @@
                             <span ng-if="itnForm.signature4.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                           </div>
                           
-                          <div class="form-group" ng-class="{ 'has-error' : itnForm.date4.$invalid && !itnForm.date4.$pristine }">
+                          <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.date4.$invalid && !itnForm.date4.$pristine }">
                             <label for="date">Date *:</label><br>
-                            <input type="text" class="form-control" id="date" name="date4" ng-model="formData.vehicleDescription.date" ng-pattern="datePattern" placeholder="mm/dd/yyyy" ng-minlength="minlength" ng-maxlength="maxlength" required>
+                            <input type="date" class="form-control" id="date" name="date4" ng-model="formData.vehicleDescription.date" ng-minlength="minlength" ng-maxlength="maxlength" required>
                             <span ng-if="itnForm.date4.$error.required && !itnForm.date4.$pristine" class="help-block">{{errorMessages.required}}</span>
-                            <span ng-if="itnForm.date4.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                           </div>
                           
                           
@@ -1174,11 +1167,10 @@
                             <span ng-if="itnForm.signature5.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                           </div>
                           
-                          <div class="form-group" ng-class="{ 'has-error' : itnForm.date5.$invalid && !itnForm.date5.$pristine }">
+                          <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.date5.$invalid && !itnForm.date5.$pristine }">
                             <label for="date">Date: *</label><br>
-                            <input type="text" class="form-control" id="date" name="date5" ng-model="formData.changeOfStatus.date" ng-pattern="datePattern" placeholder="mm/dd/yyyy" ng-minlength="minlength" ng-maxlength="maxlength" required>
+                            <input type="date" class="form-control" id="date" name="date5" ng-model="formData.changeOfStatus.date" ng-minlength="minlength" ng-maxlength="maxlength" required>
                             <span ng-if="itnForm.date5.$error.required && !itnForm.date5.$pristine" class="help-block">{{errorMessages.required}}</span>
-                            <span ng-if="itnForm.date5.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                           </div>
                           
                           
@@ -1187,9 +1179,9 @@
                             <input type="text" class="form-control" id="itnSignature" name="itnSignature" ng-model="formData.changeOfStatus.itnSignature" ng-disabled="true">
                           </div>
                           
-                          <div class="form-group">
+                          <div class="form-group ta-center">
                             <label for="itn date">Date *:</label><br>
-                            <input type="text" class="form-control" id="itnDate" name="itnDate" ng-pattern="datePattern" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
+                            <input type="date" class="form-control" id="itnDate" name="itnDate" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
                           </div>
                           
                         <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-hide="loading" ng-disabled="form.$invalid">Submit</button>
