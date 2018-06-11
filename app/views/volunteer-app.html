@@ -273,7 +273,7 @@
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.visionLastExamined.$invalid && !itnForm.visionLastExamined.$pristine }">
                             <label for="vision last examined">When was your vision last examined: *</label><br>
-                            <input type="text" class="form-control" id="visionLastExamined" name="visionLastExamined" placeholder="mm/dd/yyyy" ng-model="formData.drivingExperience.visionLastExamined" required>
+                            <input type="text" class="form-control" id="visionLastExamined" name="visionLastExamined" placeholder="mm/dd/yyyy" ng-pattern="datePattern" ng-model="formData.drivingExperience.visionLastExamined" required>
                             <span ng-if="itnForm.visionLastExamined.$error.required && !itnForm.visionLastExamined.$pristine" class="help-block">{{errorMessages.required}}</span>
                           </div>
                           
@@ -1184,7 +1184,7 @@
                             <input type="date" class="form-control" id="itnDate" name="itnDate" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
                           </div>
                           
-                        <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-hide="loading" ng-disabled="form.$invalid">Submit</button>
+                        <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-hide="itnForm.$invalid || loading">Submit</button>
                         <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg">Previous</button>  
                         
                         

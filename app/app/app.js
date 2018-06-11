@@ -443,8 +443,8 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
       }
       var currentBlob = new Blob([uintArray], {type: 'application/pdf'});
       $scope.pdfUrl = URL.createObjectURL(currentBlob);
-      // $("#output").append($("<a/>").attr({href: $scope.pdfUrl}).append("Download"));
-      $scope.redirectToURL($scope.pdfUrl);
+      // $scope.redirectToURL($scope.pdfUrl);
+      window.open($scope.pdfUrl,'_blank');
     }
     else {
       return $scope.pdfUrl = "This form does not contain a PDF";
@@ -518,9 +518,9 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   //for contact and newsletter forms
   $scope.submitForm = function(formType){
     var objLength = Object.keys($scope.formData).length;
+    var formObj = {};
     $scope.formType = formType;
     $scope.loading = true;
-    var formObj = {};
     if (formType === 'contact' && objLength === 5){
       console.log('submitting valid contact form');
       formObj = {
@@ -532,7 +532,8 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
         "<p><strong>Email:</strong>: " + $scope.formData.email + "</p>\n " +
         "<p><strong>Mobile:</strong>: " + $scope.formData.phone + "</p>\n " +
         "<p><strong>Subject:</strong>: " + $scope.formData.subject + "</p>\n " +
-        "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n "
+        "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n ",
+        formType: $scope.formType
       }
     } else if (formType === 'newsletter' && objLength === 1){
       console.log('submitting valid newsletter form');
@@ -545,7 +546,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           formType: $scope.formType
         }
     } else {
-      return $scope.serverMessage = "Please reload the page and fill in all required fields before submitting."
+      return $scope.serverMessage = "Please fill in all required fields before submitting."
     }
     $http.post('/sendmail', formObj)
       .then(function(res){
@@ -557,10 +558,10 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   
     //for membership, volunteer and non-rider forms
   $scope.submitFormWithPDF = function(formType){
+    $scope.formType = formType;
     if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
         $scope.loading = true;
         var memberFor;
-        
         if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
           memberFor = 'StCharles';
         } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
@@ -583,7 +584,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           $scope.serverMessage = 'You cannot submit an empty form';
         }
       }
-  }
+  };
 
   
 
@@ -602,7 +603,8 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           to: 'itnamerica2018@gmail.com',
           subject: $scope.formSubject,
           text: $scope.formData,
-          pdf: $scope.dataPDF
+          pdf: $scope.dataPDF,
+          formType: $scope.formType
         }).then(function(res){
             // $scope.loading = false;
             $scope.serverMessage = 'Your form was submitted successfully. You should hear back from us soon.';
@@ -611,7 +613,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           $scope.serverMessage = 'There was an error submitting your form. Please contact us, or consider submitting your form by paper instead.';
         });
       });
-  }
+  };
 
   $scope.generateMultiPagePDF = function() {
     kendo.drawing.drawDOM($("#pdfVersion"), {
@@ -629,7 +631,8 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
           to: 'itnamerica2018@gmail.com',
           subject: $scope.formSubject,
           text: $scope.formData,
-          pdf: $scope.dataPDF
+          pdf: $scope.dataPDF,
+          formType: $scope.formType
         }).then(function(res){
             // $scope.loading = false;
             $scope.serverMessage = 'Your form was submitted successfully. You should hear back from us soon.';
@@ -641,6 +644,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   }
   
 }]);
+
 
 
 myApp.directive('match', function($parse) {
@@ -680,5 +684,86 @@ myApp.filter('inputSelected', function(){
       return keyArr.toString();
     }
   }
-})
+});
+
+myApp.filter('filterLongObj', function($filter){
+  return function(formObj){
+    if (Object.keys(formObj).length > 1 && formObj.constructor === Object){
+      var pretty = JSON.stringify(formObj).replace(/{|}|"/g, "");
+      return pretty;
+    } else if (formObj.constructor === Object){
+      return $filter('inputSelected')(formObj);
+    } else {
+      return formObj;
+    }
+  }
+});
+
+
+myApp.filter('timestamp', function(){
+  return function(formObj){
+    var timestamp = formObj._id.toString().substring(0,8);
+    var date = new Date( parseInt( timestamp, 16 ) * 1000 );
+    return date;
+  }
+});
+
+myApp.filter('tableToFormName', function(){
+  return function(tableName){
+    if (tableName === 'memberapp'){return 'Membership'}
+    else if (tableName === 'volunteerapp'){return 'Volunteer'}
+    else if (tableName === 'nonriderapp'){return 'Non-Rider'}
+    else if (tableName === 'contactform'){return 'Contact'}
+    else {return 'Other'}
+  }
+});
+
+
+myApp.service('FormService', function($http){
+  this.getMemberForms = function(){
+    return $http.get('/getMemberApps').then(function(data){
+      console.log('data is ', data);
+      return data.data;
+    }) 
+  };
+  this.getVolunteerForms = function(){
+    return $http.get('/getVolunteerApps').then(function(data){
+      console.log('data is ', data);
+      return data.data;
+    }) 
+  };
+  this.getNonRiderForms = function(){
+    return $http.get('/getNonRiderApps').then(function(data){
+      console.log('data is ', data);
+      return data.data;
+    }) 
+  };
+  this.getContactForms = function(){
+    return $http.get('/getContactForms').then(function(data){
+      console.log('data is ', data);
+      return data.data;
+    }) 
+  };
+  this.getNewsletterForms = function(){
+    return $http.get('/getNewsletterForms').then(function(data){
+      console.log('data is ', data);
+      return data.data;
+    }) 
+  };
+  this.deleteForm = function(formType, formObj){
+    return $http.delete('/deleteForm/' + formObj._id, {params: {formType:formType}}).then(function(data){
+      return data;
+    }) 
+  }
+  this.login = function(formData){
+    return $http.get('/getAdmin', {params: {formData:formData}})
+    .then(function(data){
+      console.log('response in service is ', data);
+      return data;
+    }).catch(function(error){
+      console.log('service, unable to login', error);
+    }) 
+  }
+});
+
 
