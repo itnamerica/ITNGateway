@@ -59,13 +59,15 @@
                     
                   <p class="mt-50">ITN<em>America</em> respects your privacy and will keep all volunteer information confidential. Personal information is used for aggregate reporting purposes only, to enable group distribution comparisons across affiliates and between the ITN<em>America</em> volunteer population and the US older population in general.</p>
                   
+                  <p><strong>Important Note: All fields with an asterisk (*) are required.</strong></p>
+                  
                   <button type="button" role="start form" class="btn btn-lg pull-right" ng-click="showForm = true; scrollToTop()">Start Volunteer Form</button>
                   
                 </div><!--instructions-->
                   
                 
               
-                  <form novalidate name="itnForm" ng-submit="submitFormWithPDF('volunteer')" role="volunteer form" ng-model="formData" ng-show="showForm">
+                  <form novalidate name="itnForm" ng-submit="submitFormWithPDF('volunteer')" role="volunteer form" ng-model="formData" ng-show="showForm" ng-hide="submitted">
                     <br style="clear:both">
                     
                     <div class="member-tabs" ng-if="tab===1" id="tab1">
@@ -272,9 +274,8 @@
                           </div><!--row-->
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.visionLastExamined.$invalid && !itnForm.visionLastExamined.$pristine }">
-                            <label for="vision last examined">When was your vision last examined: *</label><br>
-                            <input type="text" class="form-control" id="visionLastExamined" name="visionLastExamined" placeholder="mm/dd/yyyy" ng-pattern="datePattern" ng-model="formData.drivingExperience.visionLastExamined" required>
-                            <span ng-if="itnForm.visionLastExamined.$error.required && !itnForm.visionLastExamined.$pristine" class="help-block">{{errorMessages.required}}</span>
+                            <label for="vision last examined">When was your vision last examined: </label><br>
+                            <input type="text" class="form-control" id="visionLastExamined" name="visionLastExamined" placeholder="mm/dd/yyyy" ng-pattern="datePattern" ng-model="formData.drivingExperience.visionLastExamined">
                           </div>
                           
                           <div class="form-group ta-center">
@@ -355,6 +356,11 @@
                         <span ng-if="itnForm.firstRefPhoneOrMailing.$error.required && !itnForm.firstRefPhoneOrMailing.$pristine" class="help-block">{{errorMessages.required}}</span>
                       </div>
                       
+                      <div class="form-group" ng-class="{ 'has-error' : itnForm.firstRefEmail.$invalid && !itnForm.firstRefEmail.$pristine }">
+                        <label for="email">Email: </label><br>
+                        <input type="text" class="form-control"   id="firstRefEmail" name="firstRefEmail" placeholder="Example: test@example.com" ng-pattern="emailPattern" ng-model="formData.firstReference.email">
+                      </div>
+                      
                       <div class="form-group" ng-class="{ 'has-error' : itnForm.firstRefAcquainted.$invalid && !itnForm.firstRefAcquainted.$pristine }">
                         <label for="acquainted">How are you acquainted: *</label><br>
                         <input type="text" class="form-control"   id="acquainted" name="firstRefAcquainted" ng-model="formData.firstReference.acquainted" ng-minlength="minlength" ng-maxlength="maxlength" required>
@@ -386,6 +392,11 @@
                         <span ng-if="itnForm.secondRefPhoneOrMailing.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
                       </div>
                       
+                      <div class="form-group" ng-class="{ 'has-error' : itnForm.secondRefEmail.$invalid && !itnForm.secondRefEmail.$pristine }">
+                        <label for="email">Email: </label><br>
+                        <input type="text" class="form-control"   id="secondRefEmail" name="secondRefEmail" placeholder="Example: test@example.com" ng-pattern="emailPattern" ng-model="formData.secondReference.email">
+                      </div>
+                      
                       <div class="form-group" ng-class="{ 'has-error' : itnForm.secondRefAcquainted.$invalid && !itnForm.secondRefAcquainted.$pristine }">
                         <label for="acquainted">How are you acquainted: *</label><br>
                         <input type="text" class="form-control"   id="acquainted" name="secondRefAcquainted" ng-model="formData.secondReference.acquainted" ng-minlength="minlength" ng-maxlength="maxlength" required>
@@ -414,6 +425,11 @@
                         <label for="phone">Phone (or Mailing Address): *</label><br>
                         <input type="text" class="form-control"   id="thirdRefPhoneOrMailing" name="thirdRefPhoneOrMailing" ng-model="formData.thirdReference.phoneOrMailing" required>
                         <span ng-if="itnForm.thirdRefPhoneOrMailing.$error.required && !itnForm.thirdRefPhoneOrMailing.$pristine" class="help-block">{{errorMessages.required}}</span>
+                      </div>
+                      
+                      <div class="form-group" ng-class="{ 'has-error' : itnForm.thirdRefEmail.$invalid && !itnForm.thirdRefEmail.$pristine }">
+                        <label for="email">Email: </label><br>
+                        <input type="text" class="form-control"   id="thirdRefEmail" name="thirdRefEmail" placeholder="Example: test@example.com" ng-pattern="emailPattern" ng-model="formData.thirdReference.email">
                       </div>
                       
                       <div class="form-group" ng-class="{ 'has-error' : itnForm.thirdRefAcquainted.$invalid && !itnForm.thirdRefAcquainted.$pristine }">
@@ -675,9 +691,8 @@
                             </div>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.maidenName.$invalid && !itnForm.maidenName.$pristine }">
-                              <label for="maiden name">Previous/Maiden name (if applicable) * :</label><br>
+                              <label for="maiden name">Previous/Maiden name (if applicable):</label><br>
                               <input type="text" class="form-control" id="maidenName" name="maidenName" ng-minlength="minlength" ng-maxlength="maxlength"  ng-model="formData.requestDriverRecord.maidenName">
-                              <span ng-if="itnForm.maidenName.$error.required && !itnForm.maidenName.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.maidenName.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                               <span ng-if="itnForm.maidenName.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                             </div>
@@ -906,9 +921,10 @@
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.agentAddress1.$invalid && !itnForm.agentAddress1.$pristine }">
-                            <label for="agent address">Agent Address: *</label><br>
-                            <input type="text" class="form-control" id="agentAddress" name="agentAddress1" ng-model="formData.vehicleDescription.agentAddress" ng-minlength="minlength" ng-maxlength="maxlength" required>
+                            <label for="agent address">Agent Email Address: *</label><br>
+                            <input type="text" class="form-control" id="agentAddress" name="agentAddress1" ng-model="formData.vehicleDescription.agentEmailAddress" placeholder="Example: test@example.com" ng-pattern="emailPattern" ng-minlength="minlength" ng-maxlength="maxlength" required>
                             <span ng-if="itnForm.agentAddress1.$error.required && !itnForm.agentAddress1.$pristine" class="help-block">{{errorMessages.required}}</span>
+                            <span ng-if="itnForm.email.$error.pattern" class="help-block">{{errorMessages.email}}</span>
                             <span ng-if="itnForm.agentAddress1.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                             <span ng-if="itnForm.agentAddress1.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                           </div>
@@ -1040,9 +1056,10 @@
                             </div>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.agentAddress2.$invalid && !itnForm.agentAddress2.$pristine }">
-                              <label for="agent address">Agent Address: *</label><br>
-                              <input type="text" class="form-control" id="agentAddress" name="agentAddress2" ng-model="formData.secondVehicleDescription.agentAddress" ng-minlength="minlength" ng-maxlength="maxlength" required>
+                              <label for="agent address">Agent Email Address: *</label><br>
+                              <input type="text" class="form-control" id="agentAddress" name="agentAddress2" ng-model="formData.secondVehicleDescription.agentEmailAddress" placeholder="Example: test@example.com" ng-pattern="emailPattern" ng-minlength="minlength" ng-maxlength="maxlength" required>
                               <span ng-if="itnForm.agentAddress2.$error.required && !itnForm.agentAddress2.$pristine" class="help-block">{{errorMessages.required}}</span>
+                              <span ng-if="itnForm.email.$error.pattern" class="help-block">{{errorMessages.email}}</span>
                               <span ng-if="itnForm.agentAddress2.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                               <span ng-if="itnForm.agentAddress2.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                             </div>
@@ -1191,7 +1208,7 @@
                             <input type="text" class="form-control" id="itnDate" name="itnDate" ng-pattern="datePattern" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
                           </div>
                           
-                        <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-hide="itnForm.$invalid || loading">Submit</button>
+                        <button type="submit" class="btn btn-lg pull-right btn-danger" style="background:#e05944; margin-left:2%" ng-disabled="itnForm.$invalid || loading">Submit</button>
                         <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg">Previous</button>  
                         
                         
@@ -1285,6 +1302,8 @@
   {{formData.firstReference.name}}
   <br><label for="phone">Phone (or Mailing Address): *</label><br>
   {{formData.firstReference.phoneOrMailing}}
+  <br><label for="email">Email: </label><br>
+  {{formData.firstReference.email}}
   <br><label for="acquainted">How are you acquainted: *</label><br>
   {{formData.firstReference.acquainted}}
   <br><label for="name">Years of acquaintance:</label><br>
@@ -1295,6 +1314,8 @@
   {{formData.secondReference.name}}
   <br><label for="phone">Phone (or Mailing Address): *</label><br>
   {{formData.secondReference.phoneOrMailing}}
+  <br><label for="email">Email: </label><br>
+  {{formData.secondReference.email}}
   <br><label for="acquainted">How are you acquainted: *</label><br>
   {{formData.secondReference.acquainted}}
   <br><label for="name">Years of acquaintance:</label><br>
@@ -1305,6 +1326,8 @@
   {{formData.thirdReference.name}}
   <br><label for="phone">Phone (or Mailing Address): *</label><br>
   {{formData.thirdReference.phoneOrMailing}}
+  <br><label for="email">Email: </label><br>
+  {{formData.thirdReference.email}}
   <br><label for="acquainted">How are you acquainted: *</label><br>
   {{formData.thirdReference.acquainted}}
   <br><label for="name">Years of acquaintance:</label><br>
@@ -1450,8 +1473,8 @@
   {{formData.vehicleDescription.insuranceCompany}}
   <br><label for="agent">Agent: *</label><br>
   {{formData.vehicleDescription.agent}}
-  <br><label for="agent address">Agent Address: *</label><br>
-  {{formData.vehicleDescription.agentAddress}}
+  <br><label for="agent address">Agent Email Address: *</label><br>
+  {{formData.vehicleDescription.agentEmailAddress}}
   <br><label for="agent Phone">Agent Phone</label><br>
   {{formData.vehicleDescription.agentPhone}}
   <br><label for="can transport walker or wheelchair">Are you able to transport a folding walker or wheel chair: *</label><br>
@@ -1491,8 +1514,8 @@
     {{formData.secondVehicleDescription.insuranceCompany}}
     <br><label for="agent">Agent: *</label><br>
     {{formData.secondVehicleDescription.agent}}
-    <br><label for="agent address">Agent Address: *</label><br>
-    {{formData.secondVehicleDescription.agentAddress}}
+    <br><label for="agent address">Agent Email Address: *</label><br>
+    {{formData.secondVehicleDescription.agentEmailAddress}}
     <br><label for="agent Phone">Agent Phone</label><br>
     {{formData.secondVehicleDescription.agentPhone}}
     <br><label for="can transport walker or wheelchair">Are you able to transport a folding walker or wheel chair: *</label><br>
