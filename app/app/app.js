@@ -444,7 +444,8 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
       var currentBlob = new Blob([uintArray], {type: 'application/pdf'});
       $scope.pdfUrl = URL.createObjectURL(currentBlob);
       // $scope.redirectToURL($scope.pdfUrl);
-      window.open($scope.pdfUrl,'_blank');
+      console.log('opening window with url ', $scope.pdfUrl);
+      window.location.href($scope.pdfUrl);
     }
     else {
       return $scope.pdfUrl = "This form does not contain a PDF";
