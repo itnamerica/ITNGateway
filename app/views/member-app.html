@@ -22,25 +22,25 @@
                       
                       <ol class="steps">
                         <li class="step active">
-                          <a href="#tab1">Step 1</a>
+                          <a href="#tab1">Membership Information</a>
                         </li>
                         <li class="step">
-                          <a href="#tab2" tabindex="-1">Step 2</a>
+                          <a href="#tab2" tabindex="-1">Emergency Contacts</a>
                         </li>
                         <li class="step">
-                          <a href="#tab3" tabindex="-1">Step 3</a>
+                          <a href="#tab3" tabindex="-1">Word of Mouth</a>
                         </li>
                         <li class="step">
-                          <a href="#tab4" tabindex="-1">Step 4</a>
+                          <a href="#tab4" tabindex="-1">Customer Information</a>
                         </li>
                         <li class="step">
-                          <a href="#tab5" tabindex="-1">Step 5</a>
+                          <a href="#tab5" tabindex="-1">Civic Engagement</a>
                         </li>
                         <li class="step">
-                          <a href="#tab6" tabindex="-1">Step 6</a>
+                          <a href="#tab6" tabindex="-1">Driving Information</a>
                         </li>
                         <li class="step">
-                          <a href="#tab7" tabindex="-1">Step 7</a>
+                          <a href="#tab7" tabindex="-1">Agreement & Consent</a>
                         </li>
                       </ol>
                       
@@ -202,28 +202,29 @@
                         <img ng-src="{{assetsPath}}/images/icons/itnlanier_white_bg.png" style="margin:auto;display:block" alt="main logo"/>
 
                         <ol class="steps">
-                        <li class="step previous complete">
-                          <a href="">Step 1</a>
-                        </li>
-                        <li class="step active">
-                          <a href="">Step 2</a>
-                        </li>
-                        <li class="step">
-                          <a href="" tabindex="-1">Step 3</a>
-                        </li>
-                        <li class="step">
-                          <a href="" tabindex="-1">Step 4</a>
-                        </li>
-                        <li class="step">
-                          <a href="" tabindex="-1">Step 5</a>
-                        </li>
-                        <li class="step">
-                          <a href="" tabindex="-1">Step 6</a>
-                        </li>
-                        <li class="step">
-                          <a href="" tabindex="-1">Step 7</a>
-                        </li>
+                          <li class="step previous complete">
+                            <a href="#tab1">Membership Information</a>
+                          </li>
+                          <li class="step active">
+                            <a href="#tab2" tabindex="-1">Emergency Contacts</a>
+                          </li>
+                          <li class="step">
+                            <a href="#tab3" tabindex="-1">Word of Mouth</a>
+                          </li>
+                          <li class="step">
+                            <a href="#tab4" tabindex="-1">Customer Information</a>
+                          </li>
+                          <li class="step">
+                            <a href="#tab5" tabindex="-1">Civic Engagement</a>
+                          </li>
+                          <li class="step">
+                            <a href="#tab6" tabindex="-1">Driving Information</a>
+                          </li>
+                          <li class="step">
+                            <a href="#tab7" tabindex="-1">Agreement & Consent</a>
+                          </li>
                         </ol>
+
 
                         <div id="first-emergency">
                           
@@ -282,15 +283,15 @@
                             
                             <div class="row">
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmHomePhone.$invalid && !itnForm.firstEmHomePhone.$pristine }">
-                              <label for="home phone">Home Phone: *</label><br>
-                              <input type="text" class="form-control" id="home-phone" name="firstEmHomePhone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.firstEmergencyContact.homePhone" ng-pattern="phonePattern" required>
+                              <label for="best phone">Best phone number: *</label><br>
+                              <input type="text" class="form-control" id="home-phone" name="firstEmHomePhone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.firstEmergencyContact.bestPhone" ng-pattern="phonePattern" required>
                               <span ng-if="itnForm.firstEmHomePhone.$error.required && !itnForm.firstEmHomePhone.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.firstEmHomePhone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
                             </div>
                             
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmCellphone.$invalid && !itnForm.firstEmCellphone.$pristine }">
-                              <label for="cell phone">Cell Phone: </label><br>
-                              <input type="text" class="form-control" id="cellphone" name="firstEmCellphone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.firstEmergencyContact.cellPhone" ng-pattern="phonePattern" required>
+                              <label for="other phone">Additional phone number: </label><br>
+                              <input type="text" class="form-control" id="cellphone" name="firstEmCellphone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.firstEmergencyContact.otherPhone" ng-pattern="phonePattern" required>
                               <span ng-if="itnForm.firstEmCellphone.$error.required && !itnForm.firstEmCellphone.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.firstEmCellphone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
                             </div>
@@ -363,15 +364,15 @@
                             
                             <div class="row">
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmHomePhone.$invalid && !itnForm.secondEmHomePhone.$pristine }">
-                              <label for="home phone">Home Phone: *</label><br>
-                              <input type="text" class="form-control" id="home-phone" name="secondEmHomePhone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.secondEmergencyContact.homePhone" ng-pattern="phonePattern" required>
+                              <label for="best phone">Best phone number: *</label><br>
+                              <input type="text" class="form-control" id="home-phone" name="secondEmHomePhone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.secondEmergencyContact.bestPhone" ng-pattern="phonePattern" required>
                               <span ng-if="itnForm.secondEmHomePhone.$error.required && !itnForm.secondEmHomePhone.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.secondEmHomePhone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
                             </div>
                             
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmCellphone.$invalid && !itnForm.secondEmCellphone.$pristine }">
-                              <label for="cell phone">Cell Phone: </label><br>
-                              <input type="text" class="form-control" id="cellphone" name="secondEmCellphone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.secondEmergencyContact.cellPhone" ng-pattern="phonePattern" required>
+                              <label for="other phone">Other Number: </label><br>
+                              <input type="text" class="form-control" id="cellphone" name="secondEmCellphone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.secondEmergencyContact.otherPhone" ng-pattern="phonePattern" required>
                               <span ng-if="itnForm.secondEmCellphone.$error.required && !itnForm.secondEmCellphone.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.secondEmCellphone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
                             </div>
@@ -399,25 +400,25 @@
                             
                             <ol class="steps">
                               <li class="step previous complete">
-                                <a href="">Step 1</a>
+                                <a href="#tab1">Membership Information</a>
                               </li>
                               <li class="step previous complete">
-                                <a href="">Step 2</a>
+                                <a href="#tab2" tabindex="-1">Emergency Contacts</a>
                               </li>
                               <li class="step active">
-                                <a href="">Step 3</a>
+                                <a href="#tab3" tabindex="-1">Word of Mouth</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 4</a>
+                                <a href="#tab4" tabindex="-1">Customer Information</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 5</a>
+                                <a href="#tab5" tabindex="-1">Civic Engagement</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 6</a>
+                                <a href="#tab6" tabindex="-1">Driving Information</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 7</a>
+                                <a href="#tab7" tabindex="-1">Agreement & Consent</a>
                               </li>
                             </ol>
                             
@@ -519,25 +520,25 @@
                             
                             <ol class="steps">
                               <li class="step previous complete">
-                                <a href="">Step 1</a>
+                                <a href="#tab1">Membership Information</a>
                               </li>
                               <li class="step previous complete">
-                                <a href="">Step 2</a>
+                                <a href="#tab2" tabindex="-1">Emergency Contacts</a>
                               </li>
                               <li class="step previous complete">
-                                <a href="">Step 3</a>
+                                <a href="#tab3" tabindex="-1">Word of Mouth</a>
                               </li>
                               <li class="step active">
-                                <a href="">Step 4</a>
+                                <a href="#tab4" tabindex="-1">Customer Information</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 5</a>
+                                <a href="#tab5" tabindex="-1">Civic Engagement</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 6</a>
+                                <a href="#tab6" tabindex="-1">Driving Information</a>
                               </li>
                               <li class="step">
-                                <a href="" tabindex="-1">Step 7</a>
+                                <a href="#tab7" tabindex="-1">Agreement & Consent</a>
                               </li>
                             </ol>
                             
@@ -617,25 +618,25 @@
                           
                           <ol class="steps">
                             <li class="step previous complete">
-                              <a href="">Step 1</a>
+                              <a href="#tab1">Membership Information</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 2</a>
+                              <a href="#tab2" tabindex="-1">Emergency Contacts</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 3</a>
+                              <a href="#tab3" tabindex="-1">Word of Mouth</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 4</a>
+                              <a href="#tab4" tabindex="-1">Customer Information</a>
                             </li>
                             <li class="step active">
-                              <a href="">Step 5</a>
+                              <a href="#tab5" tabindex="-1">Civic Engagement</a>
                             </li>
                             <li class="step">
-                              <a href="" tabindex="-1">Step 6</a>
+                              <a href="#tab6" tabindex="-1">Driving Information</a>
                             </li>
                             <li class="step">
-                              <a href="" tabindex="-1">Step 7</a>
+                              <a href="#tab7" tabindex="-1">Agreement & Consent</a>
                             </li>
                           </ol>
                           
@@ -698,25 +699,25 @@
                           
                           <ol class="steps">
                             <li class="step previous complete">
-                              <a href="">Step 1</a>
+                              <a href="#tab1">Membership Information</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 2</a>
+                              <a href="#tab2" tabindex="-1">Emergency Contacts</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 3</a>
+                              <a href="#tab3" tabindex="-1">Word of Mouth</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 4</a>
+                              <a href="#tab4" tabindex="-1">Customer Information</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 5</a>
+                              <a href="#tab5" tabindex="-1">Civic Engagement</a>
                             </li>
                             <li class="step active">
-                              <a href="">Step 6</a>
+                              <a href="#tab6" tabindex="-1">Driving Information</a>
                             </li>
                             <li class="step">
-                              <a href="" tabindex="-1">Step 7</a>
+                              <a href="#tab7" tabindex="-1">Agreement & Consent</a>
                             </li>
                           </ol>
                           
@@ -887,25 +888,25 @@
                           
                           <ol class="steps">
                             <li class="step previous complete">
-                              <a href="">Step 1</a>
+                              <a href="#tab1">Membership Information</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 2</a>
+                              <a href="#tab2" tabindex="-1">Emergency Contacts</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 3</a>
+                              <a href="#tab3" tabindex="-1">Word of Mouth</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 4</a>
+                              <a href="#tab4" tabindex="-1">Customer Information</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 5</a>
+                              <a href="#tab5" tabindex="-1">Civic Engagement</a>
                             </li>
                             <li class="step previous complete">
-                              <a href="">Step 6</a>
+                              <a href="#tab6" tabindex="-1">Driving Information</a>
                             </li>
                             <li class="step active">
-                              <a href="">Step 7</a>
+                              <a href="#tab7" tabindex="-1">Agreement & Consent</a>
                             </li>
                           </ol>
                           
@@ -1077,10 +1078,10 @@
     {{formData.firstEmergencyContact.state}}
     <br><label for="zip">Zip Code: *</label><br>
     {{formData.firstEmergencyContact.zip}}
-    <br><label for="home phone">Home Phone: *</label><br>
-    {{formData.firstEmergencyContact.homePhone}}
-    <br><label for="cell phone">Cell Phone: </label><br>
-    {{formData.firstEmergencyContact.cellPhone}}
+    <br><label for="home phone">Best Phone Number: *</label><br>
+    {{formData.firstEmergencyContact.bestPhone}}
+    <br><label for="cell phone">Other Phone Number: </label><br>
+    {{formData.firstEmergencyContact.otherPhone}}
     <br><label for="email">Email: </label><br>
     {{formData.firstEmergencyContact.email}}
     
@@ -1098,10 +1099,10 @@
     {{formData.secondEmergencyContact.state}}
     <br><label for="zip">Zip Code: *</label><br>
     {{formData.secondEmergencyContact.zip}}
-    <br><label for="home phone">Home Phone: *</label><br>
-    {{formData.secondEmergencyContact.homePhone}}
-    <br><label for="cell phone">Cell Phone: </label><br>
-    {{formData.secondEmergencyContact.cellPhone}}
+    <br><label for="best phone">Best Phone Number: *</label><br>
+    {{formData.secondEmergencyContact.bestPhone}}
+    <br><label for="other phone">Other Phone Number: </label><br>
+    {{formData.secondEmergencyContact.otherPhone}}
     <br><label for="email">Email: </label><br>
     {{formData.secondEmergencyContact.email}}
     
