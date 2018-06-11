@@ -9,7 +9,7 @@
       <div class="container">
         <p class="ta-center"><em>Once you have completed the application we will send you a confirmation email. <br>
           You can book your first ride by calling us at (314) 724-2117 (St Louis) or (636) 329-0888 (St Charles).</em></p>
-          <p><strong>All fields with an asterisk (*) are required</strong></p>
+          <p><strong>All fields with an asterisk (<span style="color:red">*</span>) are required</strong></p>
         <hr align="center">
         <div class="col-sm-12">
             <div class="form-area" id="formConfirmation" style="background: #c7dfe4;border:none">  
@@ -47,7 +47,7 @@
                       
                       
                         <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
-                          <label for="Membership for which ITN">Membership for: *</label><br>
+                          <label for="Membership for which ITN">Membership for: <span style="color:red">*</span></label><br>
                           <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">St. Charles</label>
                           <label class="radio-inline"><input type="radio" name="memberFor" value="stlouis" ng-model="formData.memberFor" required>St. Louis</label>
                           <span ng-if="itnForm.memberFor.$error.required && !itnForm.memberFor.$pristine" class="help-block">{{errorMessages.required}}</span>
@@ -56,14 +56,14 @@
                   
                       
                         <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.membership.$invalid }">
-                          <label for="Membership Type">Membership Type: *</label><br>
+                          <label for="Membership Type">Membership Type: <span style="color:red">*</span></label><br>
                           <label class="radio-inline"><input type="radio" value="individual" name="membership" ng-model="formData.membership" ng-click="familyMembership = false">Individual</label>
                           <label class="radio-inline"><input type="radio" name="membership" value="family" ng-model="formData.membership" ng-click="familyMembership = true" required>Family</label>
                           <span ng-if="itnForm.membership.$error.required && !itnForm.membership.$pristine" class="help-block">{{errorMessages.required}}</span>
                         </div>
                         
                         <div class="form-group" ng-class="{ 'has-error' : itnForm.riderName.$invalid && !itnForm.riderName.$pristine }">
-                          <label for="rider name">Rider's Name: *</label><br>
+                          <label for="rider name">Rider's Name: <span style="color:red">*</span></label><br>
                           <input type="text" class="form-control" id="riderName" name="riderName" ng-model="formData.riderName" ng-minlength="minlength" ng-maxlength="maxlength" required>
                           <span ng-if="itnForm.riderName.$error.required && !itnForm.riderName.$pristine" class="help-block">{{errorMessages.required}}</span>
                           <span ng-if="itnForm.riderName.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="form-group" ng-class="{ 'has-error' : itnForm.street.$invalid && !itnForm.street.$pristine }">
-                          <label for="street">Street Address: *</label><br>
+                          <label for="street">Street Address: <span style="color:red">*</span></label><br>
                           <input type="text" class="form-control" id="street" name="street" ng-model="formData.streetAddress" ng-minlength="minlength" ng-maxlength="maxlength" required>
                           <span ng-if="itnForm.street.$error.required && !itnForm.street.$pristine" class="help-block">{{errorMessages.required}}</span>
                           <span ng-if="itnForm.street.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -80,7 +80,7 @@
                         
                         <div class="row">
                           <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.city.$invalid && !itnForm.city.$pristine }">
-                            <label for="street">City: *</label><br>
+                            <label for="street">City: <span style="color:red">*</span></label><br>
                             <input type="text" class="form-control" id="city" name="city" ng-model="formData.city" ng-minlength="minlength" ng-maxlength="maxlength" required>
                             <span ng-if="itnForm.city.$error.required && !itnForm.city.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.city.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -88,7 +88,7 @@
                           </div>
                           
                           <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.state.$invalid && !itnForm.state.$pristine }">
-                            <label for="state">State: *</label><br>
+                            <label for="state">State: <span style="color:red">*</span></label><br>
                             <select ng-model="formData.state" class="form-control" name="state" id="state">
                                <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
                             </select>
@@ -99,40 +99,40 @@
                         
                         <div class="row">
                           <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.zip.$invalid && !itnForm.zip.$pristine }">
-                            <label for="zip">Zip Code: *</label><br>
+                            <label for="zip">Zip Code: <span style="color:red">*</span></label><br>
                             <input type="text" class="form-control" id="zip" name="zip" ng-model="formData.zip" ng-pattern="zipPattern" required>
                             <span ng-if="itnForm.zip.$error.required && !itnForm.zip.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.zip.$error.pattern" class="help-block">{{errorMessages.zip}}</span>
                           </div>
                           
                           <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.years.$invalid && !itnForm.years.$pristine }">
-                            <label for="years at address">Years at Address: *</label><br>
+                            <label for="years at address">Years at Address: <span style="color:red">*</span></label><br>
                             <input type="text" class="form-control" id="years" name="years" ng-model="formData.yearsAtAddress" required>
                             <span ng-if="itnForm.years.$error.required && !itnForm.years.$pristine" class="help-block">{{errorMessages.required}}</span>
                           </div>
                         </div><!--row-->
 
                         <div class="form-group ta-center">
-                          <label for="Mailing Adress Yes or No">Is this your Mailing Address?*:  </label><br>
+                          <label for="Mailing Adress Yes or No">Is this your Mailing Address?<span style="color:red">*</span>:  </label><br>
                           <label class="radio-inline"><input type="radio" value="yes" ng-model="formData.isMailingAddress">Yes</label>
                           <label class="radio-inline"><input type="radio" value="no" ng-model="formData.isMailingAddress" required>No</label>
                         </div>
                         
                         <div class="form-group ta-center">
-                          <label for="Billing Adress Yes or No">Is this your Billing Address?*:  </label><br>
+                          <label for="Billing Adress Yes or No">Is this your Billing Address?<span style="color:red">*</span>:  </label><br>
                           <label class="radio-inline"><input type="radio" value="yes" ng-model="formData.isBillingAddress">Yes</label>
                           <label class="radio-inline"><input type="radio" value="no" ng-model="formData.isBillingAddress" required>No</label>
                         </div>
                         
                         <div class="form-group ta-center">
-                          <label for="Year-round Residence Yes or No">Is this your Year-round Residence?*:  </label><br>
+                          <label for="Year-round Residence Yes or No">Is this your Year-round Residence?<span style="color:red">*</span>:  </label><br>
                           <label class="radio-inline"><input type="radio" value="yes" ng-model="formData.isYearRoundResidence">Yes</label>
                           <label class="radio-inline"><input type="radio" value="no" ng-model="formData.isYearRoundResidence" required>No</label>
                         </div>
 
                         <div class="row">
                           <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.primaryPhone.$invalid && !itnForm.primaryPhone.$pristine }">
-                            <label for="primary phone">Primary Phone: *</label><br>
+                            <label for="primary phone">Primary Phone: <span style="color:red">*</span></label><br>
                             <input type="text" class="form-control" id="primary-phone" name="primaryPhone" placeholder="Example: xxx-xxx-xxxx"  ng-model="formData.primaryPhone" ng-pattern="phonePattern" required>
                             <span ng-if="itnForm.primaryPhone.$error.required && !itnForm.primaryPhone.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.primaryPhone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
@@ -156,7 +156,7 @@
                           <h2 class="mt-50 mb-25">Additional Information for Family Membership Only</h2>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.secondRiderName.$invalid && !itnForm.secondRiderName.$pristine }">
-                            <label for="second rider name">Second Rider's Name: *</label><br>
+                            <label for="second rider name">Second Rider's Name: <span style="color:red">*</span></label><br>
                             <input type="text" class="form-control" id="secondRiderName" name="secondRiderName" ng-model="formData.secondRiderName" ng-minlength="minlength" ng-maxlength="maxlength" required>
                             <span ng-if="itnForm.secondRiderName.$error.required && !itnForm.secondRiderName.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.riderName.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -164,14 +164,14 @@
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.secondRiderDob.$invalid && !itnForm.secondRiderDob.$pristine }">
-                            <label for="second rider date of birth">Second Rider's Date of Birth: * - </label><br>
+                            <label for="second rider date of birth">Second Rider's Date of Birth: <span style="color:red">*</span> - </label><br>
                             <input type="text" class="form-control" id="secondRiderDob" name="secondRiderDob" placeholder="Example: mm/dd/yyyy" ng-model="formData.secondRiderDob" ng-pattern="dobPattern" required>
                             <span ng-if="itnForm.secondRiderDob.$error.required && !itnForm.secondRiderDob.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.secondRiderDob.$error.pattern" class="help-block">{{errorMessages.dob}}</span>
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="second rider special needs">Second Rider's Special Needs and Mobility Assistance: *</label><br>
+                            <label for="second rider special needs">Second Rider's Special Needs and Mobility Assistance: <span style="color:red">*</span></label><br>
                             <label class="checkbox-inline"><input ng-model="formData.secondRiderSpecialNeeds.cane" type="checkbox" value="cane">Cane</label>
                             <label class="checkbox-inline"><input ng-model="formData.secondRiderSpecialNeeds.wheelchair" type="checkbox" value="wheelchair">Wheelchair (< 22lbs) </label>
                             <label class="checkbox-inline"><input ng-model="formData.secondRiderSpecialNeeds.blind" type="checkbox" value="blind"> Blind/Seeing Eye</label>
@@ -232,7 +232,7 @@
                           <h2>First Emergency Contact</h2>
                           
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.firstEmName.$invalid && !itnForm.firstEmName.$pristine }">
-                              <label for="name">Name: *</label><br>
+                              <label for="name">Name: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="name" name="firstEmName" ng-model="formData.firstEmergencyContact.name" ng-minlength="minlength" ng-maxlength="maxlength" required>
                               <span ng-if="itnForm.firstEmName.$error.required && !itnForm.firstEmName.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.firstEmName.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -240,7 +240,7 @@
                             </div>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.firstEmRelationship.$invalid && !itnForm.firstEmRelationship.$pristine }">
-                              <label for="relationship">Relationship: *</label><br>
+                              <label for="relationship">Relationship: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="relationship" name="firstEmRelationship" placeholder="Example: Daughter" ng-model="formData.firstEmergencyContact.relationship" ng-minlength="minlength" ng-maxlength="maxlength" required>
                               <span ng-if="itnForm.firstEmRelationship.$error.required && !itnForm.firstEmRelationship.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.firstEmRelationship.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -249,7 +249,7 @@
                             
                             <div class="row">
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmStreet.$invalid && !itnForm.firstEmStreet.$pristine }">
-                                <label for="street">Street Address: *</label><br>
+                                <label for="street">Street Address: <span style="color:red">*</span></label><br>
                                 <input type="text" class="form-control" id="street" name="firstEmStreet" ng-model="formData.firstEmergencyContact.street" ng-minlength="minlength" ng-maxlength="maxlength" required>
                                 <span ng-if="itnForm.firstEmStreet.$error.required && !itnForm.firstEmStreet.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.firstEmStreet.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -257,7 +257,7 @@
                               </div>
                               
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmCity.$invalid && !itnForm.firstEmCity.$pristine }">
-                                <label for="city">City: *</label><br>
+                                <label for="city">City: <span style="color:red">*</span></label><br>
                                 <input type="text" class="form-control" id="city" name="firtEmCity"  ng-model="formData.firstEmergencyContact.city" ng-minlength="minlength" ng-maxlength="maxlength" required>
                                 <span ng-if="itnForm.firstEmCity.$error.required && !itnForm.firstEmCity.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.firstEmCity.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -267,7 +267,7 @@
                             
                             <div class="row">
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmState.$invalid && !itnForm.firstEmState.$pristine }">
-                                <label for="state">State: *</label><br>
+                                <label for="state">State: <span style="color:red">*</span></label><br>
                                 <select ng-model="formData.firstEmergencyContact.state" class="form-control" name="firstEmState" id="state">
                                    <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
                                 </select>
@@ -275,7 +275,7 @@
                               </div>
                             
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmZip.$invalid && !itnForm.firstEmZip.$pristine }">
-                              <label for="zip">Zip Code: *</label><br>
+                              <label for="zip">Zip Code: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="zip" name="firstEmZip" ng-model="formData.firstEmergencyContact.zip"  ng-pattern="zipPattern" required>
                               <span ng-if="itnForm.firstEmZip.$error.required && !itnForm.firstEmZip.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.firstEmZip.$error.pattern" class="help-block">{{errorMessages.zip}}</span>
@@ -284,7 +284,7 @@
                             
                             <div class="row">
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.firstEmHomePhone.$invalid && !itnForm.firstEmHomePhone.$pristine }">
-                              <label for="best phone">Best phone number: *</label><br>
+                              <label for="best phone">Best phone number: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="home-phone" name="firstEmHomePhone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.firstEmergencyContact.bestPhone" ng-pattern="phonePattern" required>
                               <span ng-if="itnForm.firstEmHomePhone.$error.required && !itnForm.firstEmHomePhone.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.firstEmHomePhone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
@@ -313,7 +313,7 @@
                             <h2>Second Emergency Contact</h2>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.secondEmName.$invalid && !itnForm.secondEmName.$pristine }">
-                              <label for="name">Name: *</label><br>
+                              <label for="name">Name: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="name" name="secondEmName" ng-model="formData.secondEmergencyContact.name" ng-minlength="minlength" ng-maxlength="maxlength" required>
                               <span ng-if="itnForm.secondEmName.$error.required && !itnForm.secondEmName.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.secondEmName.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -321,7 +321,7 @@
                             </div>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.secondEmRelationship.$invalid && !itnForm.secondEmRelationship.$pristine }">
-                              <label for="relationship">Relationship: *</label><br>
+                              <label for="relationship">Relationship: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="relationship" name="secondEmRelationship" placeholder="Example: Daughter" ng-model="formData.secondEmergencyContact.relationship" ng-minlength="minlength" ng-maxlength="maxlength" required>
                               <span ng-if="itnForm.secondEmRelationship.$error.required && !itnForm.secondEmRelationship.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.secondEmRelationship.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -330,7 +330,7 @@
                             
                             <div class="row">
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmStreet.$invalid && !itnForm.secondEmStreet.$pristine }">
-                                <label for="street">Street Address: *</label><br>
+                                <label for="street">Street Address: <span style="color:red">*</span></label><br>
                                 <input type="text" class="form-control" id="street" name="secondEmStreet" ng-model="formData.secondEmergencyContact.street" ng-minlength="minlength" ng-maxlength="maxlength" required>
                                 <span ng-if="itnForm.secondEmStreet.$error.required && !itnForm.secondEmStreet.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.secondEmStreet.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -338,7 +338,7 @@
                               </div>
                               
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmCity.$invalid && !itnForm.secondEmCity.$pristine }">
-                                <label for="city">City: *</label><br>
+                                <label for="city">City: <span style="color:red">*</span></label><br>
                                 <input type="text" class="form-control" id="city" name="secondEmCity"  ng-model="formData.secondEmergencyContact.city" ng-minlength="minlength" ng-maxlength="maxlength" required>
                                 <span ng-if="itnForm.secondEmCity.$error.required && !itnForm.secondEmCity.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.secondEmCity.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -348,7 +348,7 @@
                             
                             <div class="row">
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmState.$invalid && !itnForm.secondEmState.$pristine }">
-                                <label for="state">State: *</label><br>
+                                <label for="state">State: <span style="color:red">*</span></label><br>
                                 <select ng-model="formData.secondEmergencyContact.state" class="form-control" name="secondEmState" id="state">
                                    <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
                                 </select>
@@ -356,7 +356,7 @@
                               </div>
                             
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmZip.$invalid && !itnForm.secondEmZip.$pristine }">
-                              <label for="zip">Zip Code: *</label><br>
+                              <label for="zip">Zip Code: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="zip" name="secondEmZip" ng-model="formData.secondEmergencyContact.zip" ng-model="formData.secondEmergencyContact.zip" ng-pattern="zipPattern" required>
                               <span ng-if="itnForm.secondEmZip.$error.required && !itnForm.secondEmZip.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.secondEmZip.$error.pattern" class="help-block">{{errorMessages.zip}}</span>
@@ -365,7 +365,7 @@
                             
                             <div class="row">
                             <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.secondEmHomePhone.$invalid && !itnForm.secondEmHomePhone.$pristine }">
-                              <label for="best phone">Best phone number: *</label><br>
+                              <label for="best phone">Best phone number: <span style="color:red">*</span></label><br>
                               <input type="text" class="form-control" id="home-phone" name="secondEmHomePhone" placeholder="Example: xxx-xxx-xxxx" ng-model="formData.secondEmergencyContact.bestPhone" ng-pattern="phonePattern" required>
                               <span ng-if="itnForm.secondEmHomePhone.$error.required && !itnForm.secondEmHomePhone.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.secondEmHomePhone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
@@ -424,7 +424,7 @@
                             </ol>
                             
                             <div class="form-group ta-center">
-                              <label for="Heard about ITN">How did you hear about ITN?: *</label><br>
+                              <label for="Heard about ITN">How did you hear about ITN?: <span style="color:red">*</span></label><br>
                               <label class="checkbox-inline"><input ng-model="formData.heardAboutItn.family" type="checkbox" value="family">Family</label>
                               <label class="checkbox-inline"><input ng-model="formData.heardAboutItn.friend" type="checkbox" value="friend">Friend</label>
                               <label class="checkbox-inline"><input ng-model="formData.heardAboutItn.speaker" type="checkbox" value="speaker">Speaker</label>
@@ -441,7 +441,7 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="send info">Would you like us to send information about ITN to a relative, friend, or business? * </label><br>
+                              <label for="send info">Would you like us to send information about ITN to a relative, friend, or business? <span style="color:red">*</span> </label><br>
                               <label class="radio-inline"><input ng-model="formData.sendInfoToRelativeFriendBiz" type="radio" value="yes" ng-click="sendInfo = true">Yes</label>
                               <label class="radio-inline"><input ng-model="formData.sendInfoToRelativeFriendBiz" type="radio" value="no" ng-click="sendInfo = false">No</label>
                             </div>
@@ -449,7 +449,7 @@
                             <div ng-if="sendInfo">
                               
                               <div class="form-group" ng-class="{ 'has-error' : itnForm.name.$invalid && !itnForm.name.$pristine }">
-                                <label for="name">Name: *</label><br>
+                                <label for="name">Name: <span style="color:red">*</span></label><br>
                                 <input ng-model="formData.sendInfoTo.name" type="text" class="form-control" id="name" name="name" ng-minlength="minlength" ng-maxlength="maxlength">
                                 <span ng-if="itnForm.name.$error.required && !itnForm.name.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.name.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -458,7 +458,7 @@
                               
                               <div class="row">
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.relationship.$invalid && !itnForm.relationship.$pristine }">
-                                <label for="relationship">Relationship: *</label><br>
+                                <label for="relationship">Relationship: <span style="color:red">*</span></label><br>
                                 <input ng-model="formData.sendInfoTo.relationship" type="text" class="form-control" id="relationship" name="relationship" ng-minlength="minlength" ng-maxlength="maxlength" required>
                                 <span ng-if="itnForm.relationship.$error.required && !itnForm.relationship.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.relationship.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -467,7 +467,7 @@
                               
                               
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.street.$invalid && !itnForm.street.$pristine }">
-                                <label for="street">Street Address: *</label><br>
+                                <label for="street">Street Address: <span style="color:red">*</span></label><br>
                                 <input ng-model="formData.sendInfoTo.street" type="text" class="form-control" id="street" name="street" ng-minlength="minlength" ng-maxlength="maxlength" required>
                                 <span ng-if="itnForm.street.$error.required && !itnForm.street.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.street.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -477,7 +477,7 @@
                               
                               <div class="row">
                                 <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.state.$invalid && !itnForm.state.$pristine }">
-                                  <label for="state">State: *</label><br>
+                                  <label for="state">State: <span style="color:red">*</span></label><br>
                                   <select ng-model="formData.sendInfoTo.state" class="form-control" name="state" id="state">
                                      <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
                                   </select>
@@ -485,7 +485,7 @@
                                 </div>
                               
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.zip.$invalid && !itnForm.zip.$pristine }">
-                                <label for="zip">Zip Code: *</label><br>
+                                <label for="zip">Zip Code: <span style="color:red">*</span></label><br>
                                 <input type="text" class="form-control" id="zip" name="zip" ng-model="formData.sendInfoTo.zip" ng-pattern="zipPattern" required>
                                 <span ng-if="itnForm.zip.$error.required && !itnForm.zip.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.zip.$error.pattern" class="help-block">{{errorMessages.zip}}</span>
@@ -494,7 +494,7 @@
                               
                               <div class="row">
                               <div class="form-group col-sm-6" ng-class="{ 'has-error' : itnForm.phone.$invalid && !itnForm.phone.$pristine }">
-                                <label for="phone">Phone: *</label><br>
+                                <label for="phone">Phone: <span style="color:red">*</span></label><br>
                                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Example: xxx-xxx-xxxx"  ng-model="formData.sendInfoTo.phone" ng-pattern="phonePattern" required>
                                 <span ng-if="itnForm.phone.$error.required && !itnForm.phone.$pristine" class="help-block">{{errorMessages.required}}</span>
                                 <span ng-if="itnForm.phone.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
@@ -548,20 +548,20 @@
                             <h2>Customer Information</h2>
                             
                             <div class="form-group ta-center">
-                              <label for="gender">Gender: * </label><br>
+                              <label for="gender">Gender: <span style="color:red">*</span> </label><br>
                               <label class="radio-inline"><input type="radio" value="female" ng-model="formData.customerInfo.gender">Female</label>
                               <label class="radio-inline"><input type="radio" value="male" ng-model="formData.customerInfo.gender" required>Male</label>
                             </div>
                             
                             <div class="form-group" ng-class="{ 'has-error' : itnForm.dob.$invalid && !itnForm.dob.$pristine }">
-                              <label for="dob">Date of Birth: * - </label><br>
+                              <label for="dob">Date of Birth: <span style="color:red">*</span> - </label><br>
                               <input type="text" class="form-control" id="dob" name="dob" placeholder="Example: mm/dd/yyyy" ng-model="formData.customerInfo.dateOfBirth" ng-pattern="dobPattern" required>
                               <span ng-if="itnForm.dob.$error.required && !itnForm.dob.$pristine" class="help-block">{{errorMessages.required}}</span>
                               <span ng-if="itnForm.dob.$error.pattern" class="help-block">{{errorMessages.dob}}</span>
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="marital status">Marital Status: * </label><br>
+                              <label for="marital status">Marital Status: <span style="color:red">*</span> </label><br>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.maritalStatus" type="radio" value="married">Married</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.maritalStatus" type="radio" value="single">Single</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.maritalStatus" type="radio" value="partnered">Partnered</label>
@@ -570,7 +570,7 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="living">Living Arrangements: * </label><br>
+                              <label for="living">Living Arrangements: <span style="color:red">*</span> </label><br>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.livingArrangement" type="radio" value="alone">Live Alone</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.livingArrangement" type="radio" value="spouse">Live with Spouse</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.livingArrangement" type="radio" value="children">Live with Children</label>
@@ -579,7 +579,7 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="dwelling">Dwelling Arrangements: * </label><br>
+                              <label for="dwelling">Dwelling Arrangements: <span style="color:red">*</span> </label><br>
                               <label class="radio-inline" required><input ng-model="formData.customerInfo.dwellingArrangement" type="radio" value="private-home">Private Home</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.dwellingArrangement" type="radio" value="assisted-living"> Assisted Living Facility</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.dwellingArrangement" type="radio" value="retirement-community"> Independent Living Retirement Community</label>
@@ -588,7 +588,7 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="languages">Languages : *</label><br>
+                              <label for="languages">Languages : <span style="color:red">*</span></label><br>
                               <label class="checkbox-inline"><input ng-model="formData.customerInfo.languages.english" type="checkbox" value="english">English</label>
                               <label class="checkbox-inline"><input ng-model="formData.customerInfo.languages.french" type="checkbox" value="french">French</label>
                               <label class="checkbox-inline"><input ng-model="formData.customerInfo.languages.spanish" type="checkbox" value="spanish">Spanish</label>
@@ -597,7 +597,7 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="transportation means">Current primary means of getting around: * </label><br>
+                              <label for="transportation means">Current primary means of getting around: <span style="color:red">*</span> </label><br>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.currentTransportationMeans" type="radio" value="drive">Drive</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.currentTransportationMeans" type="radio" value="walk">Walk</label>
                               <label class="radio-inline"><input ng-model="formData.customerInfo.currentTransportationMeans" type="radio" value="fam-friend">Ride with Family or Friend</label>
@@ -658,20 +658,20 @@
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: * </label><br>
+                            <label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: <span style="color:red">*</span> </label><br>
                             <label class="radio-inline"><input ng-model="formData.memberOfProfessionalOrgOrUnion" type="radio" value="yes" ng-click="specifyUnions = true">Yes</label>
                             <label class="radio-inline"><input type="radio" value="no" ng-click="specifyUnions = false">No</label>
                               <input ng-model="formData.memberOfProfessionalOrgOrUnions" type="text" class="form-control" id="unions" name="unions" placeholder="Please list:" ng-if="specifyUnions">
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="served in armed forces">Have you ever served on active duty in the U.S. Armed Forces, Military Reserves, or National Guard: *</label><br>
+                            <label for="served in armed forces">Have you ever served on active duty in the U.S. Armed Forces, Military Reserves, or National Guard: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.customerInfo.servedInMilitary" type="radio" value="yes">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.customerInfo.servedInMilitary" type="radio" value="no">No</label>
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="special needs">Special Needs and Mobility Assistance: *</label><br>
+                            <label for="special needs">Special Needs and Mobility Assistance: <span style="color:red">*</span></label><br>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.cane" type="checkbox" value="cane">Cane</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.wheelchair" type="checkbox" value="wheelchair">Wheelchair</label>
                             <label class="checkbox-inline"><input ng-model="formData.customerInfo.specialNeeds.blindOrSeeingEye" type="checkbox" value="blind"> Blind/Seeing Eye</label>
@@ -725,31 +725,31 @@
                           <h2>Driving Information</h2>
                           
                           <div class="form-group ta-center">
-                            <label for="license">Do you have a current driver's license?: *</label><br>
+                            <label for="license">Do you have a current driver's license?: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.hasLicense" type="radio" value="yes">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.hasLicense" type="radio" value="no">No</label>
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="own vehicle">Do you own a vehicle?: *</label><br>
+                            <label for="own vehicle">Do you own a vehicle?: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.ownVehicle" type="radio" value="yes">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.ownVehicle" type="radio" value="no">No</label>
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="driver improvement">Have you tried any driver improvement activities or classes to help you keep driving safely longer?: *</label><br>
+                            <label for="driver improvement">Have you tried any driver improvement activities or classes to help you keep driving safely longer?: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.driverImprovementClasses" type="radio" value="yes">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.driverImprovementClasses" type="radio" value="no">No</label>
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="driven in last 10 years">Have you driven in the last ten years?: *</label><br>
+                            <label for="driven in last 10 years">Have you driven in the last ten years?: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.drivenLast10Years" type="radio" value="yes">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.drivenLast10Years" type="radio" value="no">No</label>
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="currently driving">Do you currently drive?: *</label><br>
+                            <label for="currently driving">Do you currently drive?: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.currentlyDrive" type="radio" value="yes" ng-click="currentDriver = true">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.currentlyDrive" type="radio" value="no" ng-click="currentDriver = false">No</label>
                           </div>
@@ -858,7 +858,7 @@
                           <h3>Rideshare</h3>
                           
                           <div class="form-group ta-center">
-                            <label for="reduce ITN cost with rideshare">Would you like to reduce the cost of ITN trips by sharing rides with others when it's convenient?: *</label><br>
+                            <label for="reduce ITN cost with rideshare">Would you like to reduce the cost of ITN trips by sharing rides with others when it's convenient?: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.reduceCostWithRideshare" type="radio" value="yes">Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingInfo.reduceCostWithRideshare" type="radio" value="no">No</label>
                           </div>
@@ -930,14 +930,14 @@
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.date1.$invalid && !itnForm.date1.$pristine }">
-                            <label for="date">Agreement Date: *</label>
+                            <label for="date">Agreement Date: <span style="color:red">*</span></label>
                             <input type="text" class="form-control" id="date" name="date1" placeholder="Example: mm/dd/yyyy" ng-pattern="datePattern" ng-model="formData.agreement.date1" required>
                             <span ng-if="itnForm.date1.$error.required && !itnForm.date1.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.date1.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                           </div>
                             
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.signature1.$invalid && !itnForm.signature1.$pristine }">
-                            <label for="signature">Agreement Signature: *</label>
+                            <label for="signature">Agreement Signature: <span style="color:red">*</span></label>
                             <input type="text" class="form-control" id="signature" name="signature1" placeholder="please print name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.agreement.signature1" required>
                             <span ng-if="itnForm.signature1.$error.required && !itnForm.signature1.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.signature1.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -945,7 +945,7 @@
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.date1.$invalid && !itnForm.date1.$pristine }">
-                            <label for="date">Agreement Date: *</label>
+                            <label for="date">Agreement Date: <span style="color:red">*</span></label>
                             <input type="text" class="form-control" id="date" name="date1" placeholder="Example: mm/dd/yyyy" ng-pattern="datePattern" ng-model="formData.agreement.date1" required>
                             <span ng-if="itnForm.date1.$error.required && !itnForm.date1.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.date1.$error.pattern" class="help-block">{{errorMessages.date}}</span>
@@ -969,7 +969,7 @@
                           <p>Your signature indicates that you understand that routinely-collected ITNAmerica data will be used to study and improve transportation for seniors, and that you may, from time to time, be asked questions about your use of the service. We will do our best to provide rides for you and we will always strive to inform you when we cannot provide a ride. However, we are not responsible for any costs or expenses you may incur when we are unable to provide a ride for a specific time and place.</p>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.name2.$invalid && !itnForm.name2.$pristine }">
-                            <label for="name">Name: *</label>
+                            <label for="name">Name: <span style="color:red">*</span></label>
                             <input ng-model="formData.agreement.name2" type="text" class="form-control" id="name" name="name2" placeholder="please print name"  ng-minlength="minlength" ng-maxlength="maxlength" match="formData.agreement.name1" required>
                             <span ng-if="itnForm.name2.$error.required && !itnForm.name2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.name2.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
@@ -978,8 +978,8 @@
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.signature2.$invalid && !itnForm.signature2.$pristine }">
-                            <label for="signature">Signature: *</label>
-                            <input ng-model="formData.agreement.signature2" type="text" class="form-control" id="signature" name="signature2" placeholder="Signature of customer or legal representative: *" ng-minlength="minlength" ng-maxlength="maxlength" match="formData.agreement.signature1" required>
+                            <label for="signature">Signature: <span style="color:red">*</span></label>
+                            <input ng-model="formData.agreement.signature2" type="text" class="form-control" id="signature" name="signature2" placeholder="Signature of customer or legal representative: <span style="color:red">*</span>" ng-minlength="minlength" ng-maxlength="maxlength" match="formData.agreement.signature1" required>
                             <span ng-if="itnForm.signature2.$error.required && !itnForm.signature2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.signature2.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                             <span ng-if="itnForm.signature2.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
@@ -987,7 +987,7 @@
                           </div>
                           
                           <div class="form-group" ng-class="{ 'has-error' : itnForm.date2.$invalid && !itnForm.date2.$pristine }">
-                            <label for="date">Agreement Date: *</label>
+                            <label for="date">Agreement Date: <span style="color:red">*</span></label>
                             <input ng-model="formData.agreement.date2" type="text" class="form-control" id="date" name="date2" ng-pattern="datePattern" placeholder="Example: mm/dd/yyyy" match="formData.agreement.date1" required>
                             <span ng-if="itnForm.date2.$error.required && !itnForm.date2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             <span ng-if="itnForm.date2.$error.pattern" class="help-block">{{errorMessages.date}}</span>
@@ -1026,27 +1026,27 @@
     
     <h3 class="app-title">Application for Transportation Service</h3>
     
-    <br><label for="Membership Type">Membership Type: *</label><br>
+    <br><label for="Membership Type">Membership Type: <span style="color:red">*</span></label><br>
     {{formData.membership}}
-    <br><label for="rider name">Rider's Name: *</label><br>
+    <br><label for="rider name">Rider's Name: <span style="color:red">*</span></label><br>
     {{formData.riderName}}
-    <br><label for="street">Street Address: *</label><br>
+    <br><label for="street">Street Address: <span style="color:red">*</span></label><br>
     {{formData.streetAddress}}
-    <br><label for="street">City: *</label><br>
+    <br><label for="street">City: <span style="color:red">*</span></label><br>
     {{formData.city}}
-    <br><label for="state">State: *</label><br>
+    <br><label for="state">State: <span style="color:red">*</span></label><br>
     {{formData.state}}
-    <br><label for="zip">Zip Code: *</label><br>
+    <br><label for="zip">Zip Code: <span style="color:red">*</span></label><br>
     {{formData.zip}}
-    <br><label for="years at address">Years at Address: *</label><br>
+    <br><label for="years at address">Years at Address: <span style="color:red">*</span></label><br>
     {{formData.yearsAtAddress}}
-    <br><label for="Mailing Adress Yes or No">Is this your Mailing Address?*:  </label><br>
+    <br><label for="Mailing Adress Yes or No">Is this your Mailing Address?<span style="color:red">*</span>:  </label><br>
     {{formData.isMailingAddress}}
-    <br><label for="Billing Adress Yes or No">Is this your Billing Address?*:  </label><br>
+    <br><label for="Billing Adress Yes or No">Is this your Billing Address?<span style="color:red">*</span>:  </label><br>
     {{formData.isBillingAddress}}
-    <br><label for="Year-round Residence Yes or No">Is this your Year-round Residence?*:  </label><br>
+    <br><label for="Year-round Residence Yes or No">Is this your Year-round Residence?<span style="color:red">*</span>:  </label><br>
     {{formData.isYearRoundResidence}}
-    <br><label for="primary phone">Primary Phone: *</label><br>
+    <br><label for="primary phone">Primary Phone: <span style="color:red">*</span></label><br>
     {{formData.primaryPhone}}
     <br><label for="secondary phone">Secondary Phone: </label><br>
     {{formData.secondaryPhone}}
@@ -1056,30 +1056,30 @@
     <div ng-if="familyMembership">
       <h3>Second Rider Information</h3>
       
-      <br><label for="second rider name">Second Rider's Name: *</label><br>
+      <br><label for="second rider name">Second Rider's Name: <span style="color:red">*</span></label><br>
       {{formData.secondRiderName}}
-      <br><label for="second rider name">Second Rider's Date of Birth: *</label><br>
+      <br><label for="second rider name">Second Rider's Date of Birth: <span style="color:red">*</span></label><br>
       {{formData.secondRiderDob}}
-      <br><label for="second rider special needs">Second Rider's Special Needs and Mobility Assistance: *</label><br>
+      <br><label for="second rider special needs">Second Rider's Special Needs and Mobility Assistance: <span style="color:red">*</span></label><br>
       {{formData.secondRiderSpecialNeeds | inputSelected}}
       
     </div>
     
     <h3>First Emergency Contact</h3>
     
-    <br><label for="name">Name: *</label><br>
+    <br><label for="name">Name: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.name}}
-    <br><label for="relationship">Relationship: *</label><br>
+    <br><label for="relationship">Relationship: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.relationship}}
-    <br><label for="street">Street Address: *</label><br>
+    <br><label for="street">Street Address: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.street}}
-    <br><label for="city">City: *</label><br>
+    <br><label for="city">City: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.city}}
-    <br><label for="state">State: *</label><br>
+    <br><label for="state">State: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.state}}
-    <br><label for="zip">Zip Code: *</label><br>
+    <br><label for="zip">Zip Code: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.zip}}
-    <br><label for="home phone">Best Phone Number: *</label><br>
+    <br><label for="home phone">Best Phone Number: <span style="color:red">*</span></label><br>
     {{formData.firstEmergencyContact.bestPhone}}
     <br><label for="cell phone">Other Phone Number: </label><br>
     {{formData.firstEmergencyContact.otherPhone}}
@@ -1088,19 +1088,19 @@
     
     <h3>Second Emergency Contact</h3>
     
-    <br><label for="name">Name: *</label><br>
+    <br><label for="name">Name: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.name}}
-    <br><label for="relationship">Relationship: *</label><br>
+    <br><label for="relationship">Relationship: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.relationship}}
-    <br><label for="street">Street Address: *</label><br>
+    <br><label for="street">Street Address: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.street}}
-    <br><label for="city">City: *</label><br>
+    <br><label for="city">City: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.city}}
-    <br><label for="state">State: *</label><br>
+    <br><label for="state">State: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.state}}
-    <br><label for="zip">Zip Code: *</label><br>
+    <br><label for="zip">Zip Code: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.zip}}
-    <br><label for="best phone">Best Phone Number: *</label><br>
+    <br><label for="best phone">Best Phone Number: <span style="color:red">*</span></label><br>
     {{formData.secondEmergencyContact.bestPhone}}
     <br><label for="other phone">Other Phone Number: </label><br>
     {{formData.secondEmergencyContact.otherPhone}}
@@ -1108,24 +1108,24 @@
     {{formData.secondEmergencyContact.email}}
     
     
-    <br><label for="Heard about ITN">How did you hear about ITN?: *</label><br>
+    <br><label for="Heard about ITN">How did you hear about ITN?: <span style="color:red">*</span></label><br>
     {{formData.heardAboutItn | inputSelected }}
     
-    <br><label for="send info">Would you like us to send information about ITN to a relative, friend, or business? * </label><br>
+    <br><label for="send info">Would you like us to send information about ITN to a relative, friend, or business? <span style="color:red">*</span> </label><br>
     {{formData.sendInfoToRelativeFriendBiz}}
     
     <br><div ng-if="sendInfo">
-      <br><label for="name">Name: *</label><br>
+      <br><label for="name">Name: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.name}}
-      <br><label for="relationship">Relationship: *</label><br>
+      <br><label for="relationship">Relationship: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.relationship}}
-      <br><label for="street">Street Address: *</label><br>
+      <br><label for="street">Street Address: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.street}}
-      <br><label for="state">State: *</label><br>
+      <br><label for="state">State: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.state}}
-      <br><label for="zip">Zip Code: *</label><br>
+      <br><label for="zip">Zip Code: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.zip}}
-      <br><label for="phone">Phone: *</label><br>
+      <br><label for="phone">Phone: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.phone}}
       <br><label for="email">Email: </label><br>
       {{formData.sendInfoTo.email}}
@@ -1135,43 +1135,43 @@
     
     <h3>Customer Information</h3>
     
-    <br><label for="gender">Gender: * </label><br>
+    <br><label for="gender">Gender: <span style="color:red">*</span> </label><br>
     {{formData.customerInfo.gender}}
-    <br><label for="dob">Date of Birth: * - </label><br>
+    <br><label for="dob">Date of Birth: <span style="color:red">*</span> - </label><br>
     {{formData.customerInfo.dateOfBirth}}
-    <br><label for="marital status">Marital Status: * </label><br>
+    <br><label for="marital status">Marital Status: <span style="color:red">*</span> </label><br>
     {{formData.customerInfo.maritalStatus}}
-    <br><label for="living">Living Arrangements: * </label><br>
+    <br><label for="living">Living Arrangements: <span style="color:red">*</span> </label><br>
     {{formData.customerInfo.livingArrangement}}
-    <br><label for="dwelling">Dwelling Arrangements: * </label><br>
+    <br><label for="dwelling">Dwelling Arrangements: <span style="color:red">*</span> </label><br>
     {{formData.customerInfo.dwellingArrangement}} {{formData.customerInfo.otherDwellingArrangement}}
-    <br><label for="languages">Languages Spoken: *</label><br>
+    <br><label for="languages">Languages Spoken: <span style="color:red">*</span></label><br>
     {{formData.customerInfo.languages | inputSelected}}
-    <br><label for="transportation means">Current primary means of getting around: * </label><br>
+    <br><label for="transportation means">Current primary means of getting around: <span style="color:red">*</span> </label><br>
     {{formData.customerInfo.currentTransportationMeans}}
     
     <h3>Civic Engagement</h3>
     
     <br><label for="member of any organization">Are you a member of any of the following organizations?:</label><br>
     {{formData.customerInfo.memberOfOrganization | inputSelected}}
-    <br><label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: * </label><br>
+    <br><label for="professional organization or labor union">Are you part of any professional organizations or labor unions?: <span style="color:red">*</span> </label><br>
     {{formData.memberOfProfessionalOrgOrUnion}} - {{formData.memberOfProfessionalOrgOrUnions}} 
-    <br><label for="served in armed forces">Have you ever served on active duty in the U.S. Armed Forces, Military Reserves, or National Guard: *</label><br>
+    <br><label for="served in armed forces">Have you ever served on active duty in the U.S. Armed Forces, Military Reserves, or National Guard: <span style="color:red">*</span></label><br>
     {{formData.customerInfo.servedInMilitary}}
-    <br><label for="special needs">Special Needs and Mobility Assistance: *</label><br>
+    <br><label for="special needs">Special Needs and Mobility Assistance: <span style="color:red">*</span></label><br>
     {{formData.customerInfo.specialNeeds | inputSelected }}
   
     <h3>Driving Information</h3>
     
-    <br><label for="license">Do you have a current driver's license?: *</label><br>
+    <br><label for="license">Do you have a current driver's license?: <span style="color:red">*</span></label><br>
     {{formData.drivingInfo.hasLicense}}
-    <br><label for="own vehicle">Do you own a vehicle?: *</label><br>
+    <br><label for="own vehicle">Do you own a vehicle?: <span style="color:red">*</span></label><br>
     {{formData.drivingInfo.ownVehicle}}
-    <br><label for="driver improvement">Have you tried any driver improvement activities or classes to help you keep driving safely longer?: *</label><br>
+    <br><label for="driver improvement">Have you tried any driver improvement activities or classes to help you keep driving safely longer?: <span style="color:red">*</span></label><br>
     {{formData.drivingInfo.driverImprovementClasses}}
-    <br><label for="driven in last 10 years">Have you driven in the last ten years?: *</label><br>
+    <br><label for="driven in last 10 years">Have you driven in the last ten years?: <span style="color:red">*</span></label><br>
     {{formData.drivingInfo.drivenLast10Years}}
-    <br><label for="currently driving">Do you currently drive?: *</label><br>
+    <br><label for="currently driving">Do you currently drive?: <span style="color:red">*</span></label><br>
     {{formData.drivingInfo.currentlyDrive}}
     
     <div ng-if="currentDriver">
@@ -1205,7 +1205,7 @@
         {{formData.drivingInfo.whyNoDrive | inputSelected }}  {{formData.drivingInfo.whyNoDrive.other }}
     </div>
     
-      <br><label for="reduce ITN cost with rideshare">Would you like to reduce the cost of ITN trips by sharing rides with others when it's convenient?: *</label><br>
+      <br><label for="reduce ITN cost with rideshare">Would you like to reduce the cost of ITN trips by sharing rides with others when it's convenient?: <span style="color:red">*</span></label><br>
       {{formData.drivingInfo.reduceCostWithRideshare}}
       <br><label for="info on programs">Would you like information on any of these ITN programs?:</label><br>
       {{formData.wantInfoOnPrograms | inputSelected}}
@@ -1229,11 +1229,11 @@
       </div>
       
       <label>By checking this box and submitting this form, you agree that your digital signature will be considered your legal signature and represents your agreement to the terms and policies outlined above.</label><br>
-      <br><label for="name">Name: *</label><br>
+      <br><label for="name">Name: <span style="color:red">*</span></label><br>
       {{formData.agreement.name1}}
-      <br><label for="signature">Agreement Signature: *</label><br>
+      <br><label for="signature">Agreement Signature: <span style="color:red">*</span></label><br>
       {{formData.agreement.signature1}}
-      <br><label for="date">Agreement Date: *</label><br>
+      <br><label for="date">Agreement Date: <span style="color:red">*</span></label><br>
       {{formData.agreement.date1}}
       
       
@@ -1250,11 +1250,11 @@
       <p>Your signature indicates that you understand that routinely-collected ITNAmerica data will be used to study and improve transportation for seniors, and that you may, from time to time, be asked questions about your use of the service. We will do our best to provide rides for you and we will always strive to inform you when we cannot provide a ride. However, we are not responsible for any costs or expenses you may incur when we are unable to provide a ride for a specific time and place.</p>
       
       <label>By checking this box and submitting this form, you agree that your digital signature will be considered your legal signature and represents your agreement to the terms and policies outlined above.</label><br>
-      <br><label for="name">Name: *</label><br>
+      <br><label for="name">Name: <span style="color:red">*</span></label><br>
       {{formData.agreement.name2}}
-      <br><label for="signature">Agreement Signature: *</label><br>
+      <br><label for="signature">Agreement Signature: <span style="color:red">*</span></label><br>
       {{formData.agreement.signature2}}
-      <br><label for="date">Agreement Date: *</label><br>
+      <br><label for="date">Agreement Date: <span style="color:red">*</span></label><br>
       {{formData.agreement.date2}}
       
     
@@ -1296,7 +1296,7 @@
   </script>
   
   <style>
-  /* COPYRIGHT PROGRESS UI */
+  /<span style="color:red">*</span> COPYRIGHT PROGRESS UI <span style="color:red">*</span>/
   .switch-list, .list-unstyled, ul.dropdown-menu, .stat-board, .nav-tabs, .breadcrumbs, .pagination, .pagination .pages, .steps, .tabs {
   line-height: inherit;
   list-style: none;
@@ -1466,7 +1466,7 @@
           float: left;
           text-indent: 0; }
       .step::after {
-        left: calc(28px + (12px * 2)); }
+        left: calc(28px + (12px <span style="color:red">*</span> 2)); }
       .step:last-of-type {
         margin-right: 0; } }
   
