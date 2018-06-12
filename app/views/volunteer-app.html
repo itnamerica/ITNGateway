@@ -67,7 +67,7 @@
                   
                 
               
-                  <form novalidate name="itnForm" ng-submit="submitFormWithPDF('volunteer')" role="volunteer form" ng-model="formData" ng-show="showForm" ng-hide="submitted">
+                  <form novalidate name="itnForm" ng-submit="submitFormWithPDF('volunteer'); showForm = false" role="volunteer form" ng-model="formData" ng-show="showForm">
                     <br style="clear:both">
                     
                     <div class="member-tabs" ng-if="tab===1" id="tab1">
@@ -282,7 +282,7 @@
                             <label for="vision adequate driving">Is your vision adequate for driving: <span style="color:red">*</span></label><br>
                             <label class="radio-inline"><input ng-model="formData.drivingExperience.adequateVision" type="radio" value="yes" ng-click="limitations = false" required>Yes</label>
                             <label class="radio-inline"><input ng-model="formData.drivingExperience.adequateVision" type="radio" value="no" ng-click="limitations = true">No</label>
-                              <input type="text" class="form-control" id="limitations" name="limitations" placeholder="Please list any limitations: <span style="color:red">*</span>" ng-model="formData.drivingExperience.adequateVision"
+                              <input type="text" class="form-control" id="limitations" name="limitations" placeholder="Please list any limitations:" ng-model="formData.drivingExperience.adequateVision"
                               ng-show="limitations">
                           </div>
                           
@@ -293,7 +293,7 @@
                             <label class="radio-inline"><input ng-model="formData.currentEmployment" type="radio" value="parttime" ng-click="occupation = true">Part-time</label>
                             <label class="radio-inline"><input ng-model="formData.currentEmployment" type="radio" value="betweenjobs" ng-click="occupation = true">Between Jobs</label>
                             <label class="radio-inline"><input ng-model="formData.currentEmployment" type="radio" value="retired" ng-click="occupation = true">Retired</label>
-                              <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Please list any limitations: <span style="color:red">*</span>" ng-model="formData.occupation" ng-show="occuptation">
+                              <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Please list any limitations:" ng-model="formData.occupation" ng-show="occuptation">
                           </div>
                       
                         
@@ -330,7 +330,7 @@
                         <label for="criminal conviction">Have you had any past criminal convictions, or do you have any charges pending against you in a court of law?<span style="color:red">*</span></label><br>
                         <label class="radio-inline"><input type="radio" value="yes" ng-model="formData.criminalConviction" ng-click="crimConvic = true" required>Yes</label>
                         <label class="radio-inline"><input type="radio" value="no" ng-model="formData.criminalConviction" ng-click="crimConvic = true">No</label>
-                        <input type="text" class="form-control"   id="limitations" name="limitations" placeholder="List convictions: <span style="color:red">*</span>" ng-model="formData.criminalConvictionDetail"
+                        <input type="text" class="form-control"   id="limitations" name="limitations" placeholder="List convictions:" ng-model="formData.criminalConvictionDetail"
                         ng-show="crimConvic">
                       </div>
                       
@@ -449,7 +449,7 @@
                       
                       <div class="form-group" ng-class="{ 'has-error' : itnForm.signature1.$invalid && !itnForm.signature1.$pristine }">
                         <label for="signature">Signature (type your full name): <span style="color:red">*</span></label><br>
-                        <input type="text" class="form-control" id="signature" name="signature1" placeholder="type your full name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.references.signature" required>
+                        <input type="text" class="form-control" id="signature" name="signature1" placeholder="type your full name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.references.signature" ng-change="prepopulate(formData.references.signature, signature)" required>
                         <span ng-if="itnForm.signature1.$error.required && !itnForm.signature1.$pristine" class="help-block">{{errorMessages.required}}</span>
                         <span ng-if="itnForm.signature1.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                         <span ng-if="itnForm.signature1.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
@@ -457,7 +457,7 @@
                       
                       <div class="form-group" ng-class="{ 'has-error' : itnForm.date2.$invalid && !itnForm.date2.$pristine }">
                         <label for="date">Agreement Date: <span style="color:red">*</span></label>
-                        <input ng-model="formData.requestDriverRecord.date2" type="text" class="form-control" id="date" name="date2" ng-pattern="datePattern" placeholder="Example: mm/dd/yyyy" required>
+                        <input ng-model="formData.references.date" type="text" class="form-control" id="date" name="date2" ng-pattern="datePattern" placeholder="Example: mm/dd/yyy" ng-change="prepopulate(formData.references.date, 'date')" required>
                         <span ng-if="itnForm.date2.$error.required && !itnForm.date2.$pristine" class="help-block">{{errorMessages.required}}</span>
                         <span ng-if="itnForm.date2.$error.pattern" class="help-block">{{errorMessages.date}}</span>
                       </div>
@@ -730,7 +730,7 @@
                             
                             <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.date2.$invalid && !itnForm.date2.$pristine }">
                               <label for="date">Agreement Date: <span style="color:red">*</span></label>
-                              <input ng-model="formData.requestDriverRecord.date2" type="text" class="form-control" id="date" name="date2" required>
+                              <input ng-model="formData.requestDriverRecord.date" type="text" class="form-control" id="date" name="date2" required>
                               <span ng-if="itnForm.date2.$error.required && !itnForm.date2.$pristine" class="help-block">{{errorMessages.required}}</span>
                             </div>
 
@@ -1203,7 +1203,7 @@
                             <input type="text" class="form-control" id="itnSignature" name="itnSignature" ng-model="formData.changeOfStatus.itnSignature" ng-disabled="true">
                           </div>
                           
-                          <div class="form-group ta-center">
+                          <div class="form-group">
                             <label for="itn date">Date <span style="color:red">*</span>: (will be signed by ITN after submission)</label><br>
                             <input type="text" class="form-control" id="itnDate" name="itnDate" ng-pattern="datePattern" ng-model="formData.changeOfStatus.itnDate" ng-disabled="true">
                           </div>
@@ -1674,7 +1674,9 @@
     pointer-events: none;
     text-overflow: ellipsis;
     vertical-align: middle;
-    white-space: nowrap; }
+    /* white-space: nowrap;  */
+    white-space: normal; 
+  }
     .step a::before {
       border: 2px solid #ced4da;
       border-radius: 50%;
