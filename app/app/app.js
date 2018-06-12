@@ -187,7 +187,6 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   $scope.affiliate = "Gateway";
   $scope.zoomLevel = 1;
   $scope.tab = 1;
-  $scope.formData = {};
   $scope.loading = false;
   $scope.minlength = 2;
   $scope.maxlength = 50;
@@ -259,6 +258,26 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   };
   $scope.pdfUrl = '';
   $scope.submitted = false;
+  $scope.formData = {
+    requestDriverRecord: {
+      signature: '',
+      date: ''
+    },
+    requestCriminalRecord: {
+      signature: '',
+      date: ''
+    },
+    vehicleDescription: {
+      signature: '',
+      date: ''
+    },
+    changeOfStatus: {
+      signature: '',
+      date: ''
+    }
+  };
+  var originalFormData = $scope.formData;
+  
     
 
   $transitions.onSuccess({}, function(transition){
@@ -295,7 +314,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   }
   
   $scope.resetFormData = function(){
-      $scope.formData = {};
+      $scope.formData = originalFormData;
       $scope.serverMessage = "";
       $scope.loading = false;
       $scope.submitted = false;

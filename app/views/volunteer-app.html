@@ -95,6 +95,8 @@
                         </li>
                       </ol>
                       
+                      <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                      
                       <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.memberFor.$invalid }">
                         <label for="Volunteer for which ITN">Volunteer for: <span style="color:red">*</span></label><br>
                         <label class="radio-inline"><input type="radio" value="stcharles" name="memberFor" ng-model="formData.memberFor">ITN St. Charles</label>
@@ -324,6 +326,9 @@
                         </li>
                       </ol>
                       
+                      <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                      <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                      
                       <h2>References</h2>
                       
                       <div class="form-group ta-center">
@@ -449,7 +454,7 @@
                       
                       <div class="form-group" ng-class="{ 'has-error' : itnForm.signature1.$invalid && !itnForm.signature1.$pristine }">
                         <label for="signature">Signature (type your full name): <span style="color:red">*</span></label><br>
-                        <input type="text" class="form-control" id="signature" name="signature1" placeholder="type your full name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.references.signature" ng-change="prepopulate(formData.references.signature, signature)" required>
+                        <input type="text" class="form-control" id="signature" name="signature1" placeholder="type your full name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.references.signature" ng-change="prepopulate(formData.references.signature, 'signature')" required>
                         <span ng-if="itnForm.signature1.$error.required && !itnForm.signature1.$pristine" class="help-block">{{errorMessages.required}}</span>
                         <span ng-if="itnForm.signature1.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                         <span ng-if="itnForm.signature1.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
@@ -495,6 +500,9 @@
                                 <a href="" tabindex="-1">Volunteer Driver Change of Status</a>
                               </li>
                             </ol>
+                            
+                            <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                            <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                             
                             <h2>Volunteering with ITN</h2>
                             
@@ -677,6 +685,9 @@
                               </li>
                             </ol>
                             
+                            <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                            <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                            
                         
                             
                             <h2>Authorization to Request Driver Record</h2>
@@ -834,6 +845,9 @@
                             </li>
                           </ol>
                           
+                          <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                          <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
+                          
                           <h2>Vehicle Description Information</h2>
                           
                           
@@ -937,9 +951,15 @@
                           </div>
                           
                           <div class="form-group ta-center">
-                            <label for="can transport walker or wheelchair">Are you able to transport a folding walker or wheel chair: <span style="color:red">*</span></label><br>
-                            <label class="radio-inline"><input ng-model="formData.vehicleDescription.canTransportWalkerWheelChair" type="radio" value="yes" required>Yes</label>
-                            <label class="radio-inline"><input ng-model="formData.vehicleDescription.canTransportWalkerWheelChairownVehicle" type="radio" value="no">No</label>
+                            <label for="can transport walker or wheelchair">Are you able to transport a folding walker?<span style="color:red">*</span></label><br>
+                            <label class="radio-inline"><input ng-model="formData.vehicleDescription.canTransportWalker" type="radio" value="yes" required>Yes</label>
+                            <label class="radio-inline"><input ng-model="formData.vehicleDescription.canTransportWalker" type="radio" value="no">No</label>
+                          </div>
+                          
+                          <div class="form-group ta-center">
+                            <label for="can transport walker or wheelchair">Are you able to transport a wheelchair?<span style="color:red">*</span></label><br>
+                            <label class="radio-inline"><input ng-model="formData.vehicleDescription.canTransportWheelChair" type="radio" value="yes" required>Yes</label>
+                            <label class="radio-inline"><input ng-model="formData.vehicleDescription.canTransportWheelChair" type="radio" value="no">No</label>
                           </div>
                           
                           <div class="form-group">
@@ -1072,9 +1092,15 @@
                             </div>
                             
                             <div class="form-group ta-center">
-                              <label for="can transport walker or wheelchair">Are you able to transport a folding walker or wheel chair: <span style="color:red">*</span></label><br>
-                              <label class="radio-inline"><input ng-model="formData.secondVehicleDescription.canTransportWalkerWheelChair" type="radio" value="yes" required>Yes</label>
-                              <label class="radio-inline"><input ng-model="formData.secondVehicleDescription.canTransportWalkerWheelChairownVehicle" type="radio" value="no">No</label>
+                              <label for="can transport walker or wheelchair">Are you able to transport a folding walker?<span style="color:red">*</span></label><br>
+                              <label class="radio-inline"><input ng-model="formData.secondVehicleDescription.canTransportWalker" type="radio" value="yes" required>Yes</label>
+                              <label class="radio-inline"><input ng-model="formData.secondVehicleDescription.canTransportWalker" type="radio" value="no">No</label>
+                            </div>
+                            
+                            <div class="form-group ta-center">
+                              <label for="can transport walker or wheelchair">Are you able to transport a wheelchair?<span style="color:red">*</span></label><br>
+                              <label class="radio-inline"><input ng-model="formData.secondVehicleDescription.canTransportWheelChair" type="radio" value="yes" required>Yes</label>
+                              <label class="radio-inline"><input ng-model="formData.secondVehicleDescription.canTransportWheelChair" type="radio" value="no">No</label>
                             </div>
                             
                             <div class="form-group">
@@ -1163,6 +1189,9 @@
                               <a href="" tabindex="-1">Volunteer Driver Change of Status</a>
                             </li>
                           </ol>
+                          
+                          <button type="button" ng-click="nextTabMemberApp()" class="next-tab btn btn-lg  btn-primary pull-right itn-green-bg"  style="margin-left:2%">Next</button>
+                          <button type="button" ng-click="nextTabMemberApp('prev')" class="next-tab btn btn-lg btn-primary pull-right itn-green-bg"  style="margin-left:2%">Previous</button>  
                           
                           
                           <h2>Volunteer Driver Change of Status</h2>
@@ -1477,8 +1506,10 @@
   {{formData.vehicleDescription.agentEmailAddress}}
   <br><label for="agent Phone">Agent Phone</label><br>
   {{formData.vehicleDescription.agentPhone}}
-  <br><label for="can transport walker or wheelchair">Are you able to transport a folding walker or wheel chair: <span style="color:red">*</span></label><br>
-  {{formData.vehicleDescription.canTransportWalkerWheelChair}}
+  <br><label for="can transport walker or wheelchair">Are you able to transport a folding walker<span style="color:red">*</span></label><br>
+  {{formData.vehicleDescription.canTransportWalker}}
+  <br><label for="can transport walker or wheelchair">Are you able to transport a wheel chair: <span style="color:red">*</span></label><br>
+  {{formData.vehicleDescription.canTransportWheelChair}}
   
   <br><label for="general condition">Please describe the general condition of the vehicle(s) and any known defects: <span style="color:red">*</span></label><br>
   {{formData.vehicleDescription.generalCondition}}
@@ -1518,8 +1549,10 @@
     {{formData.secondVehicleDescription.agentEmailAddress}}
     <br><label for="agent Phone">Agent Phone</label><br>
     {{formData.secondVehicleDescription.agentPhone}}
-    <br><label for="can transport walker or wheelchair">Are you able to transport a folding walker or wheel chair: <span style="color:red">*</span></label><br>
-    {{formData.secondVehicleDescription.canTransportWalkerWheelChair}}
+    <br><label for="can transport walker or wheelchair">Are you able to transport a folding walker?<span style="color:red">*</span></label><br>
+    {{formData.secondVehicleDescription.canTransportWalker}}
+    <br><label for="can transport walker or wheelchair">Are you able to transport a wheelchair?<span style="color:red">*</span></label><br>
+    {{formData.secondVehicleDescription.canTransportWheelChair}}
     
     <br><label for="general condition">Please describe the general condition of the vehicle(s) and any known defects: <span style="color:red">*</span></label><br>
     {{formData.secondVehicleDescription.generalCondition}}
