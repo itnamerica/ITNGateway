@@ -150,10 +150,6 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
   // default fall back route
   $urlRouterProvider.otherwise('/');
   $locationProvider.html5Mode(true).hashPrefix('');
-
-  // enable HTML5 Mode for SEO
-  // $locationProvider.html5Mode(true);
-  // $locationProvider.html5mode({ enabled: true, requireBase: false });
 })
 
 
@@ -609,24 +605,19 @@ var originalFormData = $scope.formData;
     $scope.formType = formType;
     if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
         $scope.loading = true;
-        var memberFor;
-        if ($scope.formData && $scope.formData.memberFor === 'ITN St. Charles'){
-          memberFor = 'StCharles';
-        } else if ($scope.formData && $scope.formData.memberFor === 'ITN St. Louis'){
-          memberFor = 'StLouis';
-        } else {
-          memberFor = 'ITNGateway';
+        if !($scope.formData && $scope.formData.memberFor){
+          $scope.formData.memberFor = "ITN Gateway";
         }
         
         if (formType === 'membership' || formType === 'volunteer') {
           $(document).ready(function(){
             $('#pdfVersion').css('display', 'block');
           })
-          $scope.formSubject = memberFor + ' - New ' + formType + ' application received';
+          $scope.formSubject = $scope.formData.memberFor + ' - New ' + formType + ' application received';
           $scope.generateMultiPagePDF();
         }
         else if (formType === 'nonrider') {
-            $scope.formSubject = memberFor + ' - Non-Rider application Form submitted';
+            $scope.formSubject = $scope.formData.memberFor + ' - Non-Rider application Form submitted';
             $scope.generatePDF();
         } else {
           $scope.serverMessage = 'You cannot submit an empty form';
