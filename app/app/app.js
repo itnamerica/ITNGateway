@@ -747,7 +747,7 @@ $scope.checkRequiredFields = function(formType){
     console.log('volunteerRequiredComplete is ', volunteerRequiredComplete);
     if (!(Object.keys($scope.formData).length === 0 && $scope.formData.constructor === Object)) {
       $scope.loading = true;
-      if !($scope.formData.memberFor){
+      if (!$scope.formData.memberFor){
         $scope.formData.memberFor = "ITN Gateway";
       }
       //check for validations
