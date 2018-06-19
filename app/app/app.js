@@ -768,6 +768,7 @@ $scope.checkRequiredFields = function(formType){
           $scope.formSubject = $scope.formData.memberFor + ' - Non-Rider application Form submitted';
           $scope.generatePDF();
       }
+    }
        else {
       $scope.loading = false;
       $scope.serverMessage = 'You cannot submit an empty form';
@@ -802,7 +803,7 @@ $scope.checkRequiredFields = function(formType){
           $scope.serverMessage = 'There was an error submitting your form. Please contact us, or consider submitting your form by paper instead.';
         });
       });
-  }
+  };
 
   $scope.generateMultiPagePDF = function() {
     console.log('inside multipage');
@@ -835,6 +836,10 @@ $scope.checkRequiredFields = function(formType){
   }
   
 }]);
+
+
+
+
 
 
 myApp.directive('match', function($parse) {
