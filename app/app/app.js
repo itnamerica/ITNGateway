@@ -720,7 +720,7 @@ $scope.checkRequiredFields = function(formType){
         "<p><strong>Message Body:</strong>: " + $scope.formData.messageBody + "</p>\n ",
         formType: $scope.formType
       }
-    } else if (formType === 'newsletter' && $scope.formData.email.length > 2){
+    } else if (formType === 'newsletter' && $scope.formData.email){
       console.log('submitting valid newsletter form');
         formObj = {
           from: '"ITNGateway Web User" <donotreply@itnamerica.com>',
