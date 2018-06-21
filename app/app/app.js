@@ -264,7 +264,10 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
       secondReference: {},
       thirdReference: {},
       firstEmergencyContact: {},
-      secondEmergencyContact: {}
+      secondEmergencyContact: {},
+      customerInfo: {},
+      drivingInfo: {},
+      agreement: {}
     };    
     var originalFormData = $scope.formData;
     $scope.showForm = false;
@@ -653,7 +656,7 @@ $scope.checkRequiredFields = function(formType){
       'Second emergency contact best phone number': $scope.formData.secondEmergencyContact.bestPhone , 
       'How did you hear about ITN?': $scope.formData.heardAboutItn , 
       'Send info to friends or relatives?': $scope.formData.sendInfoToRelativeFriendBiz , 
-      // 'Customer info (full)': $scope.formData.customerInfo , 
+      'Customer info (full)': $scope.formData.customerInfo , 
       'Date of Birth': $scope.formData.customerInfo.dateOfBirth , 
       'Gender': $scope.formData.customerInfo.gender, 
       'Marital Status': $scope.formData.customerInfo.maritalStatus , 
