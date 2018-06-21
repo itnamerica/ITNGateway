@@ -690,25 +690,19 @@ $scope.checkRequiredFields = function(formType){
           console.log('You must fill this required field: ', field);
           $scope.serverMessage = 'Please complete all required fields. Field missing is:  " ' + field + '"';
           return false;
+      }
     }
-  }
-  return true;
-};
+    return true;
+  };
 
-$scope.validateContactInputs = function(){
-  return ($scope.formData.name && $scope.formData.email && $scope.formData.phone && $scope.formData.subject && $scope.formData.messageBody ) ? true : false;
-}
-
+  $scope.validateContactInputs = function(){
+    return ($scope.formData.name && $scope.formData.email && $scope.formData.phone && $scope.formData.subject && $scope.formData.messageBody ) ? true : false;
+  };
 
   //for contact and newsletter forms
   $scope.submitForm = function(formType){
     var contactInputsValid = $scope.validateContactInputs();
     console.log('valid contact is ', contactInputsValid);
-    // if (formType === 'contact'){
-    //     contactInputsValid = validateContactInputs();
-    // }
-    // var objLength = Object.keys($scope.formData).length;
-    // console.log('form type is ', formType, 'form obj is ', $scope.formData,'length is ', objLength);
     var formObj = {};
     $scope.formType = formType;
     $scope.loading = true;
