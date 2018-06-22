@@ -22,11 +22,11 @@ app.use(session({secret: "Sam is awesome"}));
 
 var allPages = ['/home','/what-we-do','/organization','/faces-of-our-members','/faq','/news','/contact','/become-member','/member-app','/volunteer-to-drive','/volunteer-app','/family-involvement','/member-programs','/pay-online','/donate','/corporate', '/non-rider-member','/dashboard','/login', '/view-form','/draft', '/help-on-wheels','/civil-rights','/stl-day'];
 
-MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds251210.mlab.com:51210/itngateway', function(err, client) {
-  if (err) { 
-    console.log('db not connecting, but inside mongo block', err);
-  };
-  db = client.db('itngateway');
+// MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds251210.mlab.com:51210/itngateway', function(err, client) {
+//   if (err) { 
+//     console.log('db not connecting, but inside mongo block', err);
+//   };
+//   db = client.db('itngateway');
   
 app.post('/sendmail', function(req, res){
   console.log('post req', req.body);
@@ -82,9 +82,15 @@ app.post('/sendmail', function(req, res){
         // transporter.close();
     });
     
-    console.log('starting mongo block',req.body);
-    console.log(req.body.text.email);
-    console.log('formtype is ', req.body.formType);
+    // console.log('starting mongo block',req.body);
+    // console.log(req.body.text.email);
+    // console.log('formtype is ', req.body.formType);
+    
+    MongoClient.connect('mongodb://itnadmin:itnUser0136!@ds251210.mlab.com:51210/itngateway', function(err, client) {
+      if (err) { 
+        console.log('db not connecting, but inside mongo block', err);
+      };
+      db = client.db('itngateway');
 
       
       var objWithPDF; var pdfVal;
@@ -94,7 +100,7 @@ app.post('/sendmail', function(req, res){
         db.collection('memberapp').save(objWithPDF, function(err, result){
           if (err) { return console.log('connecting to db, but not saving obj', err); }
           console.log('member app saved to database', result);
-          res.redirect('/');
+          // res.redirect('/');
         })
       }
       else if ((req.body && req.body.pdf) && (req.body.formType === 'volunteer')) {
@@ -103,7 +109,7 @@ app.post('/sendmail', function(req, res){
         db.collection('volunteerapp').save(objWithPDF, function(err, result){
           if (err) { return console.log('connecting to db, but not saving obj', err);}
           console.log('volunteer app saved to database', result);
-          res.redirect('/');
+          // res.redirect('/');
         })
       }
       else if ((req.body && req.body.pdf) && (req.body.formType === 'nonrider')) {
@@ -112,14 +118,14 @@ app.post('/sendmail', function(req, res){
         db.collection('nonriderapp').save(objWithPDF, function(err, result){
           if (err) { return console.log('connecting to db, but not saving obj', err);}
           console.log('nonrider app saved to database', result);
-          res.redirect('/');
+          // res.redirect('/');
         })
       }
       else if ((req.body && req.body.html) && (req.body.formType === 'contact')) {
         db.collection('contactform').save(req.body.text, function(err, result){
           if (err) { return console.log('connecting to db, but not saving obj', err);}
           console.log('contact form saved to database', result);
-          res.redirect('/');
+          // res.redirect('/');
         })
       }
       else if (req.body.text.email && (req.body.formType === 'newsletter')) {
@@ -127,7 +133,7 @@ app.post('/sendmail', function(req, res){
         db.collection('newsletterform').save(req.body.text, function(err, result){
           if (err) { return console.log('connecting to db, but not saving obj', err);}
           console.log('newsletter form saved to database', result);
-          res.redirect('/');
+          // res.redirect('/');
         })
       }
     
