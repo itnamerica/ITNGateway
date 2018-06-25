@@ -206,9 +206,9 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
     dob: "The date of birth should have the format: MM/DD/YYYY",
     phone: "The phone number should have the format: 111-111-1111",
     ssn: "The driver license number should have the format: 123-45-6789",
-    mismatchName: "Please enter the same name you entered above",
-    mismatchSignature: "Please enter the same signature you entered above",
-    mismatchDate: "Please enter the sane date you entered above"
+    mismatchName: "Please match the name you entered above",
+    mismatchSignature: "Please match the signature you entered above",
+    mismatchDate: "Please match the date you entered above"
   };
   $scope.dataPDF = null;
   $scope.formSubject = 'New application received';
@@ -731,7 +731,7 @@ $scope.checkRequiredFields = function(formType){
           formType: $scope.formType
         }
     } else {
-      return $scope.serverMessage = "Please reload the page and fill in all required fields before submitting."
+      return $scope.serverMessage = "Please fill in all required fields before submitting."
     }
     $http.post('/sendmail', formObj)
       .then(function(res){
