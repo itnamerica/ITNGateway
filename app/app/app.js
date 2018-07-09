@@ -464,7 +464,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
       $scope.pdfUrl = URL.createObjectURL(currentBlob);
       // $("#output").append($("<a/>").attr({href: $scope.pdfUrl}).append("Download"));
       openInNewTab($scope.pdfUrl);
-      window.location.href = $scope.pdfUrl;
+      // window.location.href = $scope.pdfUrl;
     }
     else {
       return $scope.pdfUrl = "This form does not contain a PDF";
@@ -536,7 +536,7 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
   $scope.sort = function(keyname){
     $scope.sortKey = keyname;   //set the sortKey to the param passed
     $scope.reverse = !$scope.reverse; //if true make it false and vice versa
-};
+  };
 
   $scope.login = function(){
     FormService.login($scope.formData).then(function(data){
