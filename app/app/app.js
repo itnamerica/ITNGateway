@@ -463,19 +463,14 @@ myApp.controller('MainController', ['$scope', '$transitions','$http', '$anchorSc
       var currentBlob = new Blob([uintArray], {type: 'application/pdf'});
       $scope.pdfUrl = URL.createObjectURL(currentBlob);
       // $("#output").append($("<a/>").attr({href: $scope.pdfUrl}).append("Download"));
-      openInNewTab($scope.pdfUrl);
-      // window.location.href = $scope.pdfUrl;
+      window.location.href = $scope.pdfUrl;
     }
     else {
       return $scope.pdfUrl = "This form does not contain a PDF";
     }
 
   };
-  
-  function openInNewTab(url) {
-    var win = window.open(url, '_blank');
-    win.focus();
-  };
+
   
   $scope.authenticate = function(){
     if ($scope.session){
