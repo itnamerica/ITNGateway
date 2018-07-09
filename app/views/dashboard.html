@@ -177,7 +177,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr dir-paginate="person in contactFormData|orderBy:sortKey:reverse|filter:filterTable4|itemsPerPage:10" pagination-id="contact">
+          <tr dir-paginate="person in contactFormData|orderBy:sortKey:reverse|filter:filterTable4|itemsPerPage:10|reverse" pagination-id="contact">
             <td>{{contactFormData.length - $index}}</td>
             <td>{{person | timestamp | date}}</td>
             <td>{{person.name}}</td>
@@ -222,7 +222,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr dir-paginate="person in newsletterFormData|orderBy:sortKey:reverse|filter:filterTable5|itemsPerPage:10|reverse" pagination-id="newsletter">
+          <tr dir-paginate="person in newsletterFormData|orderBy:sortKey:reverse|filter:filterTable5|itemsPerPage:10" pagination-id="newsletter">
             <td>{{newsletterFormData.length - $index}}</td>
             <td>{{person | timestamp | date}}</td>
             <td>{{person.email}}</td>
