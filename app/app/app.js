@@ -992,6 +992,12 @@ myApp.filter('tableToFormName', function(){
   }
 });
 
+myApp.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 
 myApp.service('FormService', function($http){
   this.getMemberForms = function(){
