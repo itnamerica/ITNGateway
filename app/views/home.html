@@ -8,38 +8,47 @@
 <li data-target="#myCarousel" data-slide-to="1"></li>
 <li data-target="#myCarousel" data-slide-to="2"></li>
 <li data-target="#myCarousel" data-slide-to="3"></li>
+<li data-target="#myCarousel" data-slide-to="4"></li>
 </ol>
 
 <!-- Wrapper for slides -->
 <div class="carousel-inner">
-<div class="item active">
-  <img ng-src="{{assetsPath}}/images/dark/highres-beach.jpeg" id="highres-beach" alt="beach">
-  <h2 class="carousel-statement">
-    Help seniors remain independent while saving for your own future transportation.
-  </h2>
-</div>
+  
+  <div class="item active">
+    <img ng-src="{{assetsPath}}/images/Rock_for_Rides_banner.png" alt="banner image for Rock for Rides" style="">
+    <h2 class="carousel-statement">
+      <a class="btn btn-lg" ui-sref="rock-for-rides">Reserve Now</a>
+    </h2>
+  </div>
+  
+  <div class="item">
+    <img ng-src="{{assetsPath}}/images/dark/highres-beach.jpeg" id="highres-beach" alt="beach">
+    <h2 class="carousel-statement">
+      Help seniors remain independent while saving for your own future transportation.
+    </h2>
+  </div>
 
-<div class="item">
-  <img ng-src="{{assetsPath}}/images/dark/highres-old.jpeg" alt="senior woman">
-  <h2 class="carousel-statement">
-    With your support, families stay connected and friendships grow.
-  </h2>
-</div>
+  <div class="item">
+    <img ng-src="{{assetsPath}}/images/dark/highres-old.jpeg" alt="senior woman">
+    <h2 class="carousel-statement">
+      With your support, families stay connected and friendships grow.
+    </h2>
+  </div>
 
-<div class="item">
-  <img ng-src="{{assetsPath}}/images/dark/aa-couple2.jpg" alt="happy black couple">
-  <h2 class="carousel-statement">
-    ITN<em>Gateway</em> provides rides to seniors and visually challenged people across St. Charles and St Louis, Missouri.
-  </h2>
-</div>
+  <div class="item">
+    <img ng-src="{{assetsPath}}/images/dark/aa-couple2.jpg" alt="happy black couple">
+    <h2 class="carousel-statement">
+      ITN<em>Gateway</em> provides rides to seniors and visually challenged people across St. Charles and St Louis, Missouri.
+    </h2>
+  </div>
 
-<div class="item">
-  <img ng-src="{{assetsPath}}/images/dark/helpwheels.png" alt="wheels">
-  <h2 class="carousel-statement">
-    Help us create a stable revenue stream by making a small recurring donation.<br>
-    <button class="btn btn-lg" ui-sref="help-on-wheels">Find out More</button>
-  </h2>
-</div>
+  <div class="item">
+    <img ng-src="{{assetsPath}}/images/dark/helpwheels.png" alt="wheels">
+    <h2 class="carousel-statement">
+      Help us create a stable revenue stream by making a small recurring donation.<br>
+      <button class="btn btn-lg" ui-sref="help-on-wheels">Find out More</button>
+    </h2>
+  </div>
 
 </div><!--carousel-inner-->
 

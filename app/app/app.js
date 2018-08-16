@@ -142,6 +142,10 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         url: '/backup-pdf',
         templateUrl: viewsPath + 'backup-pdf.html'
       })
+      .state('rock-for-rides', {
+        url: '/rock-for-rides',
+        templateUrl: viewsPath + 'rock-for-rides.html'
+      })
       .state('draft', {
         url: '/draft',
         templateUrl: viewsPath + 'draft.html'

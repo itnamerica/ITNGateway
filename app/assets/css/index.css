@@ -1521,6 +1521,19 @@ form textarea.form-control {font-size:25px}
   line-height: 1.4;
 }
 
+.rock-for-rides .sponsors img {
+  width:200px;
+}
+.rock-for-rides .paypal-section {
+  padding: 1%;
+  position: absolute;
+  margin-top: -20%;
+  margin-left: 67%;
+  background: #9797f7;
+  border-radius:5px;
+  font-size:20px;
+  font-weight:bold;
+}
     
 #footer {
     width:100%;
@@ -1827,6 +1840,13 @@ h2,h3 {line-height:1.7}
 @media (max-width: 1210px) {
   .carousel-inner .item, .carousel-inner .item img {height:400px;}
   .family #gift-cert-img1, .family #gift-cert-img2 {visibility:hidden;}
+  
+  .rock-for-rides .paypal-section {
+    margin: auto;
+    margin-top:5%;
+    width: 30%;
+    position:static;
+  }
 }
 
 @media (max-width: 768px) {
