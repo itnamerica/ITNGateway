@@ -15,10 +15,12 @@
 <div class="carousel-inner">
   
   <div class="item active">
-    <img id="rock_banner" ng-src="{{assetsPath}}/images/Rock_Banner_with_button.png" alt="banner image for Rock for Rides" usemap="#imgmap" style="object-fit:contain">
-    <map name="imgmap" id="rock_map">
-        <area shape="rect" coords="1540,125,1680,190" href="http://www.itngateway.org/rock-for-rides/">
-    </map>
+    <a ui-sref="rock-for-rides">
+      <img id="rock_banner" ng-src="{{assetsPath}}/images/Rock_Banner_with_button.png" alt="banner image for Rock for Rides" usemap="#imgmap" style="object-fit:contain">
+      <!-- <map name="imgmap" id="rock_map">
+          <area shape="rect" coords="1540,125,1680,190" href="http://www.itngateway.org/rock-for-rides/">
+      </map> -->
+    </a>
   </div>
   
   <!-- <div class="item">
