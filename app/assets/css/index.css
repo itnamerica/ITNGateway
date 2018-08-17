@@ -1525,11 +1525,11 @@ form textarea.form-control {font-size:25px}
   width:200px;
 }
 .rock-for-rides .paypal-section {
-  padding: 1%;
+  padding: 30px 10px;
   position: absolute;
-  margin-top: -20%;
-  margin-left: 67%;
-  background: #9797f7;
+  margin-top: -15%;
+  margin-left: 62%;
+  background: rgb(239,113,119);
   border-radius:5px;
   font-size:20px;
   font-weight:bold;
@@ -1738,7 +1738,18 @@ form textarea.form-control {font-size:25px}
   font-weight:bold;
   padding: 10px;
 }
-
+.force-center {
+  margin: auto;
+  display: block;
+  float: none;
+}
+.row-center {
+  text-align:center
+}
+.col-center {
+  display:inline-block;
+  float:none;
+}
 /* GENERAL */
 
 a {cursor: pointer}
@@ -1836,16 +1847,23 @@ h2,h3 {line-height:1.7}
 
 /* RESPONSIVE */
 
-
-@media (max-width: 1210px) {
-  .carousel-inner .item, .carousel-inner .item img {height:400px;}
-  .family #gift-cert-img1, .family #gift-cert-img2 {visibility:hidden;}
-  
+@media (max-width: 1500px) {
   .rock-for-rides .paypal-section {
     margin: auto;
     margin-top:5%;
     width: 30%;
     position:static;
+  }
+  /* .rock-for-rides .row3 {width:70% !important} */
+}
+
+
+@media (max-width: 1210px) {
+  .carousel-inner .item, .carousel-inner .item img {height:400px;}
+  .family #gift-cert-img1, .family #gift-cert-img2 {visibility:hidden;}
+  /* .rock-for-rides .row3 {width:70% !important} */
+  .rock-for-rides .paypal-section {
+    width:50%
   }
 }
 
@@ -1862,6 +1880,10 @@ h2,h3 {line-height:1.7}
   .navbar-collapse {margin-top:0;}
   .carousel-inner .item .carousel-statement {font-size:30px;}
   .homepage .progress {height: 500px;}
+  .rock-for-rides .paypal-section {
+    width:80%;
+    font-size:18px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1533px) {
@@ -1892,6 +1914,9 @@ h2,h3 {line-height:1.7}
   .services .operate ul {
     margin-left:20%;
     margin-top:0;
+  }
+  .row2, .row3, .row4 {
+    margin: 0 -15%;
   }
 }
 
