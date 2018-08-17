@@ -166,10 +166,7 @@
     })
     
     new WOW().init();
-    
-    // $('map').imageMapResize();
-    // var test = $('map').imageMapResize();
-    // console.log('map is ', test);
+
     
     var firstTime = true;
     $(window).scroll(function() {
@@ -194,148 +191,8 @@
          }
        }
     });
-    
-    
-  
-  
-    // var image_is_loaded = false;
-    // $("#rock_banner").on('load', function()
-    //     $(this).data('width', $(this).attr('width')).data('height', $(this).attr('height'));
-    //     $($(this).attr('usemap')+" area").each(function(){
-    //         $(this).data('coords', $(this).attr('coords'));
-    //     });
-    // 
-    //     $(this).css('width', '100%').css('height','auto').show();
-    // 
-    //     image_is_loaded = true;
-    //     $(window).trigger('resize');
-    // });
-    // 
-    // 
-    // function ratioCoords (coords, ratio) {
-    //     coord_arr = coords.split(",");
-    // 
-    //     for(i=0; i < coord_arr.length; i++) {
-    //         coord_arr[i] = Math.round(ratio * coord_arr[i]);
-    //     }
-    // 
-    //     return coord_arr.join(',');
-    // }
-    // $(window).on('resize', function(){
-    //     if (image_is_loaded) {
-    //         var img = $("#my_image");
-    //         var ratio = img.width()/img.data('width');
-    // 
-    //         $(img.attr('usemap')+" area").each(function(){
-    //             console.log('1: '+$(this).attr('coords'));
-    //             $(this).attr('coords', ratioCoords($(this).data('coords'), ratio));
-    //         });
-    //     }
-    // });
-  
-  
-  
-    
-    
+
   });
   
-  
-  
-//   window.onload = function () {
-//     var ImageMap = function (map, img) {
-//             var n,
-//                 areas = map.getElementsByTagName('area'),
-//                 len = areas.length,
-//                 coords = [],
-//                 previousWidth = 2500;
-//             for (n = 0; n < len; n++) {
-//                 coords[n] = areas[n].coords.split(',');
-//             }
-//             this.resize = function () {
-//                 var n, m, clen,
-//                     x = img.offsetWidth / previousWidth;
-//                 for (n = 0; n < len; n++) {
-//                     clen = coords[n].length;
-//                     for (m = 0; m < clen; m++) {
-//                         coords[n][m] *= x;
-//                     }
-//                     areas[n].coords = coords[n].join(',');
-//                 }
-//                 previousWidth = document.body.clientWidth;
-//                 return true;
-//             };
-//             window.onresize = this.resize;
-//         },
-//         imageMap = new ImageMap(document.getElementById('rock_map'), document.getElementById('rock_banner'));
-//     imageMap.resize();
-//     console.log("img map is ", imageMap);
-//     return;
-// }
-  
 </script>
 
-
-<script>
-var resizeTime = 100;
- var resizeDelay = 100;    
-
-$('img').mapster({
-        areas: [
-            {
-                key: 'tbl',
-                fillColor: 'ff0000',
-                staticState: true,
-                stroke: true
-            }
-        ],
-        mapKey: 'state'
-    });
-
-    // Resize the map to fit within the boundaries provided
-
-    function resize(maxWidth, maxHeight) {
-        var image = $('img'),
-            imgWidth = image.width(),
-            imgHeight = image.height(),
-            newWidth = 0,
-            newHeight = 0;
-
-        if (imgWidth / maxWidth > imgHeight / maxHeight) {
-            newWidth = maxWidth;
-        } else {
-            newHeight = maxHeight;
-        }
-        image.mapster('resize', newWidth, newHeight, resizeTime);
-    }
-
-    function onWindowResize() {
-
-        var curWidth = $(window).width(),
-            curHeight = $(window).height(),
-            checking = false;
-        if (checking) {
-            return;
-        }
-        checking = true;
-        window.setTimeout(function () {
-            var newWidth = $(window).width(),
-                newHeight = $(window).height();
-            if (newWidth === curWidth &&
-                newHeight === curHeight) {
-                resize(newWidth, newHeight);
-            }
-            checking = false;
-        }, resizeDelay);
-    }
-
-    $(window).bind('resize', onWindowResize);
-</script>
-
-<style>
-img[usemap] {
-        border: none;
-        height: auto;
-        max-width: 100%;
-        width: auto;
-    }
-</style>
