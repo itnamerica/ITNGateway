@@ -905,6 +905,13 @@ $scope.checkRequiredFields = function(formType){
       })
   };
   
+  $scope.showFormPage = function(pageNum) {
+    console.log('inside form page, pagenum is ', pageNum);
+    if (pageNum) {
+      $scope.tab = pageNum
+    }
+  };
+  
 }]);
 
 
