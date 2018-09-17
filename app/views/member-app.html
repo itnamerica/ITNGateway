@@ -9,7 +9,7 @@
       <div class="container">
         <p class="ta-center"><em>Once you have completed the application we will send you a confirmation email. <br>
           You can book your first ride by calling us at (314) 724-2117 (St Louis) or (636) 329-0888 (St Charles).</em></p>
-          <p><strong>All fields with an asterisk (<span style="color:red">*</span>) are required</strong></p>
+        <p class="ta-center"><strong>All fields with an asterisk (<span style="color:red">*</span>) are required</strong></p>
         <hr align="center">
         <div class="col-sm-12">
             <div class="form-area" id="formConfirmation" style="background: #c7dfe4;border:none">  
@@ -1131,8 +1131,9 @@
     <br><label for="email">Email: </label><br>
     {{formData.email}}
     
-    <div ng-if="familyMembership">
+    <!-- <div ng-if="familyMembership"> -->
       <h3>Second Rider Information</h3>
+      <h5><em>Fields should be filled if applicant selected family membership</em></h5>
       
       <br><label for="second rider name">Second Rider's Name: <span style="color:red">*</span></label><br>
       {{formData.secondRiderName}}
@@ -1141,7 +1142,7 @@
       <br><label for="second rider special needs">Second Rider's Special Needs and Mobility Assistance: <span style="color:red">*</span></label><br>
       {{formData.secondRiderSpecialNeeds | inputSelected}}
       
-    </div>
+    <!-- </div> -->
     
     <h3>First Emergency Contact</h3>
     
