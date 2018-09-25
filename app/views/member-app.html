@@ -1193,7 +1193,7 @@
     <br><label for="send info">Would you like us to send information about ITN to a relative, friend, or business? <span style="color:red">*</span> </label><br>
     {{formData.sendInfoToRelativeFriendBiz}}
     
-    <br><div ng-if="sendInfo">
+    <!-- <br><div ng-if="sendInfo"> -->
       <br><label for="name">Name: <span style="color:red">*</span></label><br>
       {{formData.sendInfoTo.name}}
       <br><label for="relationship">Relationship: <span style="color:red">*</span></label><br>
@@ -1208,7 +1208,7 @@
       {{formData.sendInfoTo.phone}}
       <br><label for="email">Email: </label><br>
       {{formData.sendInfoTo.email}}
-    </div>
+    <!-- </div> -->
     
     <p>ITNAmerica respects your privacy and will keep all customer information confidential. The following information allows us to provide better service to our customers, and helps us better understand the circumstances that customers face when they apply to use the ITN for rides.</p>
     
@@ -1253,7 +1253,7 @@
     <br><label for="currently driving">Do you currently drive?: <span style="color:red">*</span></label><br>
     {{formData.drivingInfo.currentlyDrive}}
     
-    <div ng-if="currentDriver">
+    <!-- <div ng-if="currentDriver"> -->
       <h3>If you drive...</h3>
       <br><label for="how often do you drive">How often do you drive?:</label><br>
       {{formData.drivingInfo.howOftenYouDrive}}
@@ -1276,13 +1276,13 @@
         {{formData.drivingInfo.avoidDrivingUnfamiliarAreas}}
         <br><label for="pass up fun because of driving concerns">Pass up opportunities to go shopping, visit friends, etc., because of concerns about driving?:</label><br>
         {{formData.drivingInfo.passOpportunitiesBecauseDriveConcerns}}
-    </div>
+    <!-- </div> -->
     
-    <div ng-if="!currentDriver">  
+    <!-- <div ng-if="!currentDriver">   -->
       <h3>If you do not drive...</h3>
         <br><label for="check reason why no drive">Please check a reason:</label><br>
         {{formData.drivingInfo.whyNoDrive | inputSelected }}  {{formData.drivingInfo.whyNoDrive.other }}
-    </div>
+    <!-- </div> -->
     
       <br><label for="reduce ITN cost with rideshare">Would you like to reduce the cost of ITN trips by sharing rides with others when it's convenient?: <span style="color:red">*</span></label><br>
       {{formData.drivingInfo.reduceCostWithRideshare}}
