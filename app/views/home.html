@@ -120,20 +120,20 @@
   </div>
 </div><!--MISSION-->
 
-<div class="jumbotron section progress container" id="progress">
+<div class="jumbotron section progress container" id="progress" ng-init="getRidesData()">
   <div class="container">
     <h1>Our Progress</h1>
-    <div class="row progress-steps">
-      <div class="col-sm-4">
-        <div class="numbers">55834</div>
+    <div class="row progress-steps" ng-repeat="affiliateData in ridesData | filter: {affiliateName: 'Lanier'}">
+      <div ng-class="affiliateData.totalActiveMembers > 100 ? 'col-sm-4' : 'col-sm-6'">
+        <div class="numbers" id="rides-given">{{affiliateData.totalRideCount}}</div>
         Rides given
       </div>
-      <div class="col-sm-4">
-        <div class="numbers">772866</div>
+      <div ng-class="affiliateData.totalActiveMembers > 100 ? 'col-sm-4' : 'col-sm-6'">
+        <div class="numbers" id="miles-driven">{{affiliateData.totalMiles}}</div>
         Miles driven
       </div>
-      <div class="col-sm-4">
-        <div class="numbers">281</div>
+      <div ng-class="affiliateData.totalActiveMembers > 100 ? 'col-sm-4' : 'col-sm-6'" ng-if="affiliateData.totalActiveMembers > 100">
+        <div class="numbers" id="riders">{{affiliateData.totalActiveMembers}}</div>
         Riders
       </div>
     </div><!--ROW-->
