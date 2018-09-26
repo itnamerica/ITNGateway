@@ -12,6 +12,7 @@ var env = require(__dirname + '/env-vars.js');
 var gmail_login = env.gmail_login;
 var gmail_pass = env.gmail_pass;
 var db;
+var db2;
 // var router = express.Router();
 
 
@@ -99,8 +100,8 @@ app.get('/getAllRides', function (req,res) {
     if (err) { 
       console.log('db itnamerica not connecting, but inside mongo block:', err);
     };
-    db = client.db('itnamerica-new');
-    db.collection('ridesdatamonthly').find().toArray(function (err, result) {
+    db2 = client.db('itnamerica-new');
+    db2.collection('ridesdatamonthly').find().toArray(function (err, result) {
       console.log('result is ', result);
       res.send(result);
     })
