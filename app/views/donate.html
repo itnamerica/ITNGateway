@@ -1,24 +1,24 @@
     <div class="donate" ng-init="resetFormData()">
-      
+
       <div class="jumbotron section first-hero" style="height:400px">
         <h1>Make a Donation</h1>
       </div><!--first-hero-->
-      
+
       <div class="jumbotron section donate-intro">
         <div class="container">
           <p>
-            ITN<em>Gateway</em> is a nonprofit working to ensure seniors and  visually challenged adults in Gainesville have access to dignified transportation options. We help families stay connected to each other and to the community, and we help adult children minimize absenteeism from work.With ITN, older people keep their healthcare appointments and go shopping , businesses remain profitable, and seniors begin a new chapter in their lives that replaces dependence and isolation with independence and mobility.
+            ITN<em>{{affiliate}}</em> is a nonprofit working to ensure seniors and  visually challenged adults in St. Charles and St. Louis Counties have access to dignified transportation options. We help families stay connected to each other and to the community, and we help adult children minimize absenteeism from work.With ITN, older people keep their healthcare appointments and go shopping , businesses remain profitable, and seniors begin a new chapter in their lives that replaces dependence and isolation with independence and mobility.
           </p>
 
           <p>
             Help us keep our community moving.  Together we are opening more than car doors.<br>
             ITN<em>Gateway</em> is a 501(c)(3) tax-exempt organization.
-          </p>          
+          </p>
         </div><!--container-->
       </div><!--donate-intro-->
-      
+
       <div class="jumbotron section" style="background: #f1f4e0;">
-        
+
         <ul class="nav nav-tabs">
           <li class="nav-item">
             <a class="nav-link active" ng-click="scrollTo('donate-card')">Donate By Card</a>
@@ -30,11 +30,11 @@
             <a class="nav-link" ng-click="scrollTo('donate-car')">Donate Your Car</a>
           </li>
         </ul>
-        
+
         <div class="container">
           <div class="row donate-type wow slideInRight" id="donate-card">
             <div class="col-sm-8 description" style="font-size:25px">
-              
+
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick">
                 <input type="hidden" name="hosted_button_id" value="E84QKCSRZQ4Z6">
@@ -45,8 +45,10 @@
                 </select> </td></tr>
                 <tr><td><input type="hidden" name="on1" value="Enter Rider Name">Enter Rider Name</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
                 </table>
-                <input  style="float:left;margin-left:5%;margin-top:5%;height:50px" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <input  style="float:left;margin-left:5%;margin-top:3%;height:100px" type="image" src="assets/images/Paypal-Donate-Button-Transparent.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                <figcaption style="margin-top:14%;margin-left:43%;font-size:18px;position:absolute">The PayPal - the safer, easier way to pay online!<figcaption>
+
               </form>
 
             </div><!--description-->
@@ -55,7 +57,7 @@
               <hr align="center" width="35%">
             </div>
           </div><!--row-->
-          
+
           <div class="row donate-type wow slideInLeft" data-wow-delay="1s" id="donate-check">
             <div class="col-sm-4 title">
               <h2>Donate By Check</h2>
@@ -69,9 +71,9 @@
                 17 Point West Blvd., Suite A<br>
                 St. Charles, MO 63301<br>
                 Phone: (636) 329-0888<br>
-                
+
                 <strong>OR</strong><br>
-                
+
                 ITN<em>Gateway</em> (St. Louis)<br>
                 1819 Clarkson Road,
                 Suite 200<br>
@@ -81,84 +83,84 @@
               <p><em style="font-size:18px">*Donations can be made in check, cash or stock</em></p>
             </div><!--description-->
           </div><!--donate-type-->
-          
+
           <div class="row donate-type wow slideInRight" id="donate-car">
-            
+
             <div class="col-sm-8 description">
               <p>Got an old vehicle sitting silent? Donate it to ITN<em>Gateway</em>! Your old car can leave a legacy of future rides even after it’s gone. And it’s tax-deductible. To donate your vehicle, contact us using the form below.<p>
               <p>ITN members considering vehicle donation should also look into our trademarked CarTrade program, which turns your old car into ride credits. Contact us to find out which program is best for you: CarTrade™ or car donation.
               </p>
             </div><!--description-->
-            
+
             <div class="col-sm-4 title">
               <h2>Donate Your Car</h2>
               <hr align="center" width="35%">
             </div>
-                
+
           <div class="row"></div>
-            
-            <div class="form-area" style="margin:auto;margin-top:50px">  
+
+            <div class="form-area" style="margin:auto;margin-top:50px">
               <form name="itnForm" novalidate ng-submit="submitForm('contact')" role="contact form" ng-model="formData">
                 <br style="clear:both">
                 <h3 style="margin-bottom: 25px; text-align: center">Contact ITN<em>Gateway</em></h3>
-                        
+
                 <div class="form-group" ng-class="{ 'has-error' : itnForm.name.$invalid && !itnForm.name.$pristine }">
                   <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-minlength="minlength" ng-maxlength="maxlength" ng-model="formData.name" required>
                   <span ng-if="itnForm.name.$error.required && !itnForm.name.$pristine" class="help-block">{{errorMessages.required}}</span>
                   <span ng-if="itnForm.name.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                   <span ng-if="itnForm.name.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                 </div>
-              
+
                 <div class="form-group" ng-class="{ 'has-error' : itnForm.email.$invalid && !itnForm.email.$pristine }">
                   <input type="text" class="form-control" id="email" name="email" ng-pattern="emailPattern" placeholder="Email" ng-model="formData.email" required>
                   <span ng-if="itnForm.email.$error.required && !itnForm.email.$pristine" class="help-block">{{errorMessages.required}}</span>
                   <span ng-if="itnForm.email.$error.pattern" class="help-block">{{errorMessages.email}}</span>
                 </div>
-              
+
                 <div class="form-group" ng-class="{ 'has-error' : itnForm.mobile.$invalid && !itnForm.mobile.$pristine }">
                   <input type="text" class="form-control" id="mobile" name="mobile" ng-pattern="phonePattern" placeholder="Mobile Number. Example: 617-344-9876" ng-model="formData.phone" required>
                   <span ng-if="itnForm.mobile.$error.required && !itnForm.mobile.$pristine" class="help-block">{{errorMessages.required}}</span>
                   <span ng-if="itnForm.mobile.$error.pattern" class="help-block">{{errorMessages.phone}}</span>
                 </div>
-                
+
                 <div class="form-group" ng-class="{ 'has-error' : itnForm.subject.$invalid && !itnForm.subject.$pristine }">
                   <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" ng-model="formData.subject" ng-minlength="minlength" ng-maxlength="maxlength" required>
                   <span ng-if="itnForm.subject.$error.required && !itnForm.subject.$pristine" class="help-block">{{errorMessages.required}}</span>
                   <span ng-if="itnForm.subject.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                   <span ng-if="itnForm.subject.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
                 </div>
-                
+
                 <div class="form-group" ng-class="{ 'has-error' : itnForm.message.$invalid && !itnForm.message.$pristine }">
                   <textarea class="form-control" type="textarea" name="message" id="message" placeholder="Message" maxlength="2000" rows="7" ng-minlength="minlength" ng-maxlength="maxMsgLength" ng-model="formData.messageBody" required></textarea>
                   <span ng-if="itnForm.message.$error.required && !itnForm.message.$pristine" class="help-block">{{errorMessages.required}}</span>
                   <span ng-if="itnForm.message.$error.minlength" class="help-block">{{errorMessages.minlength}}</span>
                   <span ng-if="itnForm.message.$error.maxlength" class="help-block">{{errorMessages.maxlength}}</span>
-                    <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                    <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                 </div>
-                  
+
                 <input type="submit" id="submit" class="btn btn-lg btn-primary pull-right itn-green-bg" value="Send" style="margin-left:2%">
                 <input type="button" ng-click="formData = {}" value="Reset Form" class="btn btn-lg pull-right itn-green-bg"  style="margin-left:2%">
-              
+
               </form>
-              
+
               <p ng-if="loading"><em>Loading. Please wait</em></p>
               <p style="color:red; margin-top:50px"><strong>{{serverMessage}}</strong></p>
-              
+
             </div><!--form-area-->
-                  
+
           </div><!--donate-type-->
-          
-          
+
+
         </div><!--container-->
       </div><!--section-->
-    
+
     </div><!--donate-->
-    
-    
+
+
     <script>
         new WOW().init();
-        
-        $(document).ready(function(){ 
+
+        $(document).ready(function(){
           $('#characterLeft').text('140 characters left');
           $('#message').keydown(function () {
               var max = 2000;
@@ -166,14 +168,14 @@
               if (len >= max) {
                   $('#characterLeft').text('You have reached the limit');
                   $('#characterLeft').addClass('text-danger');
-                  $('#submit').addClass('disabled');            
-              } 
+                  $('#submit').addClass('disabled');
+              }
               else {
                   var ch = max - len;
                   $('#characterLeft').text(ch + ' characters left');
                   $('#submit').removeClass('disabled');
-                  $('#characterLeft').removeClass('red');            
+                  $('#characterLeft').removeClass('red');
               }
-          });    
+          });
       });
     </script>
