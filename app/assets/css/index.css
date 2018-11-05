@@ -521,9 +521,6 @@ nav .dropdown-menu li.divider{
   color: #fc6d6d;
   background-color: #fc6d6d;
 }
-.donate .description {
-  margin-top: 150px;
-}
 .donate .description #checkbook-icon {
   vertical-align:top;
   display:inline-block;
