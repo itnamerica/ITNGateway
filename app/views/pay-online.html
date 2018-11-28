@@ -1,18 +1,18 @@
 
     <div class="pay-online">
-      
+
       <div class="jumbotron section first-hero" id="first-hero-pay-online">
         <h1>Pay Online</h1>
       </div>
-      
+
       <div class="jumbotron section container">
       <div class="title">
         <h2>Add funds to a Personal Transportation Account through PayPal using a credit card</h2>
         <hr align="left">
       </div>
-      
-      
-      
+
+
+
       <div class="row pay-online-content">
         <div class="col-sm-5">
         <p>Example prices include:</p>
@@ -23,30 +23,32 @@
         		Ride Credit, $50 initial deposit</li>
         </ul>
         </div>
-        
-        
+
+
         <div class="col-sm-offset-1 col-sm-6 pay-online-form">
-          
+
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick">
               <input type="hidden" name="hosted_button_id" value="E84QKCSRZQ4Z6">
-              <table class="col-sm-6">
+              <table>
               <tr><td><input type="hidden" name="on0" value="Your Location">Your Location</td></tr><tr><td><select name="os0">
               <option value="St. Charles County">St. Charles County </option>
               <option value="St. Louis County">St. Louis County </option>
               </select> </td></tr>
               <tr><td><input type="hidden" name="on1" value="Enter Rider Name">Enter Rider Name</td></tr><tr><td><input type="text" name="os1" maxlength="200"></td></tr>
               </table>
-              <input class="col-sm-6 paypal" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              <div class="pp-logo">
+                <input class="paypal" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" style="width:200px;margin-top:30px" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                <figcaption style=font-size:18px">PayPal - the safer, easier way to pay online!<figcaption>
+              </div>
             </form>
-            
-            
+
+
           <p>&nbsp;</p>
         </div>
       </div><!--row-->
-      <div style="text-align:center;font-size:20px">The Road Scholarship™ program is available for low-income riders. Please <a ui-sref="contact">contact us</a> and we will email you a simple application form.</div>
+      <div style="text-align:center;font-size:20px;margin-top:20px">The Road Scholarship™ program is available for low-income riders. Please <a ui-sref="contact">contact us</a> and we will email you a simple application form.</div>
 
-    </div><!--jumbo-->  
+    </div><!--jumbo-->
     </div><!--pay-online-->
-  
