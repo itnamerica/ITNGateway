@@ -1,13 +1,14 @@
 
     <div class="news">
-      
+
     <div class="jumbotron section first-hero">
       <h1>News</h1>
     </div><!--first-hero-->
-    
+
     <div class="jumbotron section news-content">
-      
-      <div class="pressroom col-sm-6 row">
+
+      <div class="row">
+      <div class="pressroom col-sm-6">
         <a href="http://pressroom.itnamerica.org/category/itngateway/">
         <div class="col-sm-6 pressroom-image">
           <div class="pressroom-title"><h3>Pressroom</h3></div>
@@ -18,25 +19,68 @@
         </div><!--pressroom-image-->
         </a>
       </div><!--pressroom-->
-      
-      <div class="newsletter col-sm-6 row">
+
+      <div class="newsletter col-sm-6" style="max-height:500px;overflow:auto">
         <div class="col-sm-6 newsletter-content">
           <div class="newsletter-title"><h3>Newsletters</h3></div>
           <img ng-src="{{assetsPath}}/images/icons/news-noword.png" alt="press icon"/>
-          <ul style="">
-            <li class="wow fadeInUp" data-wow-delay=".1s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2018.pdf')"  role="newsletter summer 2017">Newsletter Summer 2018</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".1s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2017.pdf')"  role="newsletter summer 2017">Newsletter Summer 2017</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".2s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/spring_2017.pdf')"  role="newsletter Spring 2017">Newsletter Spring 2017</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".3s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/winter_2013.pdf')"  role="newsletter Winter 2013">Newsletter Winter 2013</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".4s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/fall_2012.pdf')"  role="newsletter Fall 2012">Newsletter Fall 2012</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".5s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2012.pdf')"  role="newsletter Summer 2012">Newsletter Summer 2012</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".6s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/spring_2011.pdf')"  role="newsletter Spring 2011">Newsletter Spring 2011</a></li>
-            <li class="wow fadeInUp" data-wow-delay=".7s"><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/fall_2010.pdf')"  role="newsletter Fall 2010">Newsletter Fall 2010</a></li>
+          <ul>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/2018_Fall_Newsletter.pdf')"  role="newsletter fall 2018">Newsletter Fall 2018</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2018.pdf')"  role="newsletter summer 2018">Newsletter Summer 2018</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2017.pdf')"  role="newsletter summer 2017">Newsletter Summer 2017</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/spring_2017.pdf')"  role="newsletter Spring 2017">Newsletter Spring 2017</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/winter_2013.pdf')"  role="newsletter Winter 2013">Newsletter Winter 2013</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/fall_2012.pdf')"  role="newsletter Fall 2012">Newsletter Fall 2012</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/summer_2012.pdf')"  role="newsletter Summer 2012">Newsletter Summer 2012</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/spring_2011.pdf')"  role="newsletter Spring 2011">Newsletter Spring 2011</a></li>
+            <li><a ng-click="redirectToURL(assetsPath + '/images/docs/newsletter/fall_2010.pdf')"  role="newsletter Fall 2010">Newsletter Fall 2010</a></li>
         </ul>
         </div><!--newsletter-content-->
 
-      </div><!--newsletter-->
-      
+      </div><!--row-->
+
+
+
+
+      <div class="row">
+        <div class="pressroom col-sm-6 mt-100">
+
+          <div class="col-sm-6 pressroom-image">
+            <div class="pressroom-title" id="announcement-text"><h3>Media Releases</h3></div>
+            <img ng-src="{{assetsPath}}/images/icons/announcement-icon.png" alt="annoucement icon"/>
+          </div><!--pressroom-image-->
+
+            <ul class="col-sm-12 mt-100" style="margin-left:10%;width:80%;">
+              <li><a href="https://midriversnewsmagazine.com/2018/11/16/74822/itngateway-seeks-volunteers">Nov 16, 2018: ITN<em>{{affiliate}}</em> seeks Volunteers</a></li>
+              <li><a ng-click="redirectToURL(assetsPath + '/images/media-releases/celebrity-driver.pdf')">Nov 13, 2018: Wentzville Celebrity Driver</a></li>
+              <li><a ng-click="redirectToURL(assetsPath + '/images/media-releases/new-senior-trans.pdf')">March 21, 2018: Opening in St. Louis Count</a></li>
+            </ul>
+
+        </div><!--pressroom-->
+
+        <div class="newsletter col-sm-6 mt-100">
+
+          <div class="col-sm-6 newsletter-content special-events">
+            <div class="newsletter-title"><h3>Special Events</h3></div>
+            <img ng-src="{{assetsPath}}/images/icons/icon-events.png" alt="press icon"/>
+            <ul>
+              <!-- <li class="mt-50"><u>April 26 Senior Expo</u> <br>
+                 Sacred Heart Senior Living, Center Valley <br>
+                   10 a.m. – 1 p.m.</li> -->
+            </ul>
+          </div><!--newsletter-content-->
+
+        </div><!--newsletter-->
+
+      </div><!--row-->
+
+
+    </div><!--news-content-->
+
+  </div><!--news-->
+
+
+
       <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -49,19 +93,19 @@
           </div>
           <div class="modal-body">
             <form novalidate name="itnForm" ng-model="formData" ng-submit="submitForm('newsletter')" role="newsletter form">
-              
+
               <div class="form-group ta-center" ng-class="{ 'has-error' : itnForm.email.$invalid && !itnForm.email.$pristine }">
                 <label for="newsletter signup" style="margin-bottom:15px">Your email address: </label><br>
                 <input type="text" class="form-control center-block" id="email" name="email" placeholder="Example: test@example.com" ng-model="formData.email" ng-pattern="emailPattern" style="width:70%">
                 <span ng-if="itnForm.email.$error.pattern" class="help-block">{{errorMessages.email}}</span>
-              </div> 
-              
+              </div>
+
               <p ng-if="loading"><em>Loading. Please wait</em></p>
               <p style="color:red; margin-top:50px"><strong>{{serverMessage}}</strong></p>
 
               <button type="submit" class="btn btn-lg center-block" ng-disabled="loading" >Sign me up</button>
             </form>
-            
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -69,19 +113,13 @@
         </div>
       </div>
     </div><!--end modal-->
-      
-    </div><!--news-content-->
-    
-  </div><!--news-->
-  
 
-  
-  
+
   <script>
-  
+
   $(document).ready(function(){
     new WOW().init();
     $('#myModal').modal('show');
   })
-  
+
   </script>
